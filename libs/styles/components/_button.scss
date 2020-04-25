@@ -362,7 +362,7 @@
         }
 
         &.btn-disabled, &:disabled, &.disabled {
-            background: $secondary700;
+            background: $secondary500;
             color: $secondary50;
 
             &:hover, &:focus {

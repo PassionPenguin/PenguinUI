@@ -476,7 +476,7 @@ p, .text-default {
   background: #BDBDBD;
 }
 [class*=btn].btn-secondary.btn-disabled, [class*=btn].btn-secondary:disabled, [class*=btn].btn-secondary.disabled {
-  background: #616161;
+  background: #9E9E9E;
   color: #FAFAFA;
 }
 [class*=btn].btn-secondary.btn-disabled:hover, [class*=btn].btn-secondary.btn-disabled:focus, [class*=btn].btn-secondary:disabled:hover, [class*=btn].btn-secondary:disabled:focus, [class*=btn].btn-secondary.disabled:hover, [class*=btn].btn-secondary.disabled:focus {
