@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/*
+    _alert.scss
+
+    Components > Alerts
+        Colors: [primary, info, success, danger, warning, (default), secondary]
+
+ */
+
+[class*="alert"] {
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    border: 0;
+    font-size: .875rem;
+    border-radius: .25rem;
+    background: $default700;
+    color: $secondary50;
+
+    .alert-icon {
+        margin-right: 12px;
+    }
+
+    &.alert-dismissible {
+        .close {
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            padding: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            color: hsla(0, 0%, 100%, .6);
+            opacity: 1;
+        }
+    }
+
+    &.alert-primary {
+        background: $primary700;
+    }
+
+    &.alert-info {
+        background: $info700;
+    }
+
+    &.alert-success {
+        background: $success700;
+    }
+
+    &.alert-danger {
+        background: $danger700;
+    }
+
+    &.alert-warning {
+        background: $warning700;
+    }
+
+    &.alert-secondary {
+        background: $secondary700;
+    }
+}
