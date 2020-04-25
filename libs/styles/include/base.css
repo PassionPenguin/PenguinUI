@@ -1,0 +1,194 @@
+@charset "UTF-8";
+@import "base.css";
+/*
+    _typo.scss
+
+    Components > Typography
+        Import: Font Faces [Roboto, Open Sans]
+        SubCategorys:
+            Headings:
+                h1, h2, h3, h4, h5, h6
+            Display Titles:
+                display1, display2, display3, display4
+            Specialized Headings:
+                Heading
+            Paragraphs
+            BlockQuotes
+            Lead Text
+        Colors: [primary, info, success, danger, warning, (default), secondary]
+
+ */
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-display: swap;
+  src: local("Open Sans Light"), local("OpenSans-Light"), url(../../media/font/OpenSans-Light.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(../../media/font/OpenSans-Regular.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(../../media/font/OpenSans-Bold.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-display: swap;
+  src: local("Roboto Light"), local("Roboto-Light"), url(../../media/font/Roboto-Light.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Roboto Regular"), local("Roboto-Regular"), url(../../media/font/Roboto-Regular.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url(../../media/font/Roboto-Bold.ttf) format("ttf");
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #32325d;
+}
+
+.h1, h1 {
+  font-size: 2.5rem;
+}
+
+.h2, h2 {
+  font-size: 2rem;
+}
+
+.h3, h3 {
+  font-size: 1.75rem;
+}
+
+.h4, h4 {
+  font-size: 1.5rem;
+}
+
+.h5, h5 {
+  font-size: 1.25rem;
+}
+
+.h6, h6 {
+  font-size: 1rem;
+}
+
+.display-1 {
+  font-size: 3.3rem;
+}
+
+.display-1, .display-2 {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.display-2 {
+  font-size: 2.75rem;
+}
+
+.display-3 {
+  font-size: 2.1875rem;
+}
+
+.display-3, .display-4 {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.display-4 {
+  font-size: 1.6275rem;
+}
+
+.heading {
+  letter-spacing: 0.025em;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.heading-section, .heading-title {
+  letter-spacing: 0.025em;
+  font-size: 1.375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.lead, p {
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+blockquote {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  border-left: 2px solid rgba(136, 152, 170, 0.32);
+  padding-left: 1rem;
+}
+
+blockquote p {
+  margin-bottom: 0 !important;
+}
+
+.blockquote-footer:before {
+  content: "— ";
+}
+
+.blockquote-footer, blockquote footer {
+  display: block;
+  font-size: 80%;
+  color: #8898aa;
+}
+
+.text-primary {
+  color: #5154e5;
+}
+
+.text-info {
+  color: #0098d4;
+}
+
+.text-success {
+  color: #39cb6a;
+}
+
+.text-danger {
+  color: #f4364c;
+}
+
+.text-warning {
+  color: #ea8c01;
+}
+
+.text-default {
+  color: #212121;
+}
+
+.text-secondary {
+  color: #9E9E9E;
+}
+
+/*# sourceMappingURL=base.css.map */
