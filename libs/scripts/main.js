@@ -28,6 +28,14 @@
     }
 
     const init = (mutationRecord) => {
+        /**
+         * @param mutationRecord: Callback of MutationObserve
+         *  => mutations: MutationRecord[]
+         *      can be call in this function, type should be "childList".
+         * @example init({type: "childList", addedNodes: document.body.querySelectorAll("*")});
+         *
+         * Init Elements, eg. initialized all HTMLButtonElements that [ripple] !== "false", initialized all toggles...
+         */
         let changedInf = [], attrList = ["ripple", "data-role", "data-toggle", "data-dismissible", "data-target"];
         if (mutationRecord.type === "attributes" && attrList.indexOf(mutationRecord.attributeName) !== -1)
             changedInf.push([mutationRecord.target, mutationRecord.attributeName]);
@@ -78,7 +86,6 @@
                     } else {
                         ripple.removeEventListener('mousedown', addRipple);
                         ripple.removeEventListener('mouseup', () => setTimeout(cleanUp, 2000), {once: true});
-
                     }
                 }
             });
