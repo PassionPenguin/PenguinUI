@@ -1,0 +1,19 @@
+{
+  "name": "penguin-design",
+  "version": "1.0.0",
+  "description": "Penguin Design System",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PassionPenguin/PenguinDesignSystem.git"
+  },
+  "keywords": [],
+  "author": "PassionPenguin",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/PassionPenguin/PenguinDesignSystem/issues"
+  },
+  "homepage": "https://github.com/PassionPenguin/PenguinDesignSystem#readme"
+}
