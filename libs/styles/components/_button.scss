@@ -10,7 +10,7 @@
 
  */
 
-.btn {
+[class*="btn"] {
     font: 600 14px/1.4 $roboto;
     text-transform: uppercase;
     position: relative;
@@ -402,4 +402,34 @@
     font-size: 10px;
     line-height: 1.5;
     border-radius: .25rem;
+}
+
+
+[ripple] {
+    position: relative;
+    overflow: hidden;
+}
+
+[ripple] .ripple--container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+[ripple] .ripple--container span {
+    transform: scale(0);
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.5;
+    background-color: #fff;
+    animation: ripple 1000ms;
+}
+
+@keyframes ripple {
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
 }
