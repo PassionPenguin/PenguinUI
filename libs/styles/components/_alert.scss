@@ -8,7 +8,7 @@
 
  */
 
-.alert, [class*="alert-"] {
+.alert, [class*="alert-"]:not(.alert-icon) {
     position: relative;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
@@ -20,9 +20,11 @@
 
     .alert-icon {
         margin-right: 12px;
+        font: 1.5rem/1 $mi;
+        vertical-align: middle;
     }
 
-    &.alert-dismissible {
+    &.alert-dismissible, &[data-dismiss="true"] {
         .close {
             position: absolute;
             top: 50%;
@@ -30,32 +32,42 @@
             padding: 0;
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
-            color: hsla(0, 0%, 100%, .6);
+            color: #ffffff88;
             opacity: 1;
+            font: 1.5rem/1 $mi;
+            display: inline-block;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+
+            &:hover, &:focus {
+                color: #fff;
+            }
         }
     }
 
     &.alert-primary {
-        background: $primary700;
+        background: $primary500;
     }
 
     &.alert-info {
-        background: $info700;
+        background: $info500;
     }
 
     &.alert-success {
-        background: $success700;
+        background: $success500;
     }
 
     &.alert-danger {
-        background: $danger700;
+        background: $danger500;
     }
 
     &.alert-warning {
-        background: $warning700;
+        background: $warning500;
     }
 
     &.alert-secondary {
-        background: $secondary700;
+        background: $secondary500;
     }
 }
