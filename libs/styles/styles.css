@@ -191,15 +191,17 @@ p, .text-default {
 }
 
 /*
-    _alert.scss
+    _badge.scss
 
-    Components > Alerts
+    Components > Badges
         Colors: [primary, info, success, danger, warning, (default), secondary]
+        Styles: [(regular), link, pill]
 
  */
 .badge, [class*=badge-] {
   display: inline-block;
-  padding: 0.375em 0.4em 0.25em 0.4em;
+  padding: 0.25em 0.4em;
+  font-family: Roboto, sans-serif;
   user-select: none;
   font-size: 75%;
   font-weight: 700;

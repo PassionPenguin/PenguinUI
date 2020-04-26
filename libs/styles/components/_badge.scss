@@ -1,16 +1,18 @@
 @charset "UTF-8";
 
 /*
-    _alert.scss
+    _badge.scss
 
-    Components > Alerts
+    Components > Badges
         Colors: [primary, info, success, danger, warning, (default), secondary]
+        Styles: [(regular), link, pill]
 
  */
 
 .badge, [class*="badge-"] {
     display: inline-block;
-    padding: .375em .4em .25em .4em;
+    padding: .25em .4em;
+    font-family: $roboto;
     user-select: none;
     font-size: 75%;
     font-weight: 700;
