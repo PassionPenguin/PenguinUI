@@ -191,6 +191,72 @@ p, .text-default {
 }
 
 /*
+    _alert.scss
+
+    Components > Alerts
+        Colors: [primary, info, success, danger, warning, (default), secondary]
+
+ */
+.badge, [class*=badge-] {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background: #37474F;
+  color: #FAFAFA;
+}
+.badge.badge-pill, [class*=badge-].badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+.badge.badge-link, .badge:link, .badge:active, .badge:visited, [class*=badge-].badge-link, [class*=badge-]:link, [class*=badge-]:active, [class*=badge-]:visited {
+  cursor: pointer;
+  text-decoration: none;
+}
+.badge.badge-link.badge-primary:hover, .badge.badge-link.badge-primary:focus, .badge:link.badge-primary:hover, .badge:link.badge-primary:focus, .badge:active.badge-primary:hover, .badge:active.badge-primary:focus, .badge:visited.badge-primary:hover, .badge:visited.badge-primary:focus, [class*=badge-].badge-link.badge-primary:hover, [class*=badge-].badge-link.badge-primary:focus, [class*=badge-]:link.badge-primary:hover, [class*=badge-]:link.badge-primary:focus, [class*=badge-]:active.badge-primary:hover, [class*=badge-]:active.badge-primary:focus, [class*=badge-]:visited.badge-primary:hover, [class*=badge-]:visited.badge-primary:focus {
+  background: #5a56d4;
+}
+.badge.badge-link.badge-info:hover, .badge.badge-link.badge-info:focus, .badge:link.badge-info:hover, .badge:link.badge-info:focus, .badge:active.badge-info:hover, .badge:active.badge-info:focus, .badge:visited.badge-info:hover, .badge:visited.badge-info:focus, [class*=badge-].badge-link.badge-info:hover, [class*=badge-].badge-link.badge-info:focus, [class*=badge-]:link.badge-info:hover, [class*=badge-]:link.badge-info:focus, [class*=badge-]:active.badge-info:hover, [class*=badge-]:active.badge-info:focus, [class*=badge-]:visited.badge-info:hover, [class*=badge-]:visited.badge-info:focus {
+  background: #0080a7;
+}
+.badge.badge-link.badge-success:hover, .badge.badge-link.badge-success:focus, .badge:link.badge-success:hover, .badge:link.badge-success:focus, .badge:active.badge-success:hover, .badge:active.badge-success:focus, .badge:visited.badge-success:hover, .badge:visited.badge-success:focus, [class*=badge-].badge-link.badge-success:hover, [class*=badge-].badge-link.badge-success:focus, [class*=badge-]:link.badge-success:hover, [class*=badge-]:link.badge-success:focus, [class*=badge-]:active.badge-success:hover, [class*=badge-]:active.badge-success:focus, [class*=badge-]:visited.badge-success:hover, [class*=badge-]:visited.badge-success:focus {
+  background: #2ab050;
+}
+.badge.badge-link.badge-danger:hover, .badge.badge-link.badge-danger:focus, .badge:link.badge-danger:hover, .badge:link.badge-danger:focus, .badge:active.badge-danger:hover, .badge:active.badge-danger:focus, .badge:visited.badge-danger:hover, .badge:visited.badge-danger:focus, [class*=badge-].badge-link.badge-danger:hover, [class*=badge-].badge-link.badge-danger:focus, [class*=badge-]:link.badge-danger:hover, [class*=badge-]:link.badge-danger:focus, [class*=badge-]:active.badge-danger:hover, [class*=badge-]:active.badge-danger:focus, [class*=badge-]:visited.badge-danger:hover, [class*=badge-]:visited.badge-danger:focus {
+  background: #d3422f;
+}
+.badge.badge-link.badge-warning:hover, .badge.badge-link.badge-warning:focus, .badge:link.badge-warning:hover, .badge:link.badge-warning:focus, .badge:active.badge-warning:hover, .badge:active.badge-warning:focus, .badge:visited.badge-warning:hover, .badge:visited.badge-warning:focus, [class*=badge-].badge-link.badge-warning:hover, [class*=badge-].badge-link.badge-warning:focus, [class*=badge-]:link.badge-warning:hover, [class*=badge-]:link.badge-warning:focus, [class*=badge-]:active.badge-warning:hover, [class*=badge-]:active.badge-warning:focus, [class*=badge-]:visited.badge-warning:hover, [class*=badge-]:visited.badge-warning:focus {
+  background: #d66d02;
+}
+.badge.badge-link.badge-secondary:hover, .badge.badge-link.badge-secondary:focus, .badge:link.badge-secondary:hover, .badge:link.badge-secondary:focus, .badge:active.badge-secondary:hover, .badge:active.badge-secondary:focus, .badge:visited.badge-secondary:hover, .badge:visited.badge-secondary:focus, [class*=badge-].badge-link.badge-secondary:hover, [class*=badge-].badge-link.badge-secondary:focus, [class*=badge-]:link.badge-secondary:hover, [class*=badge-]:link.badge-secondary:focus, [class*=badge-]:active.badge-secondary:hover, [class*=badge-]:active.badge-secondary:focus, [class*=badge-]:visited.badge-secondary:hover, [class*=badge-]:visited.badge-secondary:focus {
+  background: #616161;
+}
+.badge.badge-primary, [class*=badge-].badge-primary {
+  background: #787bea;
+}
+.badge.badge-info, [class*=badge-].badge-info {
+  background: #0098d4;
+}
+.badge.badge-success, [class*=badge-].badge-success {
+  background: #39cb6a;
+}
+.badge.badge-danger, [class*=badge-].badge-danger {
+  background: #f4364c;
+}
+.badge.badge-warning, [class*=badge-].badge-warning {
+  background: #ea8c01;
+}
+.badge.badge-secondary, [class*=badge-].badge-secondary {
+  background: #9E9E9E;
+}
+
+/*
     _button.scss
 
     Components > Buttons
@@ -199,7 +265,7 @@ p, .text-default {
         Colors: [primary, info, success, danger, warning, (default), secondary]
 
  */
-[class*=btn] {
+.btn, [class*=btn-] {
   font: 600 14px/1.4 Roboto, sans-serif;
   text-transform: uppercase;
   position: relative;
@@ -225,275 +291,275 @@ p, .text-default {
   background: #78909C;
   color: #FAFAFA;
 }
-[class*=btn]:hover {
+.btn:hover, [class*=btn-]:hover {
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   -webkit-transform: translateY(-1px);
   transform: translateY(-1px);
 }
-[class*=btn]:not(:disabled):not(.disabled):not(.btn-disabled).active:focus, [class*=btn]:not(:disabled):not(.disabled):not(.btn-disabled):active:focus {
+.btn:not(:disabled):not(.disabled):not(.btn-disabled).active:focus, .btn:not(:disabled):not(.disabled):not(.btn-disabled):active:focus, [class*=btn-]:not(:disabled):not(.disabled):not(.btn-disabled).active:focus, [class*=btn-]:not(:disabled):not(.disabled):not(.btn-disabled):active:focus {
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
-[class*=btn]:not(:disabled):not(.disabled):not(.btn-disabled).active, [class*=btn]:not(:disabled):not(.disabled):not(.btn-disabled):active {
+.btn:not(:disabled):not(.disabled):not(.btn-disabled).active, .btn:not(:disabled):not(.disabled):not(.btn-disabled):active, [class*=btn-]:not(:disabled):not(.disabled):not(.btn-disabled).active, [class*=btn-]:not(:disabled):not(.disabled):not(.btn-disabled):active {
   box-shadow: none;
 }
-[class*=btn]:disabled, [class*=btn].disabled, [class*=btn].btn-disblaed {
+.btn:disabled, .btn.disabled, .btn.btn-disblaed, [class*=btn-]:disabled, [class*=btn-].disabled, [class*=btn-].btn-disblaed {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   transform: none !important;
   cursor: not-allowed;
 }
-[class*=btn]:disabled:hover, [class*=btn]:disabled:focus, [class*=btn].disabled:hover, [class*=btn].disabled:focus, [class*=btn].btn-disblaed:hover, [class*=btn].btn-disblaed:focus {
+.btn:disabled:hover, .btn:disabled:focus, .btn.disabled:hover, .btn.disabled:focus, .btn.btn-disblaed:hover, .btn.btn-disblaed:focus, [class*=btn-]:disabled:hover, [class*=btn-]:disabled:focus, [class*=btn-].disabled:hover, [class*=btn-].disabled:focus, [class*=btn-].btn-disblaed:hover, [class*=btn-].btn-disblaed:focus {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   transform: none !important;
   cursor: not-allowed;
 }
-[class*=btn].btn-round {
+.btn.btn-round, [class*=btn-].btn-round {
   border-radius: 30px;
 }
-[class*=btn].btn-dashed {
+.btn.btn-dashed, [class*=btn-].btn-dashed {
   border-style: dashed;
 }
-[class*=btn].btn-block {
+.btn.btn-block, [class*=btn-].btn-block {
   display: block;
   width: 100%;
 }
-[class*=btn].btn-outline:not(:focus):not(:hover), [class*=btn].btn-link {
+.btn.btn-outline:not(:focus):not(:hover), .btn.btn-link, [class*=btn-].btn-outline:not(:focus):not(:hover), [class*=btn-].btn-link {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   background: none !important;
 }
-[class*=btn].btn-link {
+.btn.btn-link, [class*=btn-].btn-link {
   border: none !important;
 }
-[class*=btn]:hover, [class*=btn]:focus {
+.btn:hover, .btn:focus, [class*=btn-]:hover, [class*=btn-]:focus {
   background: #546E7A;
 }
-[class*=btn].btn-active {
+.btn.btn-active, [class*=btn-].btn-active {
   background: #546E7A;
 }
-[class*=btn].btn-active:hover, [class*=btn].btn-active:focus {
+.btn.btn-active:hover, .btn.btn-active:focus, [class*=btn-].btn-active:hover, [class*=btn-].btn-active:focus {
   background: #37474F;
 }
-[class*=btn].btn-disabled, [class*=btn]:disabled, [class*=btn].disabled {
+.btn.btn-disabled, .btn:disabled, .btn.disabled, [class*=btn-].btn-disabled, [class*=btn-]:disabled, [class*=btn-].disabled {
   background: #455A64;
 }
-[class*=btn].btn-disabled:hover, [class*=btn].btn-disabled:focus, [class*=btn]:disabled:hover, [class*=btn]:disabled:focus, [class*=btn].disabled:hover, [class*=btn].disabled:focus {
+.btn.btn-disabled:hover, .btn.btn-disabled:focus, .btn:disabled:hover, .btn:disabled:focus, .btn.disabled:hover, .btn.disabled:focus, [class*=btn-].btn-disabled:hover, [class*=btn-].btn-disabled:focus, [class*=btn-]:disabled:hover, [class*=btn-]:disabled:focus, [class*=btn-].disabled:hover, [class*=btn-].disabled:focus {
   background: #455A64;
 }
-[class*=btn].btn-outline {
+.btn.btn-outline, [class*=btn-].btn-outline {
   border-color: #78909C;
   color: #78909C;
 }
-[class*=btn].btn-outline:hover, [class*=btn].btn-outline:focus {
+.btn.btn-outline:hover, .btn.btn-outline:focus, [class*=btn-].btn-outline:hover, [class*=btn-].btn-outline:focus {
   background: #78909C;
   color: #FAFAFA;
 }
-[class*=btn].btn-link {
+.btn.btn-link, [class*=btn-].btn-link {
   color: #78909C;
 }
-[class*=btn].btn-link:hover, [class*=btn].btn-link:focus {
+.btn.btn-link:hover, .btn.btn-link:focus, [class*=btn-].btn-link:hover, [class*=btn-].btn-link:focus {
   color: #546E7A;
 }
-[class*=btn].btn-primary {
+.btn.btn-primary, [class*=btn-].btn-primary {
   background: #7779e5;
   color: #FAFAFA;
 }
-[class*=btn].btn-primary:hover, [class*=btn].btn-primary:focus {
+.btn.btn-primary:hover, .btn.btn-primary:focus, [class*=btn-].btn-primary:hover, [class*=btn-].btn-primary:focus {
   background: #6f73d2;
 }
-[class*=btn].btn-primary.btn-active {
+.btn.btn-primary.btn-active, [class*=btn-].btn-primary.btn-active {
   background: #6f73d2;
 }
-[class*=btn].btn-primary.btn-active:hover, [class*=btn].btn-primary.btn-active:focus {
+.btn.btn-primary.btn-active:hover, .btn.btn-primary.btn-active:focus, [class*=btn-].btn-primary.btn-active:hover, [class*=btn-].btn-primary.btn-active:focus {
   background: #644adb;
 }
-[class*=btn].btn-primary.btn-disabled, [class*=btn].btn-primary:disabled, [class*=btn].btn-primary.disabled {
+.btn.btn-primary.btn-disabled, .btn.btn-primary:disabled, .btn.btn-primary.disabled, [class*=btn-].btn-primary.btn-disabled, [class*=btn-].btn-primary:disabled, [class*=btn-].btn-primary.disabled {
   background: #5a56d4;
 }
-[class*=btn].btn-primary.btn-disabled:hover, [class*=btn].btn-primary.btn-disabled:focus, [class*=btn].btn-primary:disabled:hover, [class*=btn].btn-primary:disabled:focus, [class*=btn].btn-primary.disabled:hover, [class*=btn].btn-primary.disabled:focus {
+.btn.btn-primary.btn-disabled:hover, .btn.btn-primary.btn-disabled:focus, .btn.btn-primary:disabled:hover, .btn.btn-primary:disabled:focus, .btn.btn-primary.disabled:hover, .btn.btn-primary.disabled:focus, [class*=btn-].btn-primary.btn-disabled:hover, [class*=btn-].btn-primary.btn-disabled:focus, [class*=btn-].btn-primary:disabled:hover, [class*=btn-].btn-primary:disabled:focus, [class*=btn-].btn-primary.disabled:hover, [class*=btn-].btn-primary.disabled:focus {
   background: #5a56d4;
 }
-[class*=btn].btn-primary.btn-outline {
+.btn.btn-primary.btn-outline, [class*=btn-].btn-primary.btn-outline {
   border-color: #7779e5;
   color: #7779e5;
 }
-[class*=btn].btn-primary.btn-outline:hover, [class*=btn].btn-primary.btn-outline:focus {
+.btn.btn-primary.btn-outline:hover, .btn.btn-primary.btn-outline:focus, [class*=btn-].btn-primary.btn-outline:hover, [class*=btn-].btn-primary.btn-outline:focus {
   background: #7779e5;
   color: #FAFAFA;
 }
-[class*=btn].btn-primary.btn-link {
+.btn.btn-primary.btn-link, [class*=btn-].btn-primary.btn-link {
   color: #7779e5;
 }
-[class*=btn].btn-primary.btn-link:hover, [class*=btn].btn-primary.btn-link:focus {
+.btn.btn-primary.btn-link:hover, .btn.btn-primary.btn-link:focus, [class*=btn-].btn-primary.btn-link:hover, [class*=btn-].btn-primary.btn-link:focus {
   color: #6f73d2;
 }
-[class*=btn].btn-info {
+.btn.btn-info, [class*=btn-].btn-info {
   background: #26b0da;
   color: #FAFAFA;
 }
-[class*=btn].btn-info:hover, [class*=btn].btn-info:focus {
+.btn.btn-info:hover, .btn.btn-info:focus, [class*=btn-].btn-info:hover, [class*=btn-].btn-info:focus {
   background: #0084c1;
 }
-[class*=btn].btn-info.btn-active {
+.btn.btn-info.btn-active, [class*=btn-].btn-info.btn-active {
   background: #0084c1;
 }
-[class*=btn].btn-info.btn-active:hover, [class*=btn].btn-info.btn-active:focus {
+.btn.btn-info.btn-active:hover, .btn.btn-info.btn-active:focus, [class*=btn-].btn-info.btn-active:hover, [class*=btn-].btn-info.btn-active:focus {
   background: #00628f;
 }
-[class*=btn].btn-info.btn-disabled, [class*=btn].btn-info:disabled, [class*=btn].btn-info.disabled {
+.btn.btn-info.btn-disabled, .btn.btn-info:disabled, .btn.btn-info.disabled, [class*=btn-].btn-info.btn-disabled, [class*=btn-].btn-info:disabled, [class*=btn-].btn-info.disabled {
   background: #0080a7;
 }
-[class*=btn].btn-info.btn-disabled:hover, [class*=btn].btn-info.btn-disabled:focus, [class*=btn].btn-info:disabled:hover, [class*=btn].btn-info:disabled:focus, [class*=btn].btn-info.disabled:hover, [class*=btn].btn-info.disabled:focus {
+.btn.btn-info.btn-disabled:hover, .btn.btn-info.btn-disabled:focus, .btn.btn-info:disabled:hover, .btn.btn-info:disabled:focus, .btn.btn-info.disabled:hover, .btn.btn-info.disabled:focus, [class*=btn-].btn-info.btn-disabled:hover, [class*=btn-].btn-info.btn-disabled:focus, [class*=btn-].btn-info:disabled:hover, [class*=btn-].btn-info:disabled:focus, [class*=btn-].btn-info.disabled:hover, [class*=btn-].btn-info.disabled:focus {
   background: #0080a7;
 }
-[class*=btn].btn-info.btn-outline {
+.btn.btn-info.btn-outline, [class*=btn-].btn-info.btn-outline {
   border-color: #26b0da;
   color: #26b0da;
 }
-[class*=btn].btn-info.btn-outline:hover, [class*=btn].btn-info.btn-outline:focus {
+.btn.btn-info.btn-outline:hover, .btn.btn-info.btn-outline:focus, [class*=btn-].btn-info.btn-outline:hover, [class*=btn-].btn-info.btn-outline:focus {
   background: #26b0da;
   color: #FAFAFA;
 }
-[class*=btn].btn-info.btn-link {
+.btn.btn-info.btn-link, [class*=btn-].btn-info.btn-link {
   color: #26b0da;
 }
-[class*=btn].btn-info.btn-link:hover, [class*=btn].btn-info.btn-link:focus {
+.btn.btn-info.btn-link:hover, .btn.btn-info.btn-link:focus, [class*=btn-].btn-info.btn-link:hover, [class*=btn-].btn-info.btn-link:focus {
   color: #0084c1;
 }
-[class*=btn].btn-success {
+.btn.btn-success, [class*=btn-].btn-success {
   background: #62d998;
   color: #FAFAFA;
 }
-[class*=btn].btn-success:hover, [class*=btn].btn-success:focus {
+.btn.btn-success:hover, .btn.btn-success:focus, [class*=btn-].btn-success:hover, [class*=btn-].btn-success:focus {
   background: #36c169;
 }
-[class*=btn].btn-success.btn-active {
+.btn.btn-success.btn-active, [class*=btn-].btn-success.btn-active {
   background: #36c169;
 }
-[class*=btn].btn-success.btn-active:hover, [class*=btn].btn-success.btn-active:focus {
+.btn.btn-success.btn-active:hover, .btn.btn-success.btn-active:focus, [class*=btn-].btn-success.btn-active:hover, [class*=btn-].btn-success.btn-active:focus {
   background: #299f50;
 }
-[class*=btn].btn-success.btn-disabled, [class*=btn].btn-success:disabled, [class*=btn].btn-success.disabled {
+.btn.btn-success.btn-disabled, .btn.btn-success:disabled, .btn.btn-success.disabled, [class*=btn-].btn-success.btn-disabled, [class*=btn-].btn-success:disabled, [class*=btn-].btn-success.disabled {
   background: #2ab050;
 }
-[class*=btn].btn-success.btn-disabled:hover, [class*=btn].btn-success.btn-disabled:focus, [class*=btn].btn-success:disabled:hover, [class*=btn].btn-success:disabled:focus, [class*=btn].btn-success.disabled:hover, [class*=btn].btn-success.disabled:focus {
+.btn.btn-success.btn-disabled:hover, .btn.btn-success.btn-disabled:focus, .btn.btn-success:disabled:hover, .btn.btn-success:disabled:focus, .btn.btn-success.disabled:hover, .btn.btn-success.disabled:focus, [class*=btn-].btn-success.btn-disabled:hover, [class*=btn-].btn-success.btn-disabled:focus, [class*=btn-].btn-success:disabled:hover, [class*=btn-].btn-success:disabled:focus, [class*=btn-].btn-success.disabled:hover, [class*=btn-].btn-success.disabled:focus {
   background: #2ab050;
   color: #FAFAFA;
 }
-[class*=btn].btn-success.btn-outline {
+.btn.btn-success.btn-outline, [class*=btn-].btn-success.btn-outline {
   border-color: #62d998;
   color: #62d998;
 }
-[class*=btn].btn-success.btn-outline:hover, [class*=btn].btn-success.btn-outline:focus {
+.btn.btn-success.btn-outline:hover, .btn.btn-success.btn-outline:focus, [class*=btn-].btn-success.btn-outline:hover, [class*=btn-].btn-success.btn-outline:focus {
   background: #62d998;
   color: #FAFAFA;
 }
-[class*=btn].btn-success.btn-link {
+.btn.btn-success.btn-link, [class*=btn-].btn-success.btn-link {
   color: #62d998;
 }
-[class*=btn].btn-success.btn-link:hover, [class*=btn].btn-success.btn-link:focus {
+.btn.btn-success.btn-link:hover, .btn.btn-success.btn-link:focus, [class*=btn-].btn-success.btn-link:hover, [class*=btn-].btn-success.btn-link:focus {
   color: #36c169;
 }
-[class*=btn].btn-danger {
+.btn.btn-danger, [class*=btn-].btn-danger {
   background: #ef505d;
   color: #FAFAFA;
 }
-[class*=btn].btn-danger:hover, [class*=btn].btn-danger:focus {
+.btn.btn-danger:hover, .btn.btn-danger:focus, [class*=btn-].btn-danger:hover, [class*=btn-].btn-danger:focus {
   background: #e5355e;
 }
-[class*=btn].btn-danger.btn-active {
+.btn.btn-danger.btn-active, [class*=btn-].btn-danger.btn-active {
   background: #e5355e;
 }
-[class*=btn].btn-danger.btn-active:hover, [class*=btn].btn-danger.btn-active:focus {
+.btn.btn-danger.btn-active:hover, .btn.btn-danger.btn-active:focus, [class*=btn-].btn-danger.btn-active:hover, [class*=btn-].btn-danger.btn-active:focus {
   background: #c6283a;
 }
-[class*=btn].btn-danger.btn-disabled, [class*=btn].btn-danger:disabled, [class*=btn].btn-danger.disabled {
+.btn.btn-danger.btn-disabled, .btn.btn-danger:disabled, .btn.btn-danger.disabled, [class*=btn-].btn-danger.btn-disabled, [class*=btn-].btn-danger:disabled, [class*=btn-].btn-danger.disabled {
   background: #d3422f;
 }
-[class*=btn].btn-danger.btn-disabled:hover, [class*=btn].btn-danger.btn-disabled:focus, [class*=btn].btn-danger:disabled:hover, [class*=btn].btn-danger:disabled:focus, [class*=btn].btn-danger.disabled:hover, [class*=btn].btn-danger.disabled:focus {
+.btn.btn-danger.btn-disabled:hover, .btn.btn-danger.btn-disabled:focus, .btn.btn-danger:disabled:hover, .btn.btn-danger:disabled:focus, .btn.btn-danger.disabled:hover, .btn.btn-danger.disabled:focus, [class*=btn-].btn-danger.btn-disabled:hover, [class*=btn-].btn-danger.btn-disabled:focus, [class*=btn-].btn-danger:disabled:hover, [class*=btn-].btn-danger:disabled:focus, [class*=btn-].btn-danger.disabled:hover, [class*=btn-].btn-danger.disabled:focus {
   background: #d3422f;
 }
-[class*=btn].btn-danger.btn-outline {
+.btn.btn-danger.btn-outline, [class*=btn-].btn-danger.btn-outline {
   border-color: #ef505d;
   color: #ef505d;
 }
-[class*=btn].btn-danger.btn-outline:hover, [class*=btn].btn-danger.btn-outline:focus {
+.btn.btn-danger.btn-outline:hover, .btn.btn-danger.btn-outline:focus, [class*=btn-].btn-danger.btn-outline:hover, [class*=btn-].btn-danger.btn-outline:focus {
   background: #ef505d;
   color: #FAFAFA;
 }
-[class*=btn].btn-danger.btn-link {
+.btn.btn-danger.btn-link, [class*=btn-].btn-danger.btn-link {
   color: #ef505d;
 }
-[class*=btn].btn-danger.btn-link:hover, [class*=btn].btn-danger.btn-link:focus {
+.btn.btn-danger.btn-link:hover, .btn.btn-danger.btn-link:focus, [class*=btn-].btn-danger.btn-link:hover, [class*=btn-].btn-danger.btn-link:focus {
   color: #e5355e;
 }
-[class*=btn].btn-warning {
+.btn.btn-warning, [class*=btn-].btn-warning {
   background: #ff9b09;
   color: #FAFAFA;
 }
-[class*=btn].btn-warning:hover, [class*=btn].btn-warning:focus {
+.btn.btn-warning:hover, .btn.btn-warning:focus, [class*=btn-].btn-warning:hover, [class*=btn-].btn-warning:focus {
   background: #e38002;
 }
-[class*=btn].btn-warning.btn-active {
+.btn.btn-warning.btn-active, [class*=btn-].btn-warning.btn-active {
   background: #e38002;
 }
-[class*=btn].btn-warning.btn-active:hover, [class*=btn].btn-warning.btn-active:focus {
+.btn.btn-warning.btn-active:hover, .btn.btn-warning.btn-active:focus, [class*=btn-].btn-warning.btn-active:hover, [class*=btn-].btn-warning.btn-active:focus {
   background: #d96403;
 }
-[class*=btn].btn-warning.btn-disabled, [class*=btn].btn-warning:disabled, [class*=btn].btn-warning.disabled {
+.btn.btn-warning.btn-disabled, .btn.btn-warning:disabled, .btn.btn-warning.disabled, [class*=btn-].btn-warning.btn-disabled, [class*=btn-].btn-warning:disabled, [class*=btn-].btn-warning.disabled {
   background: #d66d02;
 }
-[class*=btn].btn-warning.btn-disabled:hover, [class*=btn].btn-warning.btn-disabled:focus, [class*=btn].btn-warning:disabled:hover, [class*=btn].btn-warning:disabled:focus, [class*=btn].btn-warning.disabled:hover, [class*=btn].btn-warning.disabled:focus {
+.btn.btn-warning.btn-disabled:hover, .btn.btn-warning.btn-disabled:focus, .btn.btn-warning:disabled:hover, .btn.btn-warning:disabled:focus, .btn.btn-warning.disabled:hover, .btn.btn-warning.disabled:focus, [class*=btn-].btn-warning.btn-disabled:hover, [class*=btn-].btn-warning.btn-disabled:focus, [class*=btn-].btn-warning:disabled:hover, [class*=btn-].btn-warning:disabled:focus, [class*=btn-].btn-warning.disabled:hover, [class*=btn-].btn-warning.disabled:focus {
   background: #d66d02;
 }
-[class*=btn].btn-warning.btn-outline {
+.btn.btn-warning.btn-outline, [class*=btn-].btn-warning.btn-outline {
   border-color: #ff9b09;
   color: #ff9b09;
 }
-[class*=btn].btn-warning.btn-outline:hover, [class*=btn].btn-warning.btn-outline:focus {
+.btn.btn-warning.btn-outline:hover, .btn.btn-warning.btn-outline:focus, [class*=btn-].btn-warning.btn-outline:hover, [class*=btn-].btn-warning.btn-outline:focus {
   background: #ff9b09;
   color: #FAFAFA;
 }
-[class*=btn].btn-warning.btn-link {
+.btn.btn-warning.btn-link, [class*=btn-].btn-warning.btn-link {
   color: #ff9b09;
 }
-[class*=btn].btn-warning.btn-link:hover, [class*=btn].btn-warning.btn-link:focus {
+.btn.btn-warning.btn-link:hover, .btn.btn-warning.btn-link:focus, [class*=btn-].btn-warning.btn-link:hover, [class*=btn-].btn-warning.btn-link:focus {
   color: #e38002;
 }
-[class*=btn].btn-secondary {
+.btn.btn-secondary, [class*=btn-].btn-secondary {
   background: #EEEEEE;
   color: #212121;
 }
-[class*=btn].btn-secondary:hover, [class*=btn].btn-secondary:focus {
+.btn.btn-secondary:hover, .btn.btn-secondary:focus, [class*=btn-].btn-secondary:hover, [class*=btn-].btn-secondary:focus {
   background: #E0E0E0;
 }
-[class*=btn].btn-secondary.btn-active {
+.btn.btn-secondary.btn-active, [class*=btn-].btn-secondary.btn-active {
   background: #E0E0E0;
   color: #212121;
 }
-[class*=btn].btn-secondary.btn-active:hover, [class*=btn].btn-secondary.btn-active:focus {
+.btn.btn-secondary.btn-active:hover, .btn.btn-secondary.btn-active:focus, [class*=btn-].btn-secondary.btn-active:hover, [class*=btn-].btn-secondary.btn-active:focus {
   background: #BDBDBD;
 }
-[class*=btn].btn-secondary.btn-disabled, [class*=btn].btn-secondary:disabled, [class*=btn].btn-secondary.disabled {
+.btn.btn-secondary.btn-disabled, .btn.btn-secondary:disabled, .btn.btn-secondary.disabled, [class*=btn-].btn-secondary.btn-disabled, [class*=btn-].btn-secondary:disabled, [class*=btn-].btn-secondary.disabled {
   background: #9E9E9E;
   color: #FAFAFA;
 }
-[class*=btn].btn-secondary.btn-disabled:hover, [class*=btn].btn-secondary.btn-disabled:focus, [class*=btn].btn-secondary:disabled:hover, [class*=btn].btn-secondary:disabled:focus, [class*=btn].btn-secondary.disabled:hover, [class*=btn].btn-secondary.disabled:focus {
+.btn.btn-secondary.btn-disabled:hover, .btn.btn-secondary.btn-disabled:focus, .btn.btn-secondary:disabled:hover, .btn.btn-secondary:disabled:focus, .btn.btn-secondary.disabled:hover, .btn.btn-secondary.disabled:focus, [class*=btn-].btn-secondary.btn-disabled:hover, [class*=btn-].btn-secondary.btn-disabled:focus, [class*=btn-].btn-secondary:disabled:hover, [class*=btn-].btn-secondary:disabled:focus, [class*=btn-].btn-secondary.disabled:hover, [class*=btn-].btn-secondary.disabled:focus {
   background: #616161;
 }
-[class*=btn].btn-secondary.btn-outline {
+.btn.btn-secondary.btn-outline, [class*=btn-].btn-secondary.btn-outline {
   border-color: #EEEEEE;
   color: #757575;
 }
-[class*=btn].btn-secondary.btn-outline:hover, [class*=btn].btn-secondary.btn-outline:focus {
+.btn.btn-secondary.btn-outline:hover, .btn.btn-secondary.btn-outline:focus, [class*=btn-].btn-secondary.btn-outline:hover, [class*=btn-].btn-secondary.btn-outline:focus {
   background: #EEEEEE;
   color: #212121;
 }
-[class*=btn].btn-secondary.btn-link {
+.btn.btn-secondary.btn-link, [class*=btn-].btn-secondary.btn-link {
   color: #BDBDBD;
 }
-[class*=btn].btn-secondary.btn-link:hover, [class*=btn].btn-secondary.btn-link:focus {
+.btn.btn-secondary.btn-link:hover, .btn.btn-secondary.btn-link:focus, [class*=btn-].btn-secondary.btn-link:hover, [class*=btn-].btn-secondary.btn-link:focus {
   color: #757575;
 }
 

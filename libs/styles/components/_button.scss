@@ -10,7 +10,7 @@
 
  */
 
-[class*="btn"] {
+.btn, [class*="btn-"]  {
     font: 600 14px/1.4 $roboto;
     text-transform: uppercase;
     position: relative;
