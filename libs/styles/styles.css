@@ -336,8 +336,12 @@ p, .text-default {
   -webkit-box-shadow: none !important;
   background: none !important;
 }
-.btn.btn-link, [class*=btn-].btn-link {
+.btn.btn-link, .btn:link, .btn:visited, [class*=btn-].btn-link, [class*=btn-]:link, [class*=btn-]:visited {
   border: none !important;
+  text-decoration: none;
+}
+.btn.btn-link .ripple--container, .btn:link .ripple--container, .btn:visited .ripple--container, [class*=btn-].btn-link .ripple--container, [class*=btn-]:link .ripple--container, [class*=btn-]:visited .ripple--container {
+  display: none;
 }
 .btn:hover, .btn:focus, [class*=btn-]:hover, [class*=btn-]:focus {
   background: #546E7A;

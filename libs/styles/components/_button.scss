@@ -10,7 +10,7 @@
 
  */
 
-.btn, [class*="btn-"]  {
+.btn, [class*="btn-"] {
     font: 600 14px/1.4 $roboto;
     text-transform: uppercase;
     position: relative;
@@ -85,8 +85,13 @@
         background: none !important;
     }
 
-    &.btn-link {
+    &.btn-link, &:link, &:visited {
         border: none !important;
+        text-decoration: none;
+
+        .ripple--container {
+            display: none;
+        }
     }
 
 
