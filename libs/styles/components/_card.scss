@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+/*
+    _card.scss
+
+    Components > Cards
+
+ */
+
+.card {
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+    border: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: $secondary50;
+    background-clip: border-box;
+    border-radius: .25rem;
+
+    &.zooming {
+        transition: 500ms $cubic;
+
+        &:hover, &:focus {
+            transform: scale(1.07);
+        }
+    }
+
+    &, .card-title {
+        margin-bottom: .5rem;
+    }
+
+    .card-subtitle {
+        margin-top: -.625rem;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1.5rem;
+    }
+
+    &[data-header="pattern"] .pattern {
+        position: absolute;
+        bottom: 60%;
+    }
+
+    &.card-blog .pattern {
+        margin-top: -45%;
+    }
+
+    .card-footer, .card-header {
+        background-color: #fff;
+    }
+
+    .card-header {
+        margin-top: 0;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 0;
+        background-color: $secondary50;
+        border-bottom: .0625rem solid $secondary200;
+
+        &:first-child {
+            border-radius: 0.1875rem 0.1875rem 0 0;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+    }
+
+    .card-footer {
+        padding: 1.25rem 1.5rem;
+        background-color: $secondary50;
+        border-top: .0625rem solid $secondary200;
+
+        &:last-child {
+            border-radius: 0 0 0.1875rem 0.1875rem;
+        }
+    }
+
+    .cap {
+        width: 100%;
+        border-top-left-radius: 0.1875rem;
+        border-top-right-radius: 0.1875rem;
+    }
+
+    .full-bg {
+        background-position: 50%;
+        background-size: cover;
+        text-align: center;
+        margin-bottom: 30px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: .3rem;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transition: all 1s $cubic;
+        -webkit-transition: all 1s $cubic;
+        opacity: 0.9;
+
+        &:hover, &:focus {
+            transform: scale(1.07);
+        }
+    }
+
+    .full-bg + .card-body {
+        z-index: 1;
+        background: #ffffff22;
+    }
+
+    img.overlay {
+        opacity: 0.9;
+        z-index: 1;
+        border-radius: 0.1875rem;
+    }
+
+    .overlay:not(img) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1.5rem;
+    }
+
+    .card-link + .card-link {
+        margin-left: 1.5rem;
+    }
+
+    .card-link:hover {
+        text-decoration: none;
+    }
+}

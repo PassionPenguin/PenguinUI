@@ -155,16 +155,14 @@ p {
   font-size: 1rem;
   margin-top: 0;
   margin-bottom: 1rem;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 .lead {
   font-size: 1.25rem;
-  margin-top: 1.5rem;
-}
-
-.lead, p {
-  font-weight: 400;
   line-height: 1.7;
+  margin-top: 1.5rem;
 }
 
 blockquote {
@@ -746,11 +744,128 @@ p, .text-default {
   }
 }
 /*
+    _card.scss
+
+    Components > Cards
+
+ */
+.card {
+  margin-bottom: 30px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  border: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FAFAFA;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
+.card.zooming {
+  transition: 500ms cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.card.zooming:hover, .card.zooming:focus {
+  transform: scale(1.07);
+}
+.card, .card .card-title {
+  margin-bottom: 0.5rem;
+}
+.card .card-subtitle {
+  margin-top: -0.625rem;
+}
+.card .card-body {
+  flex: 1 1 auto;
+  padding: 1.5rem;
+}
+.card[data-header=pattern] .pattern {
+  position: absolute;
+  bottom: 60%;
+}
+.card.card-blog .pattern {
+  margin-top: -45%;
+}
+.card .card-footer, .card .card-header {
+  background-color: #fff;
+}
+.card .card-header {
+  margin-top: 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0;
+  background-color: #FAFAFA;
+  border-bottom: 0.0625rem solid #EEEEEE;
+}
+.card .card-header:first-child {
+  border-radius: 0.1875rem 0.1875rem 0 0;
+}
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+  margin-top: 0;
+}
+.card .card-footer {
+  padding: 1.25rem 1.5rem;
+  background-color: #FAFAFA;
+  border-top: 0.0625rem solid #EEEEEE;
+}
+.card .card-footer:last-child {
+  border-radius: 0 0 0.1875rem 0.1875rem;
+}
+.card .cap {
+  width: 100%;
+  border-top-left-radius: 0.1875rem;
+  border-top-right-radius: 0.1875rem;
+}
+.card .full-bg {
+  background-position: 50%;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 0.3rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: all 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+  -webkit-transition: all 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+  opacity: 0.9;
+}
+.card .full-bg:hover, .card .full-bg:focus {
+  transform: scale(1.07);
+}
+.card .full-bg + .card-body {
+  z-index: 1;
+  background: #ffffff22;
+}
+.card img.overlay {
+  opacity: 0.9;
+  z-index: 1;
+  border-radius: 0.1875rem;
+}
+.card .overlay:not(img) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem;
+}
+.card .card-link + .card-link {
+  margin-left: 1.5rem;
+}
+.card .card-link:hover {
+  text-decoration: none;
+}
+
+/*
     _grid.scss
 
     Components > Grid
 
  */
+.block-horizonal-align-center {
+  margin: 0 auto;
+}
+
 .align-items-center {
   -webkit-box-align: center !important;
   align-items: center !important;
