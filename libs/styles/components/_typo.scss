@@ -168,16 +168,14 @@ p {
     font-size: 1rem;
     margin-top: 0;
     margin-bottom: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
 }
 
 .lead {
     font-size: 1.25rem;
-    margin-top: 1.5rem;
-}
-
-.lead, p {
-    font-weight: 400;
     line-height: 1.7;
+    margin-top: 1.5rem;
 }
 
 blockquote {
