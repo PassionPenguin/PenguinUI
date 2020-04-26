@@ -49,16 +49,17 @@
                 });
                 if (node.tagName === "button" && node.attributes["ripple"] && node.attributes["ripple"].value !== "false" && list.indexOf("ripple") === -1)
                     list.push("ripple");
+                if (node.classList.contains("alert-dismissible") && list.indexOf("data-dismissible") === -1)
+                    list.push("data-dismissible");
                 if (list.length > 0)
                     changedInf.push([node, list]);
-
             });
         if (changedInf.length > 0)
             changedInf.forEach(detail => {
                 if (detail[1].indexOf("ripple") !== -1 && detail[0].attributes["ripple"].value !== "false") {
                     let rippleContainer,
-                        ripple = detail[0], cleanUp = function (container, rippler) {
-                            container.removeChild(rippler);
+                        ripple = detail[0], cleanUp = function (rippler) {
+                            rippler.remove();
                         }, addRipple = function (e) {
                             let ripple = this,
                                 size = ripple.offsetWidth,
@@ -73,7 +74,7 @@
                             ripple.rippleContainer.appendChild(rippler);
                             rippler.setAttribute('style', style);
                             ripple.addEventListener('mouseup', () => setTimeout(() => {
-                                cleanUp(ripple.rippleContainer, rippler);
+                                cleanUp(rippler);
                             }, 2000), {once: true});
                         }
                     if (detail[0].attributes["ripple"] !== "false") {
@@ -83,6 +84,18 @@
                         ripple.rippleContainer = rippleContainer;
                         ripple.appendChild(rippleContainer);
                     }
+                }
+                if (detail[1].indexOf("data-dismissible") !== -1 && detail[0].querySelectorAll(".close").length === 0) {
+                    let el = document.createElement("button");
+                    el.classList.add("close");
+                    el.innerText = "close";
+                    el.on("click", () => {
+                        detail[0].classList.add("fade-out");
+                        setTimeout(() => {
+                            detail[0].remove();
+                        }, 500);
+                    }, {once: true});
+                    detail[0].appendChild(el);
                 }
             });
     };
