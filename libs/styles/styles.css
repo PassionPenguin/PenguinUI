@@ -76,7 +76,7 @@
   src: local("Roboto Bold"), local("Roboto-Bold"), url(../../media/font/Roboto-Bold.ttf) format("ttf");
 }
 html, body {
-  font: 400 16px/1 Roboto, "Open Sans";
+  font: 400 16px/1 "Open Sans", sans-serif;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -344,6 +344,52 @@ p, .text-default {
 }
 .badge.badge-secondary, [class*=badge-].badge-secondary {
   background: #9E9E9E;
+}
+
+/*
+    _breadcrumb.scss
+
+    Components > Breadcrumbs
+
+ */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #F5F5F5;
+  border-radius: 0.25rem;
+  font: 14px/1 "Open Sans", sans-serif;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #607D8B;
+  content: "/";
+}
+.breadcrumb .breadcrumb-item {
+  color: #BDBDBD;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.breadcrumb .breadcrumb-item .mi, .breadcrumb .breadcrumb-item .material-icons {
+  font-size: 1rem;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.breadcrumb .breadcrumb-item:hover, .breadcrumb .breadcrumb-item:focus {
+  color: #757575;
+}
+.breadcrumb .breadcrumb-item.active {
+  color: #7779e5;
+  cursor: default;
+}
+.breadcrumb .breadcrumb-item.active:hover, .breadcrumb .breadcrumb-item.active:focus {
+  color: #7779e5;
 }
 
 /*
