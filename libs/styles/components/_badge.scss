@@ -10,7 +10,8 @@
 
 .badge, [class*="badge-"] {
     display: inline-block;
-    padding: .25em .4em;
+    padding: .375em .4em .25em .4em;
+    user-select: none;
     font-size: 75%;
     font-weight: 700;
     line-height: 1;
@@ -27,7 +28,7 @@
         border-radius: 10rem;
     }
 
-    &.badge-link, &:link, &:active, &:visited {
+    &.badge-link, &:link, &:visited {
         cursor: pointer;
         text-decoration: none;
 

@@ -199,7 +199,8 @@ p, .text-default {
  */
 .badge, [class*=badge-] {
   display: inline-block;
-  padding: 0.25em 0.4em;
+  padding: 0.375em 0.4em 0.25em 0.4em;
+  user-select: none;
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
@@ -215,26 +216,26 @@ p, .text-default {
   padding-left: 0.6em;
   border-radius: 10rem;
 }
-.badge.badge-link, .badge:link, .badge:active, .badge:visited, [class*=badge-].badge-link, [class*=badge-]:link, [class*=badge-]:active, [class*=badge-]:visited {
+.badge.badge-link, .badge:link, .badge:visited, [class*=badge-].badge-link, [class*=badge-]:link, [class*=badge-]:visited {
   cursor: pointer;
   text-decoration: none;
 }
-.badge.badge-link.badge-primary:hover, .badge.badge-link.badge-primary:focus, .badge:link.badge-primary:hover, .badge:link.badge-primary:focus, .badge:active.badge-primary:hover, .badge:active.badge-primary:focus, .badge:visited.badge-primary:hover, .badge:visited.badge-primary:focus, [class*=badge-].badge-link.badge-primary:hover, [class*=badge-].badge-link.badge-primary:focus, [class*=badge-]:link.badge-primary:hover, [class*=badge-]:link.badge-primary:focus, [class*=badge-]:active.badge-primary:hover, [class*=badge-]:active.badge-primary:focus, [class*=badge-]:visited.badge-primary:hover, [class*=badge-]:visited.badge-primary:focus {
+.badge.badge-link.badge-primary:hover, .badge.badge-link.badge-primary:focus, .badge:link.badge-primary:hover, .badge:link.badge-primary:focus, .badge:visited.badge-primary:hover, .badge:visited.badge-primary:focus, [class*=badge-].badge-link.badge-primary:hover, [class*=badge-].badge-link.badge-primary:focus, [class*=badge-]:link.badge-primary:hover, [class*=badge-]:link.badge-primary:focus, [class*=badge-]:visited.badge-primary:hover, [class*=badge-]:visited.badge-primary:focus {
   background: #5a56d4;
 }
-.badge.badge-link.badge-info:hover, .badge.badge-link.badge-info:focus, .badge:link.badge-info:hover, .badge:link.badge-info:focus, .badge:active.badge-info:hover, .badge:active.badge-info:focus, .badge:visited.badge-info:hover, .badge:visited.badge-info:focus, [class*=badge-].badge-link.badge-info:hover, [class*=badge-].badge-link.badge-info:focus, [class*=badge-]:link.badge-info:hover, [class*=badge-]:link.badge-info:focus, [class*=badge-]:active.badge-info:hover, [class*=badge-]:active.badge-info:focus, [class*=badge-]:visited.badge-info:hover, [class*=badge-]:visited.badge-info:focus {
+.badge.badge-link.badge-info:hover, .badge.badge-link.badge-info:focus, .badge:link.badge-info:hover, .badge:link.badge-info:focus, .badge:visited.badge-info:hover, .badge:visited.badge-info:focus, [class*=badge-].badge-link.badge-info:hover, [class*=badge-].badge-link.badge-info:focus, [class*=badge-]:link.badge-info:hover, [class*=badge-]:link.badge-info:focus, [class*=badge-]:visited.badge-info:hover, [class*=badge-]:visited.badge-info:focus {
   background: #0080a7;
 }
-.badge.badge-link.badge-success:hover, .badge.badge-link.badge-success:focus, .badge:link.badge-success:hover, .badge:link.badge-success:focus, .badge:active.badge-success:hover, .badge:active.badge-success:focus, .badge:visited.badge-success:hover, .badge:visited.badge-success:focus, [class*=badge-].badge-link.badge-success:hover, [class*=badge-].badge-link.badge-success:focus, [class*=badge-]:link.badge-success:hover, [class*=badge-]:link.badge-success:focus, [class*=badge-]:active.badge-success:hover, [class*=badge-]:active.badge-success:focus, [class*=badge-]:visited.badge-success:hover, [class*=badge-]:visited.badge-success:focus {
+.badge.badge-link.badge-success:hover, .badge.badge-link.badge-success:focus, .badge:link.badge-success:hover, .badge:link.badge-success:focus, .badge:visited.badge-success:hover, .badge:visited.badge-success:focus, [class*=badge-].badge-link.badge-success:hover, [class*=badge-].badge-link.badge-success:focus, [class*=badge-]:link.badge-success:hover, [class*=badge-]:link.badge-success:focus, [class*=badge-]:visited.badge-success:hover, [class*=badge-]:visited.badge-success:focus {
   background: #2ab050;
 }
-.badge.badge-link.badge-danger:hover, .badge.badge-link.badge-danger:focus, .badge:link.badge-danger:hover, .badge:link.badge-danger:focus, .badge:active.badge-danger:hover, .badge:active.badge-danger:focus, .badge:visited.badge-danger:hover, .badge:visited.badge-danger:focus, [class*=badge-].badge-link.badge-danger:hover, [class*=badge-].badge-link.badge-danger:focus, [class*=badge-]:link.badge-danger:hover, [class*=badge-]:link.badge-danger:focus, [class*=badge-]:active.badge-danger:hover, [class*=badge-]:active.badge-danger:focus, [class*=badge-]:visited.badge-danger:hover, [class*=badge-]:visited.badge-danger:focus {
+.badge.badge-link.badge-danger:hover, .badge.badge-link.badge-danger:focus, .badge:link.badge-danger:hover, .badge:link.badge-danger:focus, .badge:visited.badge-danger:hover, .badge:visited.badge-danger:focus, [class*=badge-].badge-link.badge-danger:hover, [class*=badge-].badge-link.badge-danger:focus, [class*=badge-]:link.badge-danger:hover, [class*=badge-]:link.badge-danger:focus, [class*=badge-]:visited.badge-danger:hover, [class*=badge-]:visited.badge-danger:focus {
   background: #d3422f;
 }
-.badge.badge-link.badge-warning:hover, .badge.badge-link.badge-warning:focus, .badge:link.badge-warning:hover, .badge:link.badge-warning:focus, .badge:active.badge-warning:hover, .badge:active.badge-warning:focus, .badge:visited.badge-warning:hover, .badge:visited.badge-warning:focus, [class*=badge-].badge-link.badge-warning:hover, [class*=badge-].badge-link.badge-warning:focus, [class*=badge-]:link.badge-warning:hover, [class*=badge-]:link.badge-warning:focus, [class*=badge-]:active.badge-warning:hover, [class*=badge-]:active.badge-warning:focus, [class*=badge-]:visited.badge-warning:hover, [class*=badge-]:visited.badge-warning:focus {
+.badge.badge-link.badge-warning:hover, .badge.badge-link.badge-warning:focus, .badge:link.badge-warning:hover, .badge:link.badge-warning:focus, .badge:visited.badge-warning:hover, .badge:visited.badge-warning:focus, [class*=badge-].badge-link.badge-warning:hover, [class*=badge-].badge-link.badge-warning:focus, [class*=badge-]:link.badge-warning:hover, [class*=badge-]:link.badge-warning:focus, [class*=badge-]:visited.badge-warning:hover, [class*=badge-]:visited.badge-warning:focus {
   background: #d66d02;
 }
-.badge.badge-link.badge-secondary:hover, .badge.badge-link.badge-secondary:focus, .badge:link.badge-secondary:hover, .badge:link.badge-secondary:focus, .badge:active.badge-secondary:hover, .badge:active.badge-secondary:focus, .badge:visited.badge-secondary:hover, .badge:visited.badge-secondary:focus, [class*=badge-].badge-link.badge-secondary:hover, [class*=badge-].badge-link.badge-secondary:focus, [class*=badge-]:link.badge-secondary:hover, [class*=badge-]:link.badge-secondary:focus, [class*=badge-]:active.badge-secondary:hover, [class*=badge-]:active.badge-secondary:focus, [class*=badge-]:visited.badge-secondary:hover, [class*=badge-]:visited.badge-secondary:focus {
+.badge.badge-link.badge-secondary:hover, .badge.badge-link.badge-secondary:focus, .badge:link.badge-secondary:hover, .badge:link.badge-secondary:focus, .badge:visited.badge-secondary:hover, .badge:visited.badge-secondary:focus, [class*=badge-].badge-link.badge-secondary:hover, [class*=badge-].badge-link.badge-secondary:focus, [class*=badge-]:link.badge-secondary:hover, [class*=badge-]:link.badge-secondary:focus, [class*=badge-]:visited.badge-secondary:hover, [class*=badge-]:visited.badge-secondary:focus {
   background: #616161;
 }
 .badge.badge-primary, [class*=badge-].badge-primary {
