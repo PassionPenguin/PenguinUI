@@ -58,7 +58,9 @@
             changedInf.forEach(detail => {
                 if (detail[1].indexOf("ripple") !== -1 && detail[0].attributes["ripple"].value !== "false") {
                     let rippleContainer,
-                        ripple = detail[0], addRipple = function (e) {
+                        ripple = detail[0], cleanUp = function (container, rippler) {
+                            container.removeChild(rippler);
+                        }, addRipple = function (e) {
                             let ripple = this,
                                 size = ripple.offsetWidth,
                                 pos = () => {
@@ -71,21 +73,16 @@
                                     + size + 'px; width: ' + size + 'px;';
                             ripple.rippleContainer.appendChild(rippler);
                             rippler.setAttribute('style', style);
-                        }, cleanUp = function () {
-                            let container = this.rippleContainer;
-                            if (container !== undefined)
-                                container.removeChild(container.firstChild);
-                        };
+                            ripple.addEventListener('mouseup', () => setTimeout(() => {
+                                cleanUp(ripple.rippleContainer, rippler);
+                            }, 2000), {once: true});
+                        }
                     if (detail[0].attributes["ripple"] !== "false") {
                         rippleContainer = document.createElement('div');
                         rippleContainer.className = 'ripple--container';
                         ripple.addEventListener('mousedown', addRipple);
-                        ripple.addEventListener('mouseup', () => setTimeout(cleanUp, 2000), {once: true});
                         ripple.rippleContainer = rippleContainer;
                         ripple.appendChild(rippleContainer);
-                    } else {
-                        ripple.removeEventListener('mousedown', addRipple);
-                        ripple.removeEventListener('mouseup', () => setTimeout(cleanUp, 2000), {once: true});
                     }
                 }
             });
