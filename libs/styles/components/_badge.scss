@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/*
+    _alert.scss
+
+    Components > Alerts
+        Colors: [primary, info, success, danger, warning, (default), secondary]
+
+ */
+
+.badge, [class*="badge-"] {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    background: $default800;
+    color: $secondary50;
+
+    &.badge-pill {
+        padding-right: .6em;
+        padding-left: .6em;
+        border-radius: 10rem;
+    }
+
+    &.badge-link, &:link, &:active, &:visited {
+        cursor: pointer;
+        text-decoration: none;
+
+        &.badge-primary:hover, &.badge-primary:focus {
+            background: $primary700;
+        }
+
+        &.badge-info:hover, &.badge-info:focus {
+            background: $info700;
+        }
+
+        &.badge-success:hover, &.badge-success:focus {
+            background: $success700;
+        }
+
+        &.badge-danger:hover, &.badge-danger:focus {
+            background: $danger700;
+        }
+
+        &.badge-warning:hover, &.badge-warning:focus {
+            background: $warning700;
+        }
+
+        &.badge-secondary:hover, &.badge-secondary:focus {
+            background: $secondary700;
+        }
+    }
+
+    &.badge-primary {
+        background: $primary500;
+    }
+
+    &.badge-info {
+        background: $info500;
+    }
+
+    &.badge-success {
+        background: $success500;
+    }
+
+    &.badge-danger {
+        background: $danger500;
+    }
+
+    &.badge-warning {
+        background: $warning500;
+    }
+
+    &.badge-secondary {
+        background: $secondary500;
+    }
+}
