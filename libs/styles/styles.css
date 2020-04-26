@@ -286,16 +286,17 @@ p, .text-default {
  */
 .badge, [class*=badge-] {
   display: inline-block;
-  padding: 0.25em 0.4em;
-  font-family: Roboto, sans-serif;
-  user-select: none;
-  font-size: 75%;
-  font-weight: 700;
+  padding: 0.35rem 0.375rem;
+  font-size: 66%;
+  font-weight: 600;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
+  transition: all 0.15s ease;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
   background: #37474F;
   color: #FAFAFA;
 }
