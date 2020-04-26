@@ -2,13 +2,13 @@
     Element.prototype.bcr = function () {
         return this.getBoundingClientRect();
     };
-    Element.prototype.fadeIn = function (displayMode, visibility) {
+    Element.prototype.fadeIn = function (displayMode = "unset", visibility = "visible") {
         this.style.opacity = "1";
-        this.style.display = displayMode || "unset";
-        this.style.visibility = visibility || "visible";
+        this.style.display = displayMode;
+        this.style.visibility = visibility;
         this.style.transition += " opacity 500ms ease-in-out";
     };
-    Element.prototype.fadeOut = function (remove) {
+    Element.prototype.fadeOut = function (remove = false) {
         this.style.opacity = "0";
         setTimeout(() => {
             this.style.display = "none";
@@ -16,11 +16,10 @@
                 this.parentElement.removeChild(this);
         }, 500);
     };
-    Element.prototype.on = window.on = function (types, func, options) {
+    Element.prototype.on = window.on = function (types, func, options = {}) {
         if (!(types || func)) {
             return;
         }
-        options = options || {};
         types = Array.isArray(types) ? types : [types];
         types.forEach(type => {
             this.addEventListener(type, func, options);
@@ -94,6 +93,6 @@
     });
 })();
 
-const $ = ((selector, context) => {
-    return [context && selector ? context.querySelectorAll(selector) : document];
+const $ = ((selector = "body", context = document) => {
+    return context.querySelectorAll(selector);
 })();
