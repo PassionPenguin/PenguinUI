@@ -64,6 +64,10 @@ $openSans: "Open Sans", sans-serif;
     src: local('Roboto Bold'), local('Roboto-Bold'), url(../../media/font/Roboto-Bold.ttf) format('ttf');
 }
 
+html, body {
+    font: 400 16px/1 Roboto, "Open Sans";
+}
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-bottom: .5rem;
     font-family: inherit;
