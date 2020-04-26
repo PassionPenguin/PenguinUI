@@ -18,6 +18,28 @@
 
  */
 @font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../../media/font/MaterialIcons-Regular.woff2") format("woff2");
+}
+.material-icons, .mi {
+  font-family: "Material Icons", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
   font-family: "Open Sans";
   font-weight: 300;
   font-display: swap;
@@ -192,6 +214,66 @@ p, .text-default {
 
 .text-secondary {
   color: #9E9E9E;
+}
+
+/*
+    _alert.scss
+
+    Components > Alerts
+        Colors: [primary, info, success, danger, warning, (default), secondary]
+
+ */
+.alert, [class*=alert-]:not(.alert-icon) {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border: 0;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  background: #455A64;
+  color: #FAFAFA;
+}
+.alert .alert-icon, [class*=alert-]:not(.alert-icon) .alert-icon {
+  margin-right: 12px;
+  font: 1.5rem/1 "Material Icons", sans-serif;
+  vertical-align: middle;
+}
+.alert.alert-dismissible .close, .alert[data-dismiss=true] .close, [class*=alert-]:not(.alert-icon).alert-dismissible .close, [class*=alert-]:not(.alert-icon)[data-dismiss=true] .close {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #ffffff88;
+  opacity: 1;
+  font: 1.5rem/1 "Material Icons", sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+.alert.alert-dismissible .close:hover, .alert.alert-dismissible .close:focus, .alert[data-dismiss=true] .close:hover, .alert[data-dismiss=true] .close:focus, [class*=alert-]:not(.alert-icon).alert-dismissible .close:hover, [class*=alert-]:not(.alert-icon).alert-dismissible .close:focus, [class*=alert-]:not(.alert-icon)[data-dismiss=true] .close:hover, [class*=alert-]:not(.alert-icon)[data-dismiss=true] .close:focus {
+  color: #fff;
+}
+.alert.alert-primary, [class*=alert-]:not(.alert-icon).alert-primary {
+  background: #787bea;
+}
+.alert.alert-info, [class*=alert-]:not(.alert-icon).alert-info {
+  background: #0098d4;
+}
+.alert.alert-success, [class*=alert-]:not(.alert-icon).alert-success {
+  background: #39cb6a;
+}
+.alert.alert-danger, [class*=alert-]:not(.alert-icon).alert-danger {
+  background: #f4364c;
+}
+.alert.alert-warning, [class*=alert-]:not(.alert-icon).alert-warning {
+  background: #ea8c01;
+}
+.alert.alert-secondary, [class*=alert-]:not(.alert-icon).alert-secondary {
+  background: #9E9E9E;
 }
 
 /*
@@ -840,6 +922,38 @@ p, .text-default {
 .mh-2 {
   margin-left: 2rem;
   margin-right: 2rem;
+}
+
+/*
+    _animation.scss
+
+    Components > Animations
+
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 500ms ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 500ms ease-in-out forwards;
 }
 
 /*# sourceMappingURL=styles.css.map */
