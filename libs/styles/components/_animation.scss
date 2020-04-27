@@ -34,3 +34,43 @@
     opacity: 1;
     animation: fadeOut 500ms $ease forwards;
 }
+
+@keyframes slideLeftOut {
+    from {
+        left: 0;
+        right: unset;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes slideRightOut {
+    from {
+        right: 0;
+        left: unset;
+    }
+    to {
+        right: -100%;
+    }
+}
+
+@keyframes slideLeftIn {
+    from {
+        left: -100%;
+        right: unset;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slideRightIn {
+    from {
+        right: -100%;
+        left: unset;
+    }
+    to {
+        right: 0;
+    }
+}
