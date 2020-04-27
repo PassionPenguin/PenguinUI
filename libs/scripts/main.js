@@ -76,7 +76,7 @@
          * Init Elements, eg. initialized all HTMLButtonElements that [ripple] !== "false", initialized all toggles...
          */
         let changedInf = [],
-            attrList = ["ripple", "data-toggle", "data-dismissible", "data-target", "href", "data-carousel"];
+            attrList = ["ripple", "data-toggle", "data-dismissible", "data-target", "href", "data-carousel", "data-position"];
         if (mutationRecord.type === "attributes" && attrList.indexOf(mutationRecord.attributeName) !== -1)
             changedInf.push([mutationRecord.target, mutationRecord.attributeName]);
 
@@ -210,6 +210,28 @@
                             } else {
                                 target.style.maxHeight = target.style.height || (target.scrollHeight + "px");
                             }
+                        };
+                    } else if (detail[0].getAttribute("data-toggle") === "dropdown") {
+                        let target = detail[0].link || detail[0].getAttribute("data-target");
+                        target = $(target)[0];
+                        if (target === undefined)
+                            return;
+                        detail[0].onclick = (ev) => {
+                            ev.stopPropagation();
+                            let bcr = () => {
+                                return detail[0].getBoundingClientRect();
+                            };
+                            target.style.left = `${bcr().x}px`;
+                            target.style.top = `${bcr().y + bcr().height + 12}px`;
+                            target.classList.toggle("show");
+                            window.on("scroll", function () {
+                                if (!target.classList.contains("show")) window.removeEventListener(this);
+                                target.style.left = `${bcr().x}px`;
+                                target.style.top = `${bcr().y + bcr().height + 12}px`;
+                            });
+                            window.on("click", () => {
+                                target.classList.remove("show");
+                            }, {once: true});
                         };
                     }
                 }
