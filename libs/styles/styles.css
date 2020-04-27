@@ -969,6 +969,23 @@ p, .text-default {
 }
 
 /*
+    _collapse.scss
+
+    Components > Collapse
+
+ */
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collapse {
+    transition: none;
+  }
+}
+/*
     _grid.scss
 
     Components > Grid
@@ -1028,7 +1045,7 @@ p, .text-default {
   margin-left: -15px;
 }
 
-[class*=col] {
+[class*=col-], .col {
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
   -ms-flex-positive: 1;

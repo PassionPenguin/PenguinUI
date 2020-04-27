@@ -1,4 +1,7 @@
 (() => {
+    const $ = (selector = "body", context = document) => {
+        return context.querySelectorAll(selector);
+    };
     const createElement = (data = {
         type: "div",
         ns: null,
@@ -73,7 +76,7 @@
          * Init Elements, eg. initialized all HTMLButtonElements that [ripple] !== "false", initialized all toggles...
          */
         let changedInf = [],
-            attrList = ["ripple", "data-role", "data-toggle", "data-dismissible", "data-target", "data-carousel"];
+            attrList = ["ripple", "data-toggle", "data-dismissible", "data-target", "href", "data-carousel"];
         if (mutationRecord.type === "attributes" && attrList.indexOf(mutationRecord.attributeName) !== -1)
             changedInf.push([mutationRecord.target, mutationRecord.attributeName]);
 
@@ -193,6 +196,23 @@
                         }
                     });
                 }
+                if (detail[1].indexOf("data-toggle") !== -1 || detail[1].indexOf("data-target") !== -1) {
+                    if (detail[0].getAttribute("data-toggle") === "collapse") {
+                        let target = detail[0].link || detail[0].getAttribute("data-target");
+                        target = $(target)[0];
+                        if (target === undefined)
+                            return;
+                        target.classList.remove("collapse");
+                        target.classList.add("collapse");
+                        detail[0].onclick = () => {
+                            if (target.style.maxHeight) {
+                                target.style.maxHeight = null;
+                            } else {
+                                target.style.maxHeight = target.style.height || (target.scrollHeight + "px");
+                            }
+                        };
+                    }
+                }
             });
     };
     const mutationObserver = new MutationObserver(init);
@@ -200,8 +220,4 @@
     window.on("load", () => {
         init({type: "childList", addedNodes: document.querySelectorAll("*")});
     });
-})();
-
-const $ = ((selector = "body", context = document) => {
-    return context.querySelectorAll(selector);
 })();

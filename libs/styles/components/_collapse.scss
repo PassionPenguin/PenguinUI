@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/*
+    _collapse.scss
+
+    Components > Collapse
+
+ */
+
+.collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .collapse {
+        transition: none;
+    }
+}
