@@ -1,4 +1,29 @@
 (() => {
+    const createElement = (data = {
+        type: "div",
+        ns: null,
+        innerText: null,
+        innerHTML: null,
+        attr: [],
+        onclick: null
+    }) => {
+        let el;
+        if (data.ns)
+            el = document.createElementNS(data.ns, data.type);
+        else el = document.createElement(data.type);
+        if (data.innerText)
+            el.innerText = data.innerText;
+        if (data.innerHTML)
+            el.innerHTML = data.innerHTML;
+        if (data.attr)
+            data.attr.forEach(e => {
+                el.setAttribute(e[0], e[1])
+            });
+        if (data.onclick)
+            el.onclick = data.onclick;
+        return el;
+    };
+
     Element.prototype.bcr = function () {
         return this.getBoundingClientRect();
     };
@@ -24,6 +49,18 @@
         types.forEach(type => {
             this.addEventListener(type, func, options);
         });
+    };
+    Element.prototype.appendNewChild = function (data = {
+        type: "div",
+        ns: null,
+        innerText: null,
+        innerHTML: null,
+        attr: [],
+        onclick: null
+    }) {
+        let el = createElement(data);
+        this.appendChild(el);
+        return el;
     }
 
     const init = (mutationRecord) => {
@@ -35,7 +72,8 @@
          *
          * Init Elements, eg. initialized all HTMLButtonElements that [ripple] !== "false", initialized all toggles...
          */
-        let changedInf = [], attrList = ["ripple", "data-role", "data-toggle", "data-dismissible", "data-target"];
+        let changedInf = [],
+            attrList = ["ripple", "data-role", "data-toggle", "data-dismissible", "data-target", "data-carousel"];
         if (mutationRecord.type === "attributes" && attrList.indexOf(mutationRecord.attributeName) !== -1)
             changedInf.push([mutationRecord.target, mutationRecord.attributeName]);
 
@@ -51,6 +89,7 @@
                     list.push("ripple");
                 if (node.classList.contains("alert-dismissible") && list.indexOf("data-dismissible") === -1)
                     list.push("data-dismissible");
+                if (node.classList.contains("carousel") && list.indexOf("data-carousel") === -1) list.push("data-carousel")
                 if (list.length > 0)
                     changedInf.push([node, list]);
             });
@@ -96,6 +135,63 @@
                         }, 500);
                     }, {once: true});
                     detail[0].appendChild(el);
+                }
+                if (detail[1].indexOf("data-carousel") !== -1) {
+                    let curIndex = 0, prevIndex = 0, imgs = detail[0].querySelectorAll(".carousel-item");
+                    const slide = (val) => {
+                        if (parseInt(val) === curIndex)
+                            return;
+                        if (val === "prev" || parseInt(val) < curIndex) {
+                            prevIndex = curIndex;
+                            imgs[curIndex].classList.add("next");
+                            imgs[curIndex].classList.remove("active");
+                            curIndex = (val === "prev" ? curIndex === 0 ? (imgs.length - 1) : curIndex - 1 : parseInt(val));
+                            imgs[curIndex].classList.add("prev");
+                            imgs[curIndex].classList.add("active");
+                            setTimeout(() => {
+                                imgs[curIndex].classList.remove("prev");
+                                imgs[prevIndex].classList.remove("next");
+                            }, 500);
+                        } else {
+                            prevIndex = curIndex;
+                            imgs[curIndex].classList.add("prev");
+                            imgs[curIndex].classList.remove("active");
+                            curIndex = (val === "next" ? curIndex === (imgs.length - 1) ? 0 : curIndex + 1 : parseInt(val));
+                            imgs[curIndex].classList.add("next");
+                            imgs[curIndex].classList.add("active");
+                            setTimeout(() => {
+                                imgs[curIndex].classList.remove("next");
+                                imgs[prevIndex].classList.remove("prev");
+                            }, 500);
+                        }
+                        indicators.children[prevIndex].classList.remove("active");
+                        indicators.children[curIndex].classList.add("active");
+                    };
+                    let indicators = createElement({type: "div", attr: [["class", "carousel-indicators"]]});
+                    for (let i = 0; i < imgs.length; i++)
+                        indicators.appendNewChild({
+                            type: "div", attr: [["class", "carousel-indicator"]], onclick: () => {
+                                slide(i.toString());
+                            }
+                        });
+                    indicators.children[0].classList.add("active");
+                    detail[0].appendChild(indicators);
+                    detail[0].appendNewChild({
+                        type: "div",
+                        attr: [["class", "carousel-prevIndicator"]],
+                        innerHTML: "<span class='mi'>chevron_left</span>",
+                        onclick: () => {
+                            slide("prev");
+                        }
+                    });
+                    detail[0].appendNewChild({
+                        type: "div",
+                        attr: [["class", "carousel-nextIndicator"]],
+                        innerHTML: "<span class='mi'>chevron_right</span>",
+                        onclick: () => {
+                            slide("next");
+                        }
+                    });
                 }
             });
     };
