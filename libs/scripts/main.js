@@ -27,16 +27,16 @@
         return el;
     };
 
-    Element.prototype.bcr = function () {
+    Element.prototype.bcr = HTMLDocument.prototype.bcr = function () {
         return this.getBoundingClientRect();
     };
-    Element.prototype.fadeIn = function (displayMode = "unset", visibility = "visible") {
+    Element.prototype.fadeIn = HTMLDocument.prototype.fadeIn = function (displayMode = "unset", visibility = "visible") {
         this.style.opacity = "1";
         this.style.display = displayMode;
         this.style.visibility = visibility;
         this.style.transition += " opacity 500ms ease-in-out";
     };
-    Element.prototype.fadeOut = function (remove = false) {
+    Element.prototype.fadeOut = HTMLDocument.prototype.fadeOut = function (remove = false) {
         this.style.opacity = "0";
         setTimeout(() => {
             this.style.display = "none";
@@ -44,7 +44,7 @@
                 this.parentElement.removeChild(this);
         }, 500);
     };
-    Element.prototype.on = window.on = function (types, func, options = {}) {
+    Element.prototype.on = window.on = HTMLDocument.prototype.on = function (types, func, options = {}) {
         if (!(types || func)) {
             return;
         }
@@ -64,19 +64,22 @@
         let el = createElement(data);
         this.appendChild(el);
         return el;
-    }
+    };
+    Element.prototype.$ = HTMLDocument.prototype.$ = function (selector) {
+        return this.querySelectorAll(selector);
+    };
 
     const init = (mutationRecord) => {
         /**
          * @param mutationRecord: Callback of MutationObserve
          *  => mutations: MutationRecord[]
          *      can be call in this function, type should be "childList".
-         * @example init({type: "childList", addedNodes: document.body.querySelectorAll("*")});
+         * @example init({type: "childList", addedNodes: document.body.$("*")});
          *
          * Init Elements, eg. initialized all HTMLButtonElements that [ripple] !== "false", initialized all toggles...
          */
         let changedInf = [],
-            attrList = ["ripple", "data-toggle", "data-dismissible", "data-target", "href", "data-carousel", "data-position"];
+            attrList = ["ripple", "data-toggle", "data-dismissible", "data-target", "href", "data-carousel", "data-position", "class"];
         if (mutationRecord.type === "attributes" && attrList.indexOf(mutationRecord.attributeName) !== -1)
             changedInf.push([mutationRecord.target, mutationRecord.attributeName]);
 
@@ -127,7 +130,7 @@
                         ripple.appendChild(rippleContainer);
                     }
                 }
-                if (detail[1].indexOf("data-dismissible") !== -1 && detail[0].querySelectorAll(".close").length === 0) {
+                if (detail[1].indexOf("data-dismissible") !== -1 && detail[0].$(".close").length === 0) {
                     let el = document.createElement("button");
                     el.classList.add("close");
                     el.innerText = "close";
@@ -140,7 +143,7 @@
                     detail[0].appendChild(el);
                 }
                 if (detail[1].indexOf("data-carousel") !== -1) {
-                    let curIndex = 0, prevIndex = 0, imgs = detail[0].querySelectorAll(".carousel-item");
+                    let curIndex = 0, prevIndex = 0, imgs = detail[0].$(".carousel-item");
                     const slide = (val) => {
                         if (parseInt(val) === curIndex)
                             return;
@@ -235,11 +238,41 @@
                         };
                     }
                 }
+                if (detail[1].indexOf("class") !== -1) {
+                    if (detail[0].classList.contains("form-object")) {
+                        let input = detail[0].children[1].$("input")[0];
+                        if (input.value !== "")
+                            detail[0].children[0].classList.add("inputted");
+
+                        input.placeholder = "";
+
+                        if (detail[0].children[1].$(".input-group-prepend").length > 0)
+                            detail[0].children[0].classList.add("icon-prepend");
+                        input.on("input", () => {
+                            if (input.value !== "")
+                                detail[0].children[0].classList.add("inputted");
+                            else
+                                detail[0].children[0].classList.remove("inputted");
+                        });
+                        detail[0].on("click", () => {
+                            setTimeout(() => {
+                                document.on("click", () => {
+                                    if (input.value === "")
+                                        detail[0].children[0].classList.remove("inputted");
+                                }, {once: true});
+                            });
+                            if (!input.disabled) {
+                                detail[0].children[0].classList.add("inputted");
+                                input.focus();
+                            }
+                        });
+                    }
+                }
             });
     };
     const mutationObserver = new MutationObserver(init);
     mutationObserver.observe(document.body, {subtree: true, childList: true, attributes: true});
     window.on("load", () => {
-        init({type: "childList", addedNodes: document.querySelectorAll("*")});
+        init({type: "childList", addedNodes: $("*")});
     });
 })();
