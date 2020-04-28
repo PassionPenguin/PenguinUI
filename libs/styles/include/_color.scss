@@ -69,3 +69,54 @@ $secondary600: #757575;
 $secondary700: #616161;
 $secondary800: #424242;
 $secondary900: #212121;
+
+%focusStyle {
+    &:focus {
+        border-color: $default500;
+    }
+
+    &.primary {
+        color: $primary500;
+        border-color: $primary200;
+
+        &:focus {
+            border-color: $primary500;
+        }
+    }
+
+    &.info {
+        color: $info500;
+        border-color: $info200;
+
+        &:focus {
+            border-color: $info500;
+        }
+    }
+
+    &.success {
+        color: $success500;
+        border-color: $success200;
+
+        &:focus {
+            border-color: $success500;
+        }
+    }
+
+    &.danger {
+        color: $danger500;
+        border-color: $danger200;
+
+        &:focus {
+            border-color: $danger500;
+        }
+    }
+
+    &.warning {
+        color: $warning500;
+        border-color: $warning200;
+
+        &:focus {
+            border-color: $warning500;
+        }
+    }
+}

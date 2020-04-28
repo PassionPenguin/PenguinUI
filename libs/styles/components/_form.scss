@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/*
+    _form.scss
+
+    Components > Form Components
+
+ */
+
+.form-object {
+    position: relative;
+    width: 100%;
+    padding-top: 18px;
+
+    .text-description {
+        margin: 6px 0;
+        font: 12px/1 $openSans;
+        color: $default800;
+        padding-left: 2px;
+        position: absolute;
+        transition: all .35s $cubic;
+        top: 0;
+        left: 3px;
+        transform: translate(3px, 25px);
+        transform-origin: left;
+        z-index: 1;
+
+        &.icon-prepend {
+            transform: translate(36px, 25px);
+        }
+
+        &.inputted {
+            transform: translateY(-6px) scale(0.833333);
+            color: $primary500;
+        }
+    }
+
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 24px;
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $default300;
+        background-color: #fff;
+        background-clip: padding-box;
+        box-shadow: none;
+        transition: all 0.2s $cubic;
+        outline: none;
+        border-radius: 0.25em;
+        border: 1px solid $default200;
+
+        &.alternative {
+            box-shadow: 0 1px 3px rgba(50, 50, 93, .15), 0 1px 0 rgba(0, 0, 0, .02);
+            border: 0;
+        }
+
+        &:hover, &:focus {
+            color: $default700;
+            border-color: $default500;
+        }
+
+
+        &[readonly], &:disabled {
+            background-color: $secondary200;
+            opacity: 1;
+
+            &:hover, &:focus {
+                border-color: $default200;
+                color: $default300;
+            }
+        }
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        border-radius: .25rem;
+        border: 1px solid $secondary400;
+        height: 24px;
+        padding: 6px 12px;
+
+        &.disabled {
+            background-color: $secondary200;
+            opacity: 1;
+
+           &:focus {
+                border-color: $default200;
+                color: $default300;
+            }
+        }
+
+        .form-control {
+            position: relative;
+            flex: 1 1 auto;
+            width: 1%;
+            margin-bottom: 0;
+            padding: 0;
+            height: 1.5rem;
+            border: 0;
+        }
+
+        .input-group-prepend .input-group-text {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: 0;
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+            font-size: .875rem;
+            font-weight: 400;
+            line-height: 1.5;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #fff;
+
+            .mi {
+                font-size: 16px;
+                color: $default500;
+                user-select: none;
+            }
+        }
+
+       @extend %focusStyle;
+    }
+
+    .input-group-append, .input-group-prepend {
+        display: flex;
+
+        &.input-group-append {
+            margin-left: -1px;
+        }
+
+        &.input-group-prepend {
+            margin-right: -1px;
+        }
+    }
+}
