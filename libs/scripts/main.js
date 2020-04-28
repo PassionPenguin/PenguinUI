@@ -270,6 +270,12 @@
                         });
                     }
                 }
+                if (detail[1].indexOf("data-role")) {
+                    if (detail[0].dataset.role === "link")
+                        detail[0].on("click", () => {
+                            window.location.href = detail[0].dataset.target;
+                        });
+                }
             });
     };
     const mutationObserver = new MutationObserver(init);
