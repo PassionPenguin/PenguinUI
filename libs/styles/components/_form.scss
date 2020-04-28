@@ -89,7 +89,7 @@
             background-color: $secondary200;
             opacity: 1;
 
-           &:focus {
+            &:focus {
                 border-color: $default200;
                 color: $default300;
             }
@@ -100,9 +100,13 @@
             flex: 1 1 auto;
             width: 1%;
             margin-bottom: 0;
-            padding: 0;
             height: 1.5rem;
             border: 0;
+            padding: 0;
+
+            &.icon-prepend {
+                padding: 0 0 0 6px;
+            }
         }
 
         .input-group-prepend .input-group-text {
@@ -129,7 +133,7 @@
             }
         }
 
-       @extend %focusStyle;
+        @extend %focusStyle;
     }
 
     .input-group-append, .input-group-prepend {

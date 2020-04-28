@@ -1251,9 +1251,12 @@ p, .text-default {
   flex: 1 1 auto;
   width: 1%;
   margin-bottom: 0;
-  padding: 0;
   height: 1.5rem;
   border: 0;
+  padding: 0;
+}
+.form-object .input-group .form-control.icon-prepend {
+  padding: 0 0 0 6px;
 }
 .form-object .input-group .input-group-prepend .input-group-text {
   border-top-right-radius: 0;

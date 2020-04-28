@@ -246,8 +246,10 @@
 
                         input.placeholder = "";
 
-                        if (detail[0].children[1].$(".input-group-prepend").length > 0)
+                        if (detail[0].children[1].$(".input-group-prepend").length > 0) {
                             detail[0].children[0].classList.add("icon-prepend");
+                            input.classList.add("icon-prepend");
+                        }
                         input.on("input", () => {
                             if (input.value !== "")
                                 detail[0].children[0].classList.add("inputted");
@@ -257,7 +259,7 @@
                         detail[0].on("click", () => {
                             setTimeout(() => {
                                 document.on("click", () => {
-                                    if (input.value === "")
+                                    if (input.value === "" && !input.matches(":focus"))
                                         detail[0].children[0].classList.remove("inputted");
                                 }, {once: true});
                             });
