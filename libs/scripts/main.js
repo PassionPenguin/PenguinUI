@@ -266,11 +266,12 @@
                                 e.remove();
                         }); // Remove Non-input&&Non-textarea eles in .form-object
 
-                        detail[0].appendNewChild({
-                            type: "div",
-                            attr: [["class", "text-description"], ["data-init", "true"]],
-                            innerText: input.dataset.textdescription || input.placeholder
-                        }); // Append Text-Description
+                        if (input.dataset.textdescription)
+                            detail[0].appendNewChild({
+                                type: "div",
+                                attr: [["class", "text-description"], ["data-init", "true"]],
+                                innerText: input.dataset.textdescription
+                            }); // Append Text-Description (notched label)
 
                         detail[0].appendNewChild({
                             type: "div",
@@ -294,31 +295,34 @@
                                 innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
                             })
 
-                        if (input.value !== "") // If input value !== "", inputted
+                        if (input.value !== "" && input.dataset.textdescription) // If input value !== "", inputted
                             detail[0].children[0].classList.add("inputted");
-                        input._placeholder = input.placeholder;
-                        input.placeholder = "";
 
-                        if (detail[0].children[1].$(".input-group-prepend").length > 0) {
+                        input._placeholder = input.placeholder;
+                        if (input.dataset.textdescription )
+                            input.placeholder = "";
+
+                        if (detail[0].children[input.dataset.textdescription ? 1 : 0].$(".input-group-prepend").length > 0) {
                             detail[0].children[0].classList.add("icon-prepend");
                             input.classList.add("icon-prepend");
                         }
-                        input.on("input", () => {
-                            if (input.value !== "" || input.matches(":focus"))
+                        let mr = new MutationObserver(() => {
+                            if (input.dataset.textdescription && (input.value !== "" || input.matches(":focus")))
                                 detail[0].children[0].classList.add("inputted");
                             else
                                 detail[0].children[0].classList.remove("inputted");
                         });
+                        mr.observe(input, {attributeFilter: ["value"], attributes: true})
                         detail[0].on("click", () => {
                             setTimeout(() => {
                                 document.on("click", () => {
-                                    if (input.value === "" && !input.matches(":focus")) {
+                                    if (input.dataset.textdescription && input.value === "" && !input.matches(":focus")) {
                                         detail[0].children[0].classList.remove("inputted");
                                         input.placeholder = "";
                                     }
                                 }, {once: true});
                             });
-                            if (!input.disabled) {
+                            if (input.dataset.textdescription && !input.disabled) {
                                 detail[0].children[0].classList.add("inputted");
                                 input.focus();
                                 setTimeout(() => {
