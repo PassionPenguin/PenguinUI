@@ -28,32 +28,57 @@
         <p>With designs, use the components in forms, dialogs, and more with support for multiple sizes, states, and
             more...</p>
         <h4>TextField</h4>
-        <p class="text-secondary">The TextField component enables a user to type text into an app. It's typically used
+        <p>The TextField component enables a user to type text into an app. It's typically used
             to capture a single line of text, and the text displays on the screen in a simple, uniform format. We'd
             given them some special design base on Google's design.</p>
-        <div class="col-6 mb-1">
-            <div class="form-object">
-                <input name="City" placeholder="City Name.." type="text">
+        <h5>Simple TextField</h5>
+        <div class="renderCode" id="defaultTextField">
+            <div class="rendered">
+                <div class="form-object">
+                    <input name="City" placeholder="City Name.." type="text">
+                </div>
+            </div>
+            <div class="collapseCode collapse">
+                <pre><code class="html"></code></pre>
             </div>
         </div>
-        <div class="col-6 mb-1">
-            <div class="form-object">
-                <textarea data-textDescription="Address.." name="Address"
-                          placeholder="Tianhe Park, Tianhe, Guangzhou, Guangdong..."></textarea>
+        <h5>Separated Placeholder & Description</h5>
+        <div class="renderCode" id="separatedDescription">
+            <div class="rendered">
+                <div class="form-object">
+                    <textarea data-textDescription="Address.." name="Address"
+                              placeholder="Tianhe Park, Tianhe, Guangzhou, Guangdong..."></textarea>
+                </div>
+            </div>
+            <div class="collapseCode collapse">
+                <pre><code class="html"></code></pre>
             </div>
         </div>
-        <div class="col-6 mb-1">
-            <div class="form-object">
-                <input data-prependIcon="flag" name="Nationality" placeholder="Nationality.." type="text">
+        <h5>With Prefix Icon</h5>
+        <div class="renderCode" id="prefixIcon">
+            <div class="rendered">
+                <div class="form-object">
+                    <input data-prependIcon="flag" name="Nationality" placeholder="Nationality.." type="text">
+                </div>
+            </div>
+            <div class="collapseCode collapse">
+                <pre><code class="html"></code></pre>
             </div>
         </div>
-        <div class="col-6 mb-1">
-            <div class="form-object">
-                <input data-appendIcon="translate" id="a" name="Language" placeholder="Language.." type="text">
+        <h5>With Suffix Icon</h5>
+        <div class="renderCode" id="suffixIcon">
+            <div class="rendered">
+                <div class="form-object">
+                    <input data-appendIcon="translate" id="a" name="Language" placeholder="Language.." type="text">
+                </div>
+            </div>
+            <div class="collapseCode collapse">
+                <pre><code class="html"></code></pre>
             </div>
         </div>
     </div>
 </div>
 <script src="../../libs/scripts/main.js"></script>
+<script src="../../resources/scripts/render.js"></script>
 </body>
 </html>
