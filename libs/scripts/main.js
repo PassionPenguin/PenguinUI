@@ -258,7 +258,7 @@
                         detail[0].appendNewChild({
                             type: "div",
                             attr: [["class", "text-description"], ["data-init", "true"]],
-                            innerText: input.dataset.textDescription || input.placeholder
+                            innerText: input.dataset.textdescription || input.placeholder
                         }); // Append Text-Description
 
                         detail[0].appendNewChild({
