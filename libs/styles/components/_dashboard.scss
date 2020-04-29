@@ -8,69 +8,67 @@
  */
 
 .dashboard-container {
-    overflow: hidden;
     width: 100%;
     height: 100%;
-}
 
-.dashboard-side {
-    display: inline-block;
-    vertical-align: top;
-    width: 240px;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 1rem 1rem 1rem 0;
-    border-right: 1px solid $secondary200;
-    margin: 0 1rem;
-}
+    .dashboard-side {
+        display: inline-block;
+        vertical-align: top;
+        width: 240px;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 1rem 1rem 1rem 0;
+        border-right: 1px solid $secondary200;
+        margin: 0 1rem;
+    }
 
-.dashboard-content {
-    display: inline-block;
-    vertical-align: top;
-    width: calc(100% - 240px - 3rem);
-    overflow: scroll;
-}
+    .dashboard-content {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 240px - 6rem);
+    }
 
-.dashboard-brand {
-    width: 100%;
-    text-align: center;
-    color: $default600;
-    font: 500 16px/2 $roboto;
-
-    * {
+    .dashboard-brand {
         width: 100%;
-    }
-}
-
-.dashboard-list {
-    padding: 0 24px;
-    box-sizing: border-box;
-
-    h6 {
-        font-size: 14px;
-        padding: 3px 6px;
-        margin-top: 1rem;
-    }
-}
-
-.dashboard-sublist {
-    list-style: none;
-    margin: 0;
-    font-size: 14px;
-    padding: 0;
-
-    li {
-        padding: 6px 9px;
-        border-radius: 3px;
-        cursor: pointer;
+        text-align: center;
+        color: $default600;
+        font: 500 16px/2 $roboto;
 
         * {
-            color: $default500;
-            text-decoration: none;
+            width: 100%;
         }
+    }
 
-        &:hover, &:focus {
-            background: $secondary200;
+    .dashboard-list {
+        padding: 0 24px;
+        box-sizing: border-box;
+
+        h6 {
+            font-size: 14px;
+            padding: 3px 6px;
+            margin-top: 1rem;
+        }
+    }
+
+    .dashboard-sublist {
+        list-style: none;
+        margin: 0;
+        font-size: 14px;
+        padding: 0;
+
+        li {
+            padding: 6px 9px;
+            border-radius: 3px;
+            cursor: pointer;
+
+            * {
+                color: $default500;
+                text-decoration: none;
+            }
+
+            &:hover, &:focus {
+                background: $secondary200;
+            }
         }
     }
 }
