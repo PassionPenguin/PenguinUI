@@ -244,77 +244,56 @@
                 }
                 if (detail[1].indexOf("class") !== -1) {
                     if (detail[0].classList.contains("form-object")) {
-                        let input = detail[0].$("input")[0];
-                        if (input && ["email", "number", "password", "search", "tel", "text", "url", "datetime"].indexOf(input.type) !== -1) {
-                            detail[0].children.forEach(e => {
-                                if (e.$("input").length !== 0 && e !== input)
-                                    e.remove();
-                            });
-                            detail[0].appendNewChild({
+                        let input = detail[0].$("input")[0] || detail[0].$("textarea")[0],
+                            isDefault = ["email", "number", "password", "search", "tel", "text", "url", "datetime"].indexOf(input.type) !== -1;
+                        if (!input)
+                            return; // NO-INPUT
+                        // input with attr ["email", "number", "password", "search", "tel", "text", "url", "datetime"] are default single-line input style
+
+                        detail[0].children.forEach(e => {
+                            if ((e.$("input").length !== 0 && e.$("textarea").length !== 0) && e !== input)
+                                e.remove();
+                        }); // Remove Non-input&&Non-textarea eles in .form-object
+
+                        detail[0].appendNewChild({
+                            type: "div",
+                            attr: [["class", "text-description"], ["data-init", "true"]],
+                            innerText: input.dataset.textDescription || input.placeholder
+                        }); // Append Text-Description
+
+                        detail[0].appendNewChild({
+                            type: "div",
+                            attr: [["class", "input-group"], ["data-init", "true"]]
+                        }); // Append Input's Wrap
+
+                        if (input.dataset.prependicon && isDefault) // Prepend-icon
+                            detail[0].children.last().appendNewChild({
                                 type: "div",
-                                attr: [["class", "text-description"], ["data-init", "true"]],
-                                innerText: input.placeholder
-                            });
-                            detail[0].appendNewChild({
+                                attr: [["class", 'input-group-prepend']],
+                                innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.prependicon}</div></div>`
+                            })
+
+                        detail[0].children.last().appendChild(input);
+                        input.classList.add("form-control");
+
+                        if (input.dataset.appendicon && isDefault) // Append-icon
+                            detail[0].children.last().appendNewChild({
                                 type: "div",
-                                attr: [["class", "input-group"], ["data-init", "true"]]
-                            });
-                            if (input.dataset.prependicon)
-                                detail[0].children.last().appendNewChild({
-                                    type: "div",
-                                    attr: [["class", 'input-group-prepend']],
-                                    innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.prependicon}</div></div>`
-                                })
-                            detail[0].children.last().appendChild(input);
-                            input.classList.add("form-control");
-                            if (input.dataset.appendicon)
-                                detail[0].children.last().appendNewChild({
-                                    type: "div",
-                                    attr: [["class", 'input-group-append']],
-                                    innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
-                                })
-                            input.attributes.forEach(e => {
-                                if (e.attr === "class")
-                                    input.setAttribute("class", e.value + "form-control");
-                                else
-                                    input.setAttribute(e.name, e.value);
-                            });
-                            if (input.value !== "")
-                                detail[0].children[0].classList.add("inputted");
-                            input.placeholder = "";
-                            if (detail[0].children[1].$(".input-group-prepend").length > 0) {
-                                detail[0].children[0].classList.add("icon-prepend");
-                                input.classList.add("icon-prepend");
-                            }
-                        } else if (detail[0].$("textarea")[0]) {
-                            input = detail[0].$("textarea")[0];
-                            detail[0].children.forEach(e => {
-                                if (e.$("input").length !== 0 && e !== input)
-                                    e.remove();
-                            });
-                            detail[0].appendNewChild({
-                                type: "div",
-                                attr: [["class", "text-description"], ["data-init", "true"]],
-                                innerText: input.placeholder
-                            });
-                            detail[0].appendNewChild({
-                                type: "div",
-                                attr: [["class", "input-group"], ["data-init", "true"]]
-                            });
-                            detail[0].children.last().appendChild(input);
-                            input.classList.add("form-control");
-                            input.attributes.forEach(e => {
-                                if (e.attr === "class")
-                                    input.setAttribute("class", e.value + "form-control");
-                                else
-                                    input.setAttribute(e.name, e.value);
-                            });
-                            if (input.value !== "")
-                                detail[0].children[0].classList.add("inputted");
-                            input.placeholder = "";
+                                attr: [["class", 'input-group-append']],
+                                innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
+                            })
+
+                        if (input.value !== "") // If input value !== "", inputted
+                            detail[0].children[0].classList.add("inputted");
+                        input._placeholder = input.placeholder;
+                        input.placeholder = "";
+
+                        if (detail[0].children[1].$(".input-group-prepend").length > 0) {
+                            detail[0].children[0].classList.add("icon-prepend");
+                            input.classList.add("icon-prepend");
                         }
                         input.on("input", () => {
-                            if (input.value !== "")
+                            if (input.value !== "" || input.matches(":focus"))
                                 detail[0].children[0].classList.add("inputted");
                             else
                                 detail[0].children[0].classList.remove("inputted");
@@ -322,13 +301,18 @@
                         detail[0].on("click", () => {
                             setTimeout(() => {
                                 document.on("click", () => {
-                                    if (input.value === "" && !input.matches(":focus"))
+                                    if (input.value === "" && !input.matches(":focus")) {
                                         detail[0].children[0].classList.remove("inputted");
+                                        input.placeholder = "";
+                                    }
                                 }, {once: true});
                             });
                             if (!input.disabled) {
                                 detail[0].children[0].classList.add("inputted");
                                 input.focus();
+                                setTimeout(() => {
+                                    input.placeholder = input._placeholder;
+                                }, 200); //Wait for animation (textDescription)
                             }
                         });
                     }
