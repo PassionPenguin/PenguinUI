@@ -245,46 +245,73 @@
                 if (detail[1].indexOf("class") !== -1) {
                     if (detail[0].classList.contains("form-object")) {
                         let input = detail[0].$("input")[0];
-                        detail[0].children.forEach(e => {
-                            if (e.$("input").length !== 0 && e !== input)
-                                e.remove();
-                        });
-                        detail[0].appendNewChild({
-                            type: "div",
-                            attr: [["class", "text-description"], ["data-init", "true"]],
-                            innerText: input.placeholder
-                        });
-                        detail[0].appendNewChild({
-                            type: "div",
-                            attr: [["class", "input-group"], ["data-init", "true"]]
-                        });
-                        if (input.dataset.prependicon)
-                            detail[0].children.last().appendNewChild({
+                        if (input && ["email", "number", "password", "search", "tel", "text", "url", "datetime"].indexOf(input.type) !== -1) {
+                            detail[0].children.forEach(e => {
+                                if (e.$("input").length !== 0 && e !== input)
+                                    e.remove();
+                            });
+                            detail[0].appendNewChild({
                                 type: "div",
-                                attr: [["class", 'input-group-prepend']],
-                                innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.prependicon}</div></div>`
-                            })
-                        detail[0].children.last().appendChild(input);
-                        input.classList.add("form-control");
-                        if (input.dataset.appendicon)
-                            detail[0].children.last().appendNewChild({
+                                attr: [["class", "text-description"], ["data-init", "true"]],
+                                innerText: input.placeholder
+                            });
+                            detail[0].appendNewChild({
                                 type: "div",
-                                attr: [["class", 'input-group-append']],
-                                innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
-                            })
-                        input.attributes.forEach(e => {
-                            if (e.attr === "class")
-                                detail[0].$("input")[0].setAttribute("class", e.value + "form-control");
-                            else
-                                detail[0].$("input")[0].setAttribute(e.name, e.value);
-                        });
-                        if (input.value !== "")
-                            detail[0].children[0].classList.add("inputted");
-                        input.placeholder = "";
-
-                        if (detail[0].children[1].$(".input-group-prepend").length > 0) {
-                            detail[0].children[0].classList.add("icon-prepend");
-                            input.classList.add("icon-prepend");
+                                attr: [["class", "input-group"], ["data-init", "true"]]
+                            });
+                            if (input.dataset.prependicon)
+                                detail[0].children.last().appendNewChild({
+                                    type: "div",
+                                    attr: [["class", 'input-group-prepend']],
+                                    innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.prependicon}</div></div>`
+                                })
+                            detail[0].children.last().appendChild(input);
+                            input.classList.add("form-control");
+                            if (input.dataset.appendicon)
+                                detail[0].children.last().appendNewChild({
+                                    type: "div",
+                                    attr: [["class", 'input-group-append']],
+                                    innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
+                                })
+                            input.attributes.forEach(e => {
+                                if (e.attr === "class")
+                                    input.setAttribute("class", e.value + "form-control");
+                                else
+                                    input.setAttribute(e.name, e.value);
+                            });
+                            if (input.value !== "")
+                                detail[0].children[0].classList.add("inputted");
+                            input.placeholder = "";
+                            if (detail[0].children[1].$(".input-group-prepend").length > 0) {
+                                detail[0].children[0].classList.add("icon-prepend");
+                                input.classList.add("icon-prepend");
+                            }
+                        } else if (detail[0].$("textarea")[0]) {
+                            input = detail[0].$("textarea")[0];
+                            detail[0].children.forEach(e => {
+                                if (e.$("input").length !== 0 && e !== input)
+                                    e.remove();
+                            });
+                            detail[0].appendNewChild({
+                                type: "div",
+                                attr: [["class", "text-description"], ["data-init", "true"]],
+                                innerText: input.placeholder
+                            });
+                            detail[0].appendNewChild({
+                                type: "div",
+                                attr: [["class", "input-group"], ["data-init", "true"]]
+                            });
+                            detail[0].children.last().appendChild(input);
+                            input.classList.add("form-control");
+                            input.attributes.forEach(e => {
+                                if (e.attr === "class")
+                                    input.setAttribute("class", e.value + "form-control");
+                                else
+                                    input.setAttribute(e.name, e.value);
+                            });
+                            if (input.value !== "")
+                                detail[0].children[0].classList.add("inputted");
+                            input.placeholder = "";
                         }
                         input.on("input", () => {
                             if (input.value !== "")

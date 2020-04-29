@@ -82,7 +82,7 @@
         align-items: stretch;
         border-radius: .25rem;
         border: 1px solid $secondary400;
-        height: 24px;
+        min-height: 24px;
         padding: 6px 12px;
 
         &.disabled {
@@ -100,9 +100,10 @@
             flex: 1 1 auto;
             width: 1%;
             margin-bottom: 0;
-            height: 1.5rem;
             border: 0;
             padding: 0;
+            min-height: 24px;
+            line-height: 24px;
 
             &.icon-prepend {
                 padding: 0 0 0 6px;

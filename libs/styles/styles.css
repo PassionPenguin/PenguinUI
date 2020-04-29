@@ -1255,7 +1255,7 @@ p, .text-default {
   align-items: stretch;
   border-radius: 0.25rem;
   border: 1px solid #BDBDBD;
-  height: 24px;
+  min-height: 24px;
   padding: 6px 12px;
 }
 .form-object .input-group.disabled {
@@ -1271,9 +1271,10 @@ p, .text-default {
   flex: 1 1 auto;
   width: 1%;
   margin-bottom: 0;
-  height: 1.5rem;
   border: 0;
   padding: 0;
+  min-height: 24px;
+  line-height: 24px;
 }
 .form-object .input-group .form-control.icon-prepend {
   padding: 0 0 0 6px;
