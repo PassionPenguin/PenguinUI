@@ -17,7 +17,7 @@
 }
 
 .container {
-    width: 100%;
+    width: calc(100% - 36px - 24px);
     padding-left: 18px;
     padding-right: 18px;
     margin-left: auto;
