@@ -1,4 +1,13 @@
 (() => {
+    window.copy = (value = "", opt = {}) => {
+        let input = document.createElement("input");
+        input.value = value;
+        document.body.appendChild(input);
+        input.select();
+        input.setSelectionRange(0, value.length);
+        document.execCommand("copy");
+        input.remove();
+    };
     window.$ = (selector = "body", context = document) => {
         return context.querySelectorAll(selector);
     };
@@ -214,8 +223,10 @@
                         detail[0].onclick = () => {
                             if (target.style.maxHeight) {
                                 target.style.maxHeight = null;
+                                target.style.opacity = "0";
                             } else {
                                 target.style.maxHeight = target.style.height || (target.scrollHeight + "px");
+                                target.style.opacity = "1";
                             }
                         };
                     } else if (detail[0].getAttribute("data-toggle") === "dropdown") {
