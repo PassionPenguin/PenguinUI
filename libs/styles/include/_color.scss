@@ -71,7 +71,9 @@ $secondary800: #424242;
 $secondary900: #212121;
 
 %focusStyle {
-    &:focus {
+    transition: border-color 500ms ease;
+
+    &:focus, &.active {
         border-color: $default500;
     }
 
@@ -79,7 +81,7 @@ $secondary900: #212121;
         color: $primary500;
         border-color: $primary200;
 
-        &:focus {
+        &:focus, &.active {
             border-color: $primary500;
         }
     }
@@ -88,7 +90,7 @@ $secondary900: #212121;
         color: $info500;
         border-color: $info200;
 
-        &:focus {
+        &:focus, &.active {
             border-color: $info500;
         }
     }
@@ -97,7 +99,7 @@ $secondary900: #212121;
         color: $success500;
         border-color: $success200;
 
-        &:focus {
+        &:focus, &.active {
             border-color: $success500;
         }
     }
@@ -106,7 +108,7 @@ $secondary900: #212121;
         color: $danger500;
         border-color: $danger200;
 
-        &:focus {
+        &:focus, &.active {
             border-color: $danger500;
         }
     }
@@ -115,7 +117,7 @@ $secondary900: #212121;
         color: $warning500;
         border-color: $warning200;
 
-        &:focus {
+        &:focus, &.active {
             border-color: $warning500;
         }
     }
