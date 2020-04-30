@@ -47,7 +47,7 @@
         <div class="renderCode" id="withDangerColor">
             <div class="rendered">
                 <div class="form-object">
-                    <input name="City" placeholder="City Name.." type="text" data-color="danger">
+                    <input data-color="danger" name="City" placeholder="City Name.." type="text">
                 </div>
             </div>
             <div class="collapseCode collapse">
@@ -55,17 +55,30 @@
                 <pre><code class="js">new TextField({placeholder: "City Name..", name: "City", color: "danger"})</code></pre>
             </div>
         </div>
-        <h5>Separated Placeholder & Description</h5>
-        <div class="renderCode" id="separatedDescription">
+        <h5>Textarea</h5>
+        <div class="renderCode" id="textArea">
             <div class="rendered">
                 <div class="form-object">
-                    <textarea data-textDescription="Address.." name="Address"
-                              placeholder="Tianhe Park, Tianhe, Guangzhou, Guangdong..."></textarea>
+                    <textarea name="Tips"
+                              placeholder="Fear is nothing but the unknown things in your heart..."></textarea>
                 </div>
             </div>
             <div class="collapseCode collapse">
                 <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "Tianhe Park, Tianhe, Guangzhou, Guangdong...", description: "Address..", name: "Address", size: "textarea"})</code></pre>
+                <pre><code class="js">new TextField({placeholder: "Fear is nothing but the unknown things in your heart...", name: "Tips", size: "textarea"})</code></pre>
+            </div>
+        </div>
+        <h5>Separated Placeholder & Description</h5>
+        <div class="renderCode" id="separatedDescription">
+            <div class="rendered">
+                <div class="form-object">
+                    <input data-textDescription="Address.." name="Address"
+                           placeholder="Tianhe Park, Tianhe, Guangzhou, Guangdong..."/>
+                </div>
+            </div>
+            <div class="collapseCode collapse">
+                <pre><code class="html"></code></pre>
+                <pre><code class="js">new TextField({placeholder: "Tianhe Park, Tianhe, Guangzhou, Guangdong...", description: "Address..", name: "Address"k})</code></pre>
             </div>
         </div>
         <h5>With Prefix Icon</h5>
