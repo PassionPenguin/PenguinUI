@@ -998,8 +998,10 @@ hljs.registerLanguage("javascript", function () {
                             val = val.replace(new RegExp(s + "$"), "")
                         }
                     }
-                    $(`#${detail[0].id} code`)[0].innerHTML = val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-                    hljs.highlightBlock($(`#${detail[0].id} code`)[0]);
+                    $(`#${detail[0].id} code.html`)[0].innerHTML = val.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                    $(`#${detail[0].id} pre code`).forEach(e => {
+                        hljs.highlightBlock(e);
+                    })
                     detail[0].children.last().appendNewChild({
                         type: "div",
                         attr: [["class", "pg-render-code-icon btn-link"]],

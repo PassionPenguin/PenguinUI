@@ -1,3 +1,41 @@
+class TextField {
+    constructor(opt = {
+        name: null,
+        id: null,
+        className: null,
+        prependicon: null,
+        appendicon: null,
+        placeholder: null,
+        description: null,
+        size: null,
+        value: null
+    }) {
+        let i = createElement({type: (opt.size === "textarea" ? "textarea" : "input")});
+        if (opt.prependicon)
+            i.setAttribute("data-prependIcon", opt.prependicon);
+        if (opt.appendicon)
+            i.setAttribute("data-appendIcon", opt.appendicon);
+        if (opt.description)
+            i.setAttribute("data-textDescription", opt.description);
+        if (opt.name)
+            i.setAttribute("name", opt.name);
+        if (opt.id)
+            i.setAttribute("id", opt.id);
+        if (opt.className)
+            i.setAttribute("class", opt.className);
+        if (opt.placeholder)
+            i.setAttribute("placeholder", opt.placeholder);
+
+        i.classList.add("form-control");
+        let j = createElement({
+            type: "div",
+            attr: [["class", "form-object"]]
+        });
+        j.appendChild(i);
+        return j;
+    }
+}
+
 (() => {
     window.copy = (value = "", opt = {}) => {
         let input = document.createElement("input");
@@ -35,7 +73,6 @@
             el.onclick = data.onclick;
         return el;
     };
-
     Element.prototype.bcr = HTMLDocument.prototype.bcr = function () {
         return this.getBoundingClientRect();
     };
@@ -299,7 +336,7 @@
                             detail[0].children[0].classList.add("inputted");
 
                         input._placeholder = input.placeholder;
-                        if (input.dataset.textdescription )
+                        if (input.dataset.textdescription)
                             input.placeholder = "";
 
                         if (detail[0].children[input.dataset.textdescription ? 1 : 0].$(".input-group-prepend").length > 0) {
