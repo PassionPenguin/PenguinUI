@@ -42,6 +42,7 @@
             display: inline-block;
             margin-left: 6px;
             line-height: 30px;
+            font-size: 15px;
         }
     }
 
@@ -89,9 +90,31 @@
             width: 100%;
         }
 
-        &.input-text {
+        &.input-checkbox {
             display: inline-block;
             vertical-align: middle;
+            border: 0;
+            background: transparent;
+            outline: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            appearance: none;
+            padding: 0;
+
+            &:before {
+                content: "check_box_outline_blank";
+                font-family: $mi;
+                font-size: 18px;
+                line-height: 18px;
+                width: 18px;
+                height: 18px;
+                color: $primary500;
+            }
+
+            &.inputted:before {
+                content: "check_box";
+            }
         }
     }
 
@@ -167,6 +190,7 @@
         &.input-checkbox {
             width: fit-content;
             margin: 0 auto;
+            cursor: pointer;
         }
     }
 

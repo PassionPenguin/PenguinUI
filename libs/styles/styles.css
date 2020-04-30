@@ -1220,6 +1220,7 @@ p, .text-default {
   display: inline-block;
   margin-left: 6px;
   line-height: 30px;
+  font-size: 15px;
 }
 .form-object .form-control {
   height: 24px;
@@ -1258,9 +1259,29 @@ p, .text-default {
   display: block;
   width: 100%;
 }
-.form-object .form-control.input-text {
+.form-object .form-control.input-checkbox {
   display: inline-block;
   vertical-align: middle;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  appearance: none;
+  padding: 0;
+}
+.form-object .form-control.input-checkbox:before {
+  content: "check_box_outline_blank";
+  font-family: "Material Icons", sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  width: 18px;
+  height: 18px;
+  color: #787bea;
+}
+.form-object .form-control.input-checkbox.inputted:before {
+  content: "check_box";
 }
 .form-object .input-group {
   position: relative;
@@ -1322,6 +1343,7 @@ p, .text-default {
 .form-object .input-group.input-checkbox {
   width: fit-content;
   margin: 0 auto;
+  cursor: pointer;
 }
 .form-object .input-group-append, .form-object .input-group-prepend {
   display: flex;
