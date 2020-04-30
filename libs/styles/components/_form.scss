@@ -53,8 +53,8 @@
         font-size: 12px;
         font-weight: 400;
         line-height: 1.5;
-        color: $default300;
-        background-color: #fff;
+        color: $default600;
+        background-color: transparent;
         background-clip: padding-box;
         box-shadow: none;
         transition: all 0.2s $cubic;
@@ -70,7 +70,7 @@
         }
 
         &:hover, &:focus {
-            color: $default700;
+            color: $default900;
             border-color: $default500;
         }
 
@@ -81,7 +81,7 @@
 
             &:hover, &:focus {
                 border-color: $default200;
-                color: $default300;
+                color: $default800;
             }
         }
 
@@ -175,7 +175,7 @@
                 line-height: 1.5;
                 text-align: center;
                 white-space: nowrap;
-                background-color: #fff;
+                background-color: transparent;
 
                 .mi {
                     font-size: 16px;

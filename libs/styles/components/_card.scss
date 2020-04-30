@@ -51,7 +51,7 @@
     }
 
     .card-footer, .card-header {
-        background-color: #fff;
+        background-color: $white;
     }
 
     .card-header {
@@ -108,7 +108,7 @@
 
     .full-bg + .card-body {
         z-index: 1;
-        background: #ffffff22;
+        background: $white;
     }
 
     img.overlay {

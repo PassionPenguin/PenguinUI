@@ -9,23 +9,26 @@
 
 .dashboard-container {
     width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 
     .dashboard-side {
-        display: inline-block;
         vertical-align: top;
         width: 240px;
-        height: 100%;
+        height: 100vh;
         box-sizing: border-box;
         padding: 1rem 1rem 1rem 0;
         border-right: 1px solid $secondary200;
         margin: 0 1rem;
+        position: sticky;
+        top: 0;
     }
 
     .dashboard-content {
-        display: inline-block;
         vertical-align: top;
         width: calc(100% - 240px - 6rem);
+        height: fit-content;
     }
 
     .dashboard-brand {

@@ -1,2 +1,7 @@
 @charset "UTF-8";
 @import "components/base";
+
+html, body {
+    background: $light;
+    color: $dark;
+}

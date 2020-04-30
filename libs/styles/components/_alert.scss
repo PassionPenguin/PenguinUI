@@ -32,7 +32,7 @@
             padding: 0;
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
-            color: #ffffff88;
+            color: $secondary200;
             opacity: 1;
             font: 1.5rem/1 $mi;
             display: inline-block;
@@ -42,7 +42,7 @@
             outline: none;
 
             &:hover, &:focus {
-                color: #fff;
+                color: $white;
             }
         }
     }
