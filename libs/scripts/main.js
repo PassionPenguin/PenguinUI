@@ -37,6 +37,39 @@ class TextField {
     }
 }
 
+class Button {
+    constructor(opt = {
+        name: null,
+        id: null,
+        className: null,
+        prependicon: null,
+        appendicon: null,
+        size: null,
+        style: null,
+        innerHTML: "Button",
+        color: "default",
+        ripple: true
+    }) {
+        let i = createElement({type: "button"});
+        if (opt.prependicon)
+            i.innerHTML = `<span class='mi'>${opt.prependicon}</span>`
+        i.innerHTML += opt.innerHTML;
+        if (opt.appendicon)
+            i.innerHTML = `<span class='mi'>${opt.appendicon}</span>`
+        if (opt.name)
+            i.setAttribute("name", opt.name);
+        if (opt.id)
+            i.setAttribute("id", opt.id);
+        i.setAttribute("class", `btn ${opt.className ? opt.className : ""} ${opt.size ? "btn-" + opt.size : ""} ${opt.style ? "btn-" + opt.style : ""}`.trim());
+        if (opt.placeholder)
+            i.setAttribute("placeholder", opt.placeholder);
+        if (opt.ripple)
+            i.setAttribute("ripple", "");
+
+        return i;
+    }
+}
+
 (() => {
     window.copy = (value = "", opt = {}) => {
         let input = document.createElement("input");
@@ -131,18 +164,18 @@ class TextField {
          */
         let changedInf = [],
             attrList = ["ripple", "data-toggle", "data-dismissible", "data-target", "href", "data-carousel", "data-position", "class"];
+        mutationRecord = mutationRecord[0];
         if (mutationRecord.type === "attributes" && attrList.indexOf(mutationRecord.attributeName) !== -1)
             changedInf.push([mutationRecord.target, mutationRecord.attributeName]);
 
-        else if (mutationRecord.type === "childList" && mutationRecord.addedNodes.length > 0)
+        else if (mutationRecord.addedNodes && mutationRecord.addedNodes.length > 0)
             mutationRecord.addedNodes.forEach(node => {
                 let list = [];
                 attrList.forEach(attr => {
-                    if (node.attributes[attr] !== undefined) {
+                    if (node.attributes[attr] !== undefined)
                         list.push(attr);
-                    }
                 });
-                if (node.tagName === "button" && node.attributes["ripple"] && node.attributes["ripple"].value !== "false" && list.indexOf("ripple") === -1)
+                if (node.attributes["ripple"] && list.indexOf("ripple") === -1)
                     list.push("ripple");
                 if (node.classList.contains("alert-dismissible") && list.indexOf("data-dismissible") === -1)
                     list.push("data-dismissible");
@@ -383,8 +416,8 @@ class TextField {
             });
     };
     const mutationObserver = new MutationObserver(init);
-    mutationObserver.observe(document.body, {subtree: true, childList: true, attributes: true});
     window.on("load", () => {
-        init({type: "childList", addedNodes: $("*")});
+        init([{type: "childList", addedNodes: $("*")}]);
+        mutationObserver.observe(document, {subtree: true, childList: true, attributes: true});
     });
 })();
