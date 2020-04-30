@@ -1,43 +1,43 @@
 @charset "UTF-8";
-.form-object .input-group {
+.form-object .input-group.input-text {
   transition: border-color 500ms ease;
 }
-.form-object .input-group:focus, .form-object .active.input-group {
+.form-object .input-group.input-text:focus, .form-object .active.input-group.input-text {
   border-color: #607D8B;
 }
-.form-object .primary.input-group {
+.form-object .primary.input-group.input-text {
   color: #787bea;
   border-color: #a4a1f8;
 }
-.form-object .primary.input-group:focus, .form-object .primary.active.input-group {
+.form-object .primary.input-group.input-text:focus, .form-object .primary.active.input-group.input-text {
   border-color: #787bea;
 }
-.form-object .info.input-group {
+.form-object .info.input-group.input-text {
   color: #0098d4;
   border-color: #80deea;
 }
-.form-object .info.input-group:focus, .form-object .info.active.input-group {
+.form-object .info.input-group.input-text:focus, .form-object .info.active.input-group.input-text {
   border-color: #0098d4;
 }
-.form-object .success.input-group {
+.form-object .success.input-group.input-text {
   color: #39cb6a;
   border-color: #87ddb8;
 }
-.form-object .success.input-group:focus, .form-object .success.active.input-group {
+.form-object .success.input-group.input-text:focus, .form-object .success.active.input-group.input-text {
   border-color: #39cb6a;
 }
-.form-object .danger.input-group {
+.form-object .danger.input-group.input-text {
   color: #f4364c;
   border-color: #efa79a;
 }
-.form-object .danger.input-group:focus, .form-object .danger.active.input-group {
+.form-object .danger.input-group.input-text:focus, .form-object .danger.active.input-group.input-text {
   border-color: #f4364c;
 }
-.form-object .warning.input-group {
+.form-object .warning.input-group.input-text {
   color: #ea8c01;
   border-color: #ffbc58;
 }
-.form-object .warning.input-group:focus, .form-object .warning.active.input-group {
+.form-object .warning.input-group.input-text:focus, .form-object .warning.active.input-group.input-text {
   border-color: #ea8c01;
 }
 
@@ -1100,6 +1100,7 @@ p, .text-default {
   padding: 6px 9px;
   border-radius: 3px;
   cursor: pointer;
+  font: 12px/1 "Open Sans", sans-serif;
 }
 .dashboard-container .dashboard-sublist li * {
   color: #607D8B;
@@ -1193,9 +1194,12 @@ p, .text-default {
   padding-top: 18px;
 }
 .form-object .text-description {
-  margin: 6px 0;
   font: 12px/1 "Open Sans", sans-serif;
   color: #37474F;
+  vertical-align: middle;
+}
+.form-object .text-description.input-text {
+  margin: 6px 0;
   padding-left: 2px;
   position: absolute;
   transition: all 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -1205,16 +1209,19 @@ p, .text-default {
   transform-origin: left;
   z-index: 1;
 }
-.form-object .text-description.icon-prepend {
+.form-object .text-description.input-text.icon-prepend {
   transform: translate(36px, 25px);
 }
-.form-object .text-description.inputted {
+.form-object .text-description.input-text.inputted {
   transform: translateY(-6px) scale(0.833333);
   color: #787bea;
 }
+.form-object .text-description.input-checkbox {
+  display: inline-block;
+  margin-left: 6px;
+  line-height: 30px;
+}
 .form-object .form-control {
-  display: block;
-  width: 100%;
   height: 24px;
   padding: 6px 12px;
   font-size: 12px;
@@ -1227,7 +1234,9 @@ p, .text-default {
   transition: all 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
   outline: none;
   border-radius: 0.25em;
-  border: 1px solid #B0BEC5;
+  border: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 .form-object .form-control.alternative {
   box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
@@ -1245,8 +1254,21 @@ p, .text-default {
   border-color: #B0BEC5;
   color: #90A4AE;
 }
+.form-object .form-control.input-text {
+  display: block;
+  width: 100%;
+}
+.form-object .form-control.input-text {
+  display: inline-block;
+  vertical-align: middle;
+}
 .form-object .input-group {
   position: relative;
+  min-height: 24px;
+  padding: 6px 12px;
+  align-items: stretch;
+}
+.form-object .input-group.input-text {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
@@ -1255,15 +1277,15 @@ p, .text-default {
   min-height: 24px;
   padding: 6px 12px;
 }
-.form-object .input-group.disabled {
+.form-object .input-group.input-text.disabled {
   background-color: #EEEEEE;
   opacity: 1;
 }
-.form-object .input-group.disabled:focus {
+.form-object .input-group.input-text.disabled:focus {
   border-color: #B0BEC5;
   color: #90A4AE;
 }
-.form-object .input-group .form-control {
+.form-object .input-group.input-text .form-control[type=email], .form-object .input-group.input-text .form-control[type=number], .form-object .input-group.input-text .form-control[type=password], .form-object .input-group.input-text .form-control[type=search], .form-object .input-group.input-text .form-control[type=tel], .form-object .input-group.input-text .form-control[type=text], .form-object .input-group.input-text .form-control[type=url], .form-object .input-group.input-text .form-control[type=datetime] {
   position: relative;
   flex: 1 1 auto;
   width: 1%;
@@ -1273,15 +1295,15 @@ p, .text-default {
   min-height: 24px;
   line-height: 24px;
 }
-.form-object .input-group .form-control.icon-prepend {
+.form-object .input-group.input-text .form-control[type=email].icon-prepend, .form-object .input-group.input-text .form-control[type=number].icon-prepend, .form-object .input-group.input-text .form-control[type=password].icon-prepend, .form-object .input-group.input-text .form-control[type=search].icon-prepend, .form-object .input-group.input-text .form-control[type=tel].icon-prepend, .form-object .input-group.input-text .form-control[type=text].icon-prepend, .form-object .input-group.input-text .form-control[type=url].icon-prepend, .form-object .input-group.input-text .form-control[type=datetime].icon-prepend {
   padding: 0 0 0 6px;
 }
-.form-object .input-group .input-group-prepend .input-group-text {
+.form-object .input-group.input-text .input-group-prepend .input-group-text {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
 }
-.form-object .input-group .input-group-text {
+.form-object .input-group.input-text .input-group-text {
   display: flex;
   align-items: center;
   margin-bottom: 0;
@@ -1292,10 +1314,14 @@ p, .text-default {
   white-space: nowrap;
   background-color: #fff;
 }
-.form-object .input-group .input-group-text .mi {
+.form-object .input-group.input-text .input-group-text .mi {
   font-size: 16px;
   color: #607D8B;
   user-select: none;
+}
+.form-object .input-group.input-checkbox {
+  width: fit-content;
+  margin: 0 auto;
 }
 .form-object .input-group-append, .form-object .input-group-prepend {
   display: flex;
@@ -1305,6 +1331,11 @@ p, .text-default {
 }
 .form-object .input-group-append.input-group-prepend, .form-object .input-group-prepend.input-group-prepend {
   margin-right: -1px;
+}
+
+.input-group textarea.form-control.input-text {
+  min-height: 24px;
+  padding: 3px 6px;
 }
 
 /*

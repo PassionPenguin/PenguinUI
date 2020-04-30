@@ -19,92 +19,110 @@
         <div class="dashboard-list">
             <h6><b>Components</b></h6>
             <ul class="dashboard-sublist">
-                <li data-role="link" data-target="form.html">Form</li>
+                <li data-role="link" data-target="form.html">Form Objects</li>
             </ul>
         </div>
     </div>
     <div class="dashboard-content">
         <h3>Form Components</h3>
-        <p>With designs, use the components in forms, dialogs, and more with support for multiple sizes, states, and
+        <p>With designs, use the component in forms, dialogs, and more with support for multiple sizes, states, and
             more...</p>
-        <h4>TextField</h4>
-        <p>The TextField component enables a user to type text into an app. It's typically used
-            to capture a single line of text, and the text displays on the screen in a simple, uniform format. We'd
-            given them some special design base on Google's design.</p>
-        <h5>Simple TextField</h5>
-        <div class="renderCode" id="defaultTextField">
-            <div class="rendered">
-                <div class="form-object">
-                    <input name="City" placeholder="City Name.." type="text">
+        <section id="CheckBox">
+            <h4>CheckBox</h4>
+            <p>Checkbox component with different styles...</p>
+            <h5>Simple CheckBox</h5>
+            <div class="renderCode" id="defaultCheckBox">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input name="Guangzhou" data-textDescription="Guangzhou" type="checkbox">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
                 </div>
             </div>
-            <div class="collapseCode collapse">
-                <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "City Name..", name: "City"})</code></pre>
-            </div>
-        </div>
-        <h5>With Color Styles</h5>
-        <div class="renderCode" id="withDangerColor">
-            <div class="rendered">
-                <div class="form-object">
-                    <input data-color="danger" name="City" placeholder="City Name.." type="text">
+        </section>
+        <section id="TextField">
+            <h4>TextField</h4>
+            <p>The TextField component enables a user to type text into an app. It's typically used
+                to capture a single line of text, and the text displays on the screen in a simple, uniform format. We'd
+                given them some special design base on Google's design.</p>
+            <h5>Simple TextField</h5>
+            <div class="renderCode" id="defaultTextField">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input name="City" placeholder="City Name.." type="text">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                    <pre><code class="js">new TextField({placeholder: "City Name..", name: "City"})</code></pre>
                 </div>
             </div>
-            <div class="collapseCode collapse">
-                <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "City Name..", name: "City", color: "danger"})</code></pre>
+            <h5>With Color Styles</h5>
+            <div class="renderCode" id="withDangerColor">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input data-color="danger" name="City" placeholder="City Name.." type="text">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                    <pre><code
+                            class="js">new TextField({placeholder: "City Name..", name: "City", color: "danger"})</code></pre>
+                </div>
             </div>
-        </div>
-        <h5>Textarea</h5>
-        <div class="renderCode" id="textArea">
-            <div class="rendered">
-                <div class="form-object">
+            <h5>Textarea</h5>
+            <div class="renderCode" id="textArea">
+                <div class="rendered">
+                    <div class="form-object">
                     <textarea name="Tips"
                               placeholder="Fear is nothing but the unknown things in your heart..."></textarea>
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                    <pre><code class="js">new TextField({placeholder: "Fear is nothing but the unknown things in your heart...", name: "Tips", size: "textarea"})</code></pre>
                 </div>
             </div>
-            <div class="collapseCode collapse">
-                <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "Fear is nothing but the unknown things in your heart...", name: "Tips", size: "textarea"})</code></pre>
-            </div>
-        </div>
-        <h5>Separated Placeholder & Description</h5>
-        <div class="renderCode" id="separatedDescription">
-            <div class="rendered">
-                <div class="form-object">
-                    <input data-textDescription="Address.." name="Address"
-                           placeholder="Tianhe Park, Tianhe, Guangzhou, Guangdong..."/>
+            <h5>Separated Placeholder & Description</h5>
+            <div class="renderCode" id="separatedDescription">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input data-textDescription="Address.." name="Address"
+                               placeholder="Tianhe Park, Tianhe, Guangzhou, Guangdong..."/>
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                    <pre><code class="js">new TextField({placeholder: "Tianhe Park, Tianhe, Guangzhou, Guangdong...", description: "Address..", name: "Address"k})</code></pre>
                 </div>
             </div>
-            <div class="collapseCode collapse">
-                <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "Tianhe Park, Tianhe, Guangzhou, Guangdong...", description: "Address..", name: "Address"k})</code></pre>
-            </div>
-        </div>
-        <h5>With Prefix Icon</h5>
-        <div class="renderCode" id="prefixIcon">
-            <div class="rendered">
-                <div class="form-object">
-                    <input data-prependIcon="flag" name="Nationality" placeholder="Nationality.." type="text">
+            <h5>With Prefix Icon</h5>
+            <div class="renderCode" id="prefixIcon">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input data-prependIcon="flag" name="Nationality" placeholder="Nationality.." type="text">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                    <pre><code class="js">new TextField({placeholder: "Nationality..", name: "Nationality", prependicon: "flag"})</code></pre>
                 </div>
             </div>
-            <div class="collapseCode collapse">
-                <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "Nationality..", name: "Nationality", prependicon: "flag"})</code></pre>
-            </div>
-        </div>
-        <h5>With Suffix Icon</h5>
-        <div class="renderCode" id="suffixIcon">
-            <div class="rendered">
-                <div class="form-object">
-                    <input data-appendIcon="translate" id="a" name="Language" placeholder="Language.." type="text">
+            <h5>With Suffix Icon</h5>
+            <div class="renderCode" id="suffixIcon">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input data-appendIcon="translate" id="a" name="Language" placeholder="Language.." type="text">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                    <pre><code class="js">new TextField({placeholder: "Language..", name: "Language", appendicon: "translate"})</code></pre>
                 </div>
             </div>
-            <div class="collapseCode collapse">
-                <pre><code class="html"></code></pre>
-                <pre><code class="js">new TextField({placeholder: "Language..", name: "Language", appendicon: "translate"})</code></pre>
-            </div>
-        </div>
+        </section>
     </div>
 </div>
 <script src="../../libs/scripts/main.js"></script>
