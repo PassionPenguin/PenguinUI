@@ -8,7 +8,8 @@ class TextField {
         placeholder: null,
         description: null,
         size: null,
-        value: null
+        value: null,
+        color: "default"
     }) {
         let i = createElement({type: (opt.size === "textarea" ? "textarea" : "input")});
         if (opt.prependicon)
@@ -29,7 +30,7 @@ class TextField {
         i.classList.add("form-control");
         let j = createElement({
             type: "div",
-            attr: [["class", "form-object"]]
+            attr: [["class", "form-object" + color]]
         });
         j.appendChild(i);
         return j;
@@ -312,7 +313,7 @@ class TextField {
 
                         detail[0].appendNewChild({
                             type: "div",
-                            attr: [["class", "input-group"], ["data-init", "true"]]
+                            attr: [["class", "input-group " + input.dataset.color || "default"], ["data-init", "true"]]
                         }); // Append Input's Wrap
 
                         if (input.dataset.prependicon && isDefault) // Prepend-icon
@@ -357,8 +358,12 @@ class TextField {
                                         detail[0].children[0].classList.remove("inputted");
                                         input.placeholder = "";
                                     }
+                                    if (!input.matches(":focus"))
+                                        input.parentElement.classList.remove("active");
                                 }, {once: true});
                             });
+                            if (!input.disabled)
+                                input.parentElement.classList.add("active");
                             if (input.dataset.textdescription && !input.disabled) {
                                 detail[0].children[0].classList.add("inputted");
                                 input.focus();

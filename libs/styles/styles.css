@@ -1,40 +1,43 @@
 @charset "UTF-8";
-.form-object .input-group:focus {
+.form-object .input-group {
+  transition: border-color 500ms ease;
+}
+.form-object .input-group:focus, .form-object .active.input-group {
   border-color: #607D8B;
 }
 .form-object .primary.input-group {
   color: #787bea;
   border-color: #a4a1f8;
 }
-.form-object .primary.input-group:focus {
+.form-object .primary.input-group:focus, .form-object .primary.active.input-group {
   border-color: #787bea;
 }
 .form-object .info.input-group {
   color: #0098d4;
   border-color: #80deea;
 }
-.form-object .info.input-group:focus {
+.form-object .info.input-group:focus, .form-object .info.active.input-group {
   border-color: #0098d4;
 }
 .form-object .success.input-group {
   color: #39cb6a;
   border-color: #87ddb8;
 }
-.form-object .success.input-group:focus {
+.form-object .success.input-group:focus, .form-object .success.active.input-group {
   border-color: #39cb6a;
 }
 .form-object .danger.input-group {
   color: #f4364c;
   border-color: #efa79a;
 }
-.form-object .danger.input-group:focus {
+.form-object .danger.input-group:focus, .form-object .danger.active.input-group {
   border-color: #f4364c;
 }
 .form-object .warning.input-group {
   color: #ea8c01;
   border-color: #ffbc58;
 }
-.form-object .warning.input-group:focus {
+.form-object .warning.input-group:focus, .form-object .warning.active.input-group {
   border-color: #ea8c01;
 }
 
