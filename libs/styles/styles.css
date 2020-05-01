@@ -1426,19 +1426,16 @@ p, .text-default {
   border-color: var(--default200);
   color: var(--default800);
 }
-
 .form-object .form-control.input-text {
   display: block;
   width: 100%;
   color: var(--default800);
   font-family: "Open Sans", sans-serif;
 }
-
 .form-object .form-control.input-text:hover, .form-object .form-control.input-text:focus {
   color: var(--default900);
   border-color: var(--default500);
 }
-
 .form-object .form-control.input-checkbox {
   display: inline-block;
   vertical-align: middle;
@@ -1543,6 +1540,11 @@ p, .text-default {
 .form-object .form-control.combo-list > *.active {
   background: var(--default50);
 }
+
+.form-object .form-control.combo-list > *.hidden {
+  display: none;
+}
+
 .form-object .form-control.combo-list:not(.show) {
   opacity: 0;
   z-index: -1;

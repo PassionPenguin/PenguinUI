@@ -410,7 +410,42 @@ class Button {
                                     };
                                     comboList.style.top = bcr().top - cbcr().height > 0 ? ((bcr().top - 12 - cbcr().height) + "px") : ((bcr().top + bcr().height + 12) + "px");
                                     comboList.style.left = (bcr().left - 12) + "px";
+                                }, autoComplete = (ev) => {
+                                    if (!isCombo) return;
+                                    let resList = [[], []],
+                                        matches = [...comboList.children].map(i => i.textContent),
+                                        val = input.value, firstEl;
+                                    if (ev && ev.inputType && ev.inputType.includes("delete")) firstEl = true;
+                                    comboList.$(".hidden").forEach(e => {
+                                        e.classList.remove("hidden")
+                                    });
+                                    comboScrollListener();
+                                    matches.forEach((e, index) => {
+                                        if (val.toLowerCase() === e.substring(0, val.length).toLowerCase()) {
+                                            resList[0].push(e);
+                                            resList[1].push(index);
+                                            if (!firstEl) {
+                                                firstEl = true;
+                                                input.value = matches[index];
+                                                input.setSelectionRange(val.length, e.length);
+                                            }
+                                        }
+                                    });
+                                    for (let i = 0; i < matches.length; i++) {
+                                        if (resList[1].indexOf(i) === -1)
+                                            comboList.children[i].classList.add("hidden");
+                                    }
+                                    comboScrollListener();
+                                }, keypress = e => {
+                                    if (e.key.toLowerCase() === "enter") {
+                                        input.setSelectionRange(input.value.length, input.value.length);
+                                        let matches = [...comboList.children].map(i => i.textContent.toLowerCase());
+                                        if (matches.indexOf(input.value.toLowerCase()) !== -1)
+                                            comboList.children[matches.indexOf(input.value.toLowerCase())].click();
+                                    }
                                 };
+                                input.on("keypress", keypress);
+                                input.on("input", autoComplete);
                                 detail[0].on("click", () => {
                                     setTimeout(() => {
                                         document.on("click", () => {
@@ -437,6 +472,10 @@ class Button {
                                     }
                                     if (isCombo) {
                                         setTimeout(() => {
+                                            if (input.value === "")
+                                                comboList.$(".hidden").forEach(e => {
+                                                    e.classList.remove("hidden")
+                                                });
                                             comboList.classList.add("show");
                                             comboScrollListener();
                                             window.on("scroll", comboScrollListener);
@@ -451,12 +490,13 @@ class Button {
                                     comboList.children.forEach((el, index) => {
                                         el.on("click", (ev) => {
                                             ev.stopPropagation();
-                                            input.setAttribute("value", el.attributes["value"] ? el.attributes["value"].value : index);
+                                            input.value = el.textContent;
                                             comboList.$(".active")[0] ? comboList.$(".active")[0].classList.remove("active") : void (0);
                                             el.classList.add("active");
                                             comboList.classList.remove("show");
                                             window.removeEventListener("scroll", comboScrollListener);
                                             input.blur();
+                                            autoComplete();
                                         });
                                     });
                                 }

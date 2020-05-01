@@ -215,6 +215,10 @@
                 &.active {
                     background: $default50;
                 }
+
+                &.hidden {
+                    display: none;
+                }
             }
 
             &:not(.show) {
