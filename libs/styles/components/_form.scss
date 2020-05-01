@@ -181,6 +181,47 @@
                 }
             }
         }
+
+        &.combo-list {
+            max-width: 400px;
+            max-height: 480px;
+            height: fit-content;
+            position: fixed;
+            background: $white;
+            padding: 12px 0;
+            list-style: none;
+            border-radius: 3px;
+            overflow: scroll;
+            margin: 0;
+            box-shadow: $boxshadow100;
+            z-index: 1;
+
+            &:hover, &:focus {
+                color: $default600;
+            }
+
+            & > * {
+                padding: 6px 12px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                font-weight: 600;
+                cursor: pointer;
+
+                &:hover, &:focus, &.active {
+                    color: $primary500;
+                }
+
+                &.active {
+                    background: $default50;
+                }
+            }
+
+            &:not(.show) {
+                opacity: 0;
+                z-index: -1;
+            }
+        }
     }
 
     .input-group {
@@ -272,5 +313,6 @@
 
 .input-group textarea.form-control.input-text {
     min-height: 24px;
+    min-width: 100%;
     padding: 3px 6px;
 }

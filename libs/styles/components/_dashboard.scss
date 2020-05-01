@@ -19,7 +19,6 @@
         height: 100vh;
         box-sizing: border-box;
         padding: 1rem 1rem 1rem 0;
-        border-right: 1px solid $secondary200;
         margin: 0 1rem;
         position: sticky;
         top: 0;
@@ -29,6 +28,9 @@
         vertical-align: top;
         width: calc(100% - 240px - 6rem);
         height: fit-content;
+        padding: 2rem;
+        box-shadow: var(--boxshadow100);
+        background: var(--light);
     }
 
     .dashboard-brand {

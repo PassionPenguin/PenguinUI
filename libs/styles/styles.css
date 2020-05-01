@@ -1,9 +1,13 @@
 @charset "UTF-8";
 html {
+  --boxshadow50: 0 1.6px 3.6px 0 rgba(0, 0, 0, .132), 0 0.3px 0.9px 0 rgba(0, 0, 0, .108);
+  --boxshadow100: 0 3.2px 7.2px 0 rgba(0, 0, 0, .132), 0 0.6px 1.8px 0 rgba(0, 0, 0, .108);
+  --boxshadow200: 0 6.4px 14.4px 0 rgba(0, 0, 0, .132), 0 1.2px 3.6px 0 rgba(0, 0, 0, .108);
+  --boxshadow300: 0 25.6px 57.6px 0 rgba(0, 0, 0, .22), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18);
   --white: #fff;
   --black: #000;
-  --light: #eee;
-  --dark: #111;
+  --light: #fff;
+  --dark: #222;
   --primary50: #f4f5ff;
   --primary100: #cdc8fc;
   --primary200: #a4a1f8;
@@ -78,9 +82,13 @@ html {
 
 @media (prefers-color-scheme: dark) {
   html {
+    --boxshadow50: 0 1.6px 3.6px 0 rgba(255, 255, 255, .132), 0 0.3px 0.9px 0 rgba(255, 255, 255, .108);
+    --boxshadow100: 0 3.2px 7.2px 0 rgba(255, 255, 255, .132), 0 0.6px 1.8px 0 rgba(255, 255, 255, .108);
+    --boxshadow200: 0 6.4px 14.4px 0 rgba(255, 255, 255, .132), 0 1.2px 3.6px 0 rgba(255, 255, 255, .108);
+    --boxshadow300: 0 25.6px 57.6px 0 rgba(255, 255, 255, .22), 0 4.8px 14.4px 0 rgba(255, 255, 255, .18);
     --white: #000;
     --black: #fff;
-    --light: #111;
+    --light: #222;
     --dark: #eee;
     --primary900: #f4f5ff;
     --primary800: #cdc8fc;
@@ -391,6 +399,7 @@ blockquote p {
 
 p, .text-default {
   color: var(--secondary900);
+  font-weight: 400;
 }
 
 .text-primary {
@@ -1220,7 +1229,6 @@ p, .text-default {
   height: 100vh;
   box-sizing: border-box;
   padding: 1rem 1rem 1rem 0;
-  border-right: 1px solid var(--secondary200);
   margin: 0 1rem;
   position: sticky;
   top: 0;
@@ -1229,6 +1237,9 @@ p, .text-default {
   vertical-align: top;
   width: calc(100% - 240px - 6rem);
   height: fit-content;
+  padding: 2rem;
+  box-shadow: var(--boxshadow100);
+  background: var(--light);
 }
 .dashboard-container .dashboard-brand {
   width: 100%;
@@ -1490,20 +1501,65 @@ p, .text-default {
 .form-object .form-control.input-checkbox:disabled[indeterminate]:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
 }
+
 .form-object .form-control.input-checkbox[indeterminate]:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
 }
+
 @media (prefers-color-scheme: dark) {
   .form-object .form-control.input-checkbox[indeterminate]:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
   }
 }
+
+.form-object .form-control.combo-list {
+  max-width: 400px;
+  max-height: 480px;
+  height: fit-content;
+  position: fixed;
+  background: var(--white);
+  padding: 12px 0;
+  list-style: none;
+  border-radius: 3px;
+  overflow: scroll;
+  margin: 0;
+  box-shadow: var(--boxshadow100);
+  z-index: 1;
+}
+
+.form-object .form-control.combo-list:hover, .form-object .form-control.combo-list:focus {
+  color: var(--default600);
+}
+
+.form-object .form-control.combo-list > * {
+  padding: 6px 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-object .form-control.combo-list > *:hover, .form-object .form-control.combo-list > *:focus, .form-object .form-control.combo-list > *.active {
+  color: var(--primary500);
+}
+
+.form-object .form-control.combo-list > *.active {
+  background: var(--default50);
+}
+
+.form-object .form-control.combo-list:not(.show) {
+  opacity: 0;
+  z-index: -1;
+}
+
 .form-object .input-group {
   position: relative;
   min-height: 24px;
   padding: 6px 12px;
   align-items: stretch;
 }
+
 .form-object .input-group.input-text {
   display: flex;
   flex-wrap: wrap;
@@ -1570,6 +1626,7 @@ p, .text-default {
 
 .input-group textarea.form-control.input-text {
   min-height: 24px;
+  min-width: 100%;
   padding: 3px 6px;
 }
 

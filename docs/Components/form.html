@@ -31,7 +31,20 @@
             more...</p>
         <section id="CheckBox">
             <h4>CheckBox</h4>
-            <p>Checkbox component with different styles...</p>
+            <p>A Checkbox is a UI element that allows users to switch between two mutually exclusive options (checked or
+                unchecked, on or off) through a single click or tap. It can also be used to indicate a subordinate
+                setting or preference when paired with another control.</p>
+            <p>A Checkbox is used to select or deselect action items. It can be used for a single item or for a list of
+                multiple items that a user can choose from. The control has two selection states: unselected and
+                selected.</p>
+            <p>Use a single Checkbox for a subordinate setting, such as with a "Remember me?" login scenario or with a
+                terms of service agreement.</p>
+            <p>For a binary choice, the main difference between a Checkbox and a toggle switch is that the Checkbox is
+                for status and the toggle switch is for action. You can delay committing a Checkbox interaction (as part
+                of a form submit, for example), while you should immediately commit a toggle switch interaction. Also,
+                only Checkboxes allow for multi-selection.</p>
+            <p>Use multiple Checkboxes for multi-select scenarios in which a user chooses one or more items from a group
+                of choices that are not mutually exclusive.</p>
             <h5>Simple CheckBox</h5>
             <div class="renderCode" id="defaultCheckBox">
                 <div class="rendered">
@@ -77,7 +90,18 @@
         </section>
         <section id="ChoiceGroup">
             <h4>ChoiceGroup</h4>
-            <p>Radio Checkboxs...</p>
+            <p>The ChoiceGroup component, also known as radio buttons, let users select one option from two or more
+                choices with the same attribute value 'name'. Each option is represented by one ChoiceGroup button; a
+                user can select only one ChoiceGroup in
+                a button group.</p>
+            <p>ChoiceGroup emphasize all options equally, and that may draw more attention to the options than
+                necessary. Consider using other controls, unless the options deserve extra attention from the user. For
+                example, if the default option is recommended for most users in most situations, use a Dropdown
+                component instead.
+            </p>
+            <p>If there are only two mutually exclusive options, combine them into a single Checkbox or Toggle switch.
+                For example, use a Checkbox for "I agree" instead of ChoiceGroup buttons for "I agree" and "I don't
+                agree."</p>
             <h5>Simple ChoiceGroup</h5>
             <div class="renderCode" id="defaultChoiceGroup">
                 <div class="rendered">
@@ -87,6 +111,41 @@
                         <input data-textDescription="Foshan" name="city" type="radio">
                         <input data-textDescription="Zhuhai" disabled name="city" type="radio">
                         <input checked data-textDescription="Shenzhen" disabled name="city" type="radio">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                </div>
+            </div>
+        </section>
+        <section id="ComboBox">
+            <h4>ComboBox</h4>
+            <p>A ComboBox is a list in which the selected item is always visible, and the others are visible on demand
+                by clicking a drop-down button or by typing in the input (unless allowFreeform and autoComplete are both
+                false). They are used to simplify the design and make a choice within the UI. When closed, only the
+                selected item is visible. When users click the drop-down button, all the options become visible. To
+                change the value, users open the list and click another value or use the arrow keys (up and down) to
+                select a new value. When collapsed if autoComplete and/or allowFreeform are true, the user can select a
+                new value by typing.</p>
+            <h5>Basic ComboBox</h5>
+            <div class="renderCode" id="basicComboBox">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input checked data-role="combobox" data-textDescription="City" name="city" type="text">
+                        <ul data-name="city">
+                            <li value="Dongguan">Dongguan</li>
+                            <li value="Foshan">Foshan</li>
+                            <li value="Guangzhou">Guangzhou</li>
+                            <li value="Heyuan">Heyuan</li>
+                            <li value="Hongkong">Hongkong</li>
+                            <li value="Huizhou">Huizhou</li>
+                            <li value="Macau">Macau</li>
+                            <li value="Shaoguan">Shaoguan</li>
+                            <li value="Shenzhen">Shenzhen</li>
+                            <li value="Zhaoqing">Zhaoqing</li>
+                            <li value="Zhongshan">Zhongshan</li>
+                            <li value="Zhuhai">Zhuhai</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="collapseCode collapse">
