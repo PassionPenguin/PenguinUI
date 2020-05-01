@@ -332,7 +332,7 @@ class Button {
                 if (detail[1].indexOf("class") !== -1) {
                     if (detail[0].classList.contains("form-object")) {
                         // FormObj Generator
-                        let inputs = detail[0].$("input") || detail[0].$("textarea");
+                        let inputs = detail[0].$("input, textarea");
                         if (inputs.length === 0)
                             return; // NO-INPUT
                         inputs.forEach(input => {
