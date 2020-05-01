@@ -1418,10 +1418,6 @@ p, .text-default {
   box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
   border: 0;
 }
-.form-object .form-control:hover, .form-object .form-control:focus {
-  color: var(--default900);
-  border-color: var(--default500);
-}
 .form-object .form-control[readonly], .form-object .form-control:disabled {
   background-color: var(--secondary200);
   opacity: 1;
@@ -1430,12 +1426,19 @@ p, .text-default {
   border-color: var(--default200);
   color: var(--default800);
 }
+
 .form-object .form-control.input-text {
   display: block;
   width: 100%;
-  color: var(--default600);
+  color: var(--default800);
   font-family: "Open Sans", sans-serif;
 }
+
+.form-object .form-control.input-text:hover, .form-object .form-control.input-text:focus {
+  color: var(--default900);
+  border-color: var(--default500);
+}
+
 .form-object .form-control.input-checkbox {
   display: inline-block;
   vertical-align: middle;
@@ -1501,17 +1504,14 @@ p, .text-default {
 .form-object .form-control.input-checkbox:disabled[indeterminate]:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
 }
-
 .form-object .form-control.input-checkbox[indeterminate]:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
 }
-
 @media (prefers-color-scheme: dark) {
   .form-object .form-control.input-checkbox[indeterminate]:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
   }
 }
-
 .form-object .form-control.combo-list {
   max-width: 400px;
   max-height: 480px;
@@ -1526,11 +1526,9 @@ p, .text-default {
   box-shadow: var(--boxshadow100);
   z-index: 1;
 }
-
 .form-object .form-control.combo-list:hover, .form-object .form-control.combo-list:focus {
   color: var(--default600);
 }
-
 .form-object .form-control.combo-list > * {
   padding: 6px 12px;
   text-overflow: ellipsis;
@@ -1539,27 +1537,22 @@ p, .text-default {
   font-weight: 600;
   cursor: pointer;
 }
-
 .form-object .form-control.combo-list > *:hover, .form-object .form-control.combo-list > *:focus, .form-object .form-control.combo-list > *.active {
   color: var(--primary500);
 }
-
 .form-object .form-control.combo-list > *.active {
   background: var(--default50);
 }
-
 .form-object .form-control.combo-list:not(.show) {
   opacity: 0;
   z-index: -1;
 }
-
 .form-object .input-group {
   position: relative;
   min-height: 24px;
   padding: 6px 12px;
   align-items: stretch;
 }
-
 .form-object .input-group.input-text {
   display: flex;
   flex-wrap: wrap;
@@ -1575,7 +1568,7 @@ p, .text-default {
 }
 .form-object .input-group.input-text.disabled:focus {
   border-color: var(--default200);
-  color: var(--default300);
+  color: var(--default800);
 }
 .form-object .input-group.input-text .form-control[type=email], .form-object .input-group.input-text .form-control[type=number], .form-object .input-group.input-text .form-control[type=password], .form-object .input-group.input-text .form-control[type=search], .form-object .input-group.input-text .form-control[type=tel], .form-object .input-group.input-text .form-control[type=text], .form-object .input-group.input-text .form-control[type=url], .form-object .input-group.input-text .form-control[type=datetime] {
   position: relative;

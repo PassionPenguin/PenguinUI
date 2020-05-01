@@ -76,11 +76,6 @@
             border: 0;
         }
 
-        &:hover, &:focus {
-            color: $default900;
-            border-color: $default500;
-        }
-
 
         &[readonly], &:disabled {
             background-color: $secondary200;
@@ -95,8 +90,13 @@
         &.input-text {
             display: block;
             width: 100%;
-            color: $default600;
+            color: $default800;
             font-family: $openSans;
+
+            &:hover, &:focus {
+                color: $default900;
+                border-color: $default500;
+            }
         }
 
         &.input-checkbox {
@@ -245,7 +245,7 @@
 
                 &:focus {
                     border-color: $default200;
-                    color: $default300;
+                    color: $default800;
                 }
             }
 
