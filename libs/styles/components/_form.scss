@@ -18,6 +18,10 @@
         color: $default800;
         vertical-align: middle;
 
+        &.label-description {
+            padding-left: 12px;
+        }
+
         &.input-text {
             margin: 6px 0;
             padding-left: 2px;
@@ -117,6 +121,10 @@
                 border-radius: 3px;
                 display: block;
                 vertical-align: middle;
+            }
+
+            &[type="radio"]:before {
+                border-radius: 50%;
             }
 
             &:after {
@@ -245,8 +253,6 @@
         }
 
         &.input-checkbox {
-            width: fit-content;
-            margin: 0 auto;
             cursor: pointer;
         }
     }

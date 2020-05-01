@@ -335,6 +335,9 @@ class Button {
                         let inputs = detail[0].$("input, textarea");
                         if (inputs.length === 0)
                             return; // NO-INPUT
+                        let label = detail[0].querySelector(`.text-description`);
+                        if(label)
+                            label.classList.add("label-description");
                         inputs.forEach(input => {
                             let isTextField = (["email", "number", "password", "search", "tel", "text", "url", "datetime"].indexOf(input.type.toLowerCase()) !== -1) || input.tagName.toLowerCase() === "textarea",
                                 isCheck = ["checkbox", "radio"].indexOf(input.type.toLowerCase()) !== -1;

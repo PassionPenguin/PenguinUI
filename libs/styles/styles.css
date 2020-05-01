@@ -1357,6 +1357,9 @@ p, .text-default {
   color: var(--default800);
   vertical-align: middle;
 }
+.form-object .text-description.label-description {
+  padding-left: 12px;
+}
 .form-object .text-description.input-text {
   margin: 6px 0;
   padding-left: 2px;
@@ -1444,6 +1447,9 @@ p, .text-default {
   border-radius: 3px;
   display: block;
   vertical-align: middle;
+}
+.form-object .form-control.input-checkbox[type=radio]:before {
+  border-radius: 50%;
 }
 .form-object .form-control.input-checkbox:after {
   width: 16px;
@@ -1550,8 +1556,6 @@ p, .text-default {
   user-select: none;
 }
 .form-object .input-group.input-checkbox {
-  width: fit-content;
-  margin: 0 auto;
   cursor: pointer;
 }
 .form-object .input-group-append, .form-object .input-group-prepend {
