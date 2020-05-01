@@ -412,14 +412,14 @@ class Button {
                                     comboList.style.left = (bcr().left - 12) + "px";
                                 }, autoComplete = (ev) => {
                                     if (!isCombo) return;
+                                    comboList.$(".hidden").forEach(e => {
+                                        e.classList.remove("hidden")
+                                    });
+
                                     let resList = [[], []],
                                         matches = [...comboList.children].map(i => i.textContent),
                                         val = input.value, firstEl;
                                     if (ev && ev.inputType && ev.inputType.includes("delete")) firstEl = true;
-                                    comboList.$(".hidden").forEach(e => {
-                                        e.classList.remove("hidden")
-                                    });
-                                    comboScrollListener();
                                     matches.forEach((e, index) => {
                                         if (val.toLowerCase() === e.substring(0, val.length).toLowerCase()) {
                                             resList[0].push(e);
@@ -431,10 +431,10 @@ class Button {
                                             }
                                         }
                                     });
-                                    for (let i = 0; i < matches.length; i++) {
+                                    for (let i = 0; i < matches.length; i++)
                                         if (resList[1].indexOf(i) === -1)
                                             comboList.children[i].classList.add("hidden");
-                                    }
+
                                     comboScrollListener();
                                 }, keypress = e => {
                                     if (e.key.toLowerCase() === "enter") {
