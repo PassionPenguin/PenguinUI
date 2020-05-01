@@ -119,14 +119,34 @@
             </div>
         </section>
         <section id="ComboBox">
-            <h4>ComboBox</h4>
-            <p>A ComboBox is a list in which the selected item is always visible, and the others are visible on demand
-                by clicking a drop-down button or by typing in the input (unless allowFreeform and autoComplete are both
-                false). They are used to simplify the design and make a choice within the UI. When closed, only the
-                selected item is visible. When users click the drop-down button, all the options become visible. To
-                change the value, users open the list and click another value or use the arrow keys (up and down) to
-                select a new value. When collapsed if autoComplete and/or allowFreeform are true, the user can select a
-                new value by typing.</p>
+            <h4>Select</h4>
+            <p>That's a simple Select!</p>
+            <h5>Basic Select</h5>
+            <div class="renderCode" id="basicSelect">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input checked data-noInput data-role="combobox" data-textDescription="City" name="city"
+                               type="text">
+                        <ul data-name="city">
+                            <li value="Dongguan">Dongguan</li>
+                            <li value="Foshan">Foshan</li>
+                            <li value="Guangzhou">Guangzhou</li>
+                            <li value="Heyuan">Heyuan</li>
+                            <li value="Hongkong">Hongkong</li>
+                            <li value="Huizhou">Huizhou</li>
+                            <li value="Macau">Macau</li>
+                            <li value="Shaoguan">Shaoguan</li>
+                            <li value="Shenzhen">Shenzhen</li>
+                            <li value="Zhaoqing">Zhaoqing</li>
+                            <li value="Zhongshan">Zhongshan</li>
+                            <li value="Zhuhai">Zhuhai</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                </div>
+            </div>
             <h5>Basic ComboBox</h5>
             <div class="renderCode" id="basicComboBox">
                 <div class="rendered">

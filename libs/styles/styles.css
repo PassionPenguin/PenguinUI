@@ -1436,6 +1436,12 @@ p, .text-default {
   color: var(--default900);
   border-color: var(--default500);
 }
+
+.form-object .form-control.input-text[data-role=combobox] {
+  cursor: pointer;
+  background: transparent;
+}
+
 .form-object .form-control.input-checkbox {
   display: inline-block;
   vertical-align: middle;

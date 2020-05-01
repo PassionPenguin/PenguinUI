@@ -357,7 +357,7 @@ class Button {
                                 if (input.dataset.textdescription)
                                     detail[0].appendNewChild({
                                         type: "div",
-                                        attr: [["class", "text-description input-text"], ["data-init", "true"]],
+                                        attr: [["class", `text-description input-text ${(input.disabled || input.attributes['data-noinput']) ? 'inputted' : ''}`], ["data-init", "true"]],
                                         innerText: input.dataset.textdescription
                                     }); // Append Text-Description (notched label)
 
@@ -432,7 +432,7 @@ class Button {
                                         }
                                     });
                                     for (let i = 0; i < matches.length; i++)
-                                        if (resList[1].indexOf(i) === -1)
+                                        if (resList[1].indexOf(i) === -1 && !input.disabled)
                                             comboList.children[i].classList.add("hidden");
 
                                     comboScrollListener();
@@ -444,8 +444,10 @@ class Button {
                                             comboList.children[matches.indexOf(input.value.toLowerCase())].click();
                                     }
                                 };
-                                input.on("keypress", keypress);
-                                input.on("input", autoComplete);
+                                if (!input.attributes["data-noinput"] || input.disabled) {
+                                    input.on("keypress", keypress);
+                                    input.on("input", autoComplete);
+                                } else input.disabled = true;
                                 detail[0].on("click", () => {
                                     setTimeout(() => {
                                         document.on("click", () => {

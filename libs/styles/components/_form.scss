@@ -97,6 +97,11 @@
                 color: $default900;
                 border-color: $default500;
             }
+
+            &[data-role="combobox"] {
+                cursor: pointer;
+                background: transparent;
+            }
         }
 
         &.input-checkbox {
