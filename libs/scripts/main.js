@@ -422,8 +422,6 @@ class Button {
                                 detail[0].children.last().appendChild(input);
                                 input.classList.add("form-control");
                                 input.classList.add("input-checkbox");
-                                if (input.attributes["indeterminate"])
-                                    input.classList.add("indeterminate");
 
                                 if (input.dataset.textdescription)
                                     detail[0].children.last().appendNewChild({
@@ -432,12 +430,8 @@ class Button {
                                         innerText: input.dataset.textdescription
                                     });
 
-                                if (input.checked)
-                                    input.classList.add("inputted");
-
                                 input.on("click", (ev) => {
                                     ev.stopPropagation();
-                                    input.classList.remove("indeterminate");
                                     input.removeAttribute("indeterminate");
                                     if (input.checked) {
                                         input.classList.add("inputted");

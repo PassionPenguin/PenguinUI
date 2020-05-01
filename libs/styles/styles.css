@@ -1446,8 +1446,8 @@ p, .text-default {
   vertical-align: middle;
 }
 .form-object .form-control.input-checkbox:after {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   content: " ";
   display: block;
   vertical-align: middle;
@@ -1456,28 +1456,39 @@ p, .text-default {
   position: absolute;
   z-index: 1;
 }
-.form-object .form-control.input-checkbox.inputted:before {
+.form-object .form-control.input-checkbox:checked:before {
   background-color: var(--primary500);
 }
-.form-object .form-control.input-checkbox.inputted:after {
+.form-object .form-control.input-checkbox:checked:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2.1 6.1c-.1 0-.1-.2 0-.2l.6-.6c.1-.1.2-.1.3 0l1.8 1.8c.1.1.2.1.3 0l4-4c.1-.1.2-.1.3 0l.6.6c0 .1 0 .2-.1.3L5.1 8.8c-.1.1-.2.1-.3 0L2.1 6.1z' fill='%23fff' stroke='%23fff' stroke-width='0.5px'/%3E%3C/svg%3E");
-  background-size: 12px;
+  top: 2px;
+  left: 2px;
+  background-size: 14px;
 }
-.form-object .form-control.input-checkbox:disabled.inputted:after {
+.form-object .form-control.input-checkbox[data-false]:checked:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' stroke='%23fff' stroke-width='0.5px' d='M4.3 3.5l-.8.8L5.2 6 3.5 7.7l.8.8L6 6.8l1.7 1.7.8-.8L6.8 6l1.7-1.7-.8-.8L6 5.2z'/%3E%3C/svg%3E");
+  top: 0;
+  left: 0;
+  background-size: 18px;
+}
+.form-object .form-control.input-checkbox:disabled:checked:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2.1 6.1c-.1 0-.1-.2 0-.2l.6-.6c.1-.1.2-.1.3 0l1.8 1.8c.1.1.2.1.3 0l4-4c.1-.1.2-.1.3 0l.6.6c0 .1 0 .2-.1.3L5.1 8.8c-.1.1-.2.1-.3 0L2.1 6.1z' fill='%23607D8B' stroke='%23607D8B' stroke-width='0.5px'/%3E%3C/svg%3E");
+}
+.form-object .form-control.input-checkbox[data-false]:disabled:checked:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' stroke='%23607D8B' stroke-width='0.5px' d='M4.3 3.5l-.8.8L5.2 6 3.5 7.7l.8.8L6 6.8l1.7 1.7.8-.8L6.8 6l1.7-1.7-.8-.8L6 5.2z'/%3E%3C/svg%3E");
 }
 .form-object .form-control.input-checkbox:disabled:before {
   border-color: var(--default500);
   background: var(--default50);
 }
-.form-object .form-control.input-checkbox:disabled.indeterminate:after {
+.form-object .form-control.input-checkbox:disabled[indeterminate]:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
 }
-.form-object .form-control.input-checkbox.indeterminate:after {
+.form-object .form-control.input-checkbox[indeterminate]:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
 }
 @media (prefers-color-scheme: dark) {
-  .form-object .form-control.input-checkbox.indeterminate:after {
+  .form-object .form-control.input-checkbox[indeterminate]:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
   }
 }
