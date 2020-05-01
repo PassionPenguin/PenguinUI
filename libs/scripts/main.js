@@ -332,115 +332,125 @@ class Button {
                 if (detail[1].indexOf("class") !== -1) {
                     if (detail[0].classList.contains("form-object")) {
                         // FormObj Generator
-                        let input = detail[0].$("input")[0] || detail[0].$("textarea")[0],
-                            isTextField = (["email", "number", "password", "search", "tel", "text", "url", "datetime"].indexOf(input.type.toLowerCase()) !== -1) || input.tagName.toLowerCase() === "textarea",
-                            isCheck = ["checkbox", "radio"].indexOf(input.type.toLowerCase()) !== -1;
-                        if (!input)
+                        let inputs = detail[0].$("input") || detail[0].$("textarea");
+                        if (inputs.length === 0)
                             return; // NO-INPUT
-                        // input with attr ["email", "number", "password", "search", "tel", "text", "url", "datetime"] are default single-line input style
-                        detail[0].children.forEach(e => {
-                            if ((e.$("input").length !== 0 && e.$("textarea").length !== 0) && e !== input)
-                                e.remove();
-                        }); // Remove Non-input&&Non-textarea eles in .form-object
-                        if (isTextField) {
-                            if (input.dataset.textdescription)
+                        inputs.forEach(input => {
+                            let isTextField = (["email", "number", "password", "search", "tel", "text", "url", "datetime"].indexOf(input.type.toLowerCase()) !== -1) || input.tagName.toLowerCase() === "textarea",
+                                isCheck = ["checkbox", "radio"].indexOf(input.type.toLowerCase()) !== -1;
+                            // input with attr ["email", "number", "password", "search", "tel", "text", "url", "datetime"] are default single-line input style
+                            detail[0].children.forEach(e => {
+                                if ((e.$("input").length !== 0 && e.$("textarea").length !== 0) && e !== input)
+                                    e.remove();
+                            }); // Remove Non-input&&Non-textarea eles in .form-object
+                            if (isTextField) {
+                                if (input.dataset.textdescription)
+                                    detail[0].appendNewChild({
+                                        type: "div",
+                                        attr: [["class", "text-description input-text"], ["data-init", "true"]],
+                                        innerText: input.dataset.textdescription
+                                    }); // Append Text-Description (notched label)
+
                                 detail[0].appendNewChild({
                                     type: "div",
-                                    attr: [["class", "text-description input-text"], ["data-init", "true"]],
-                                    innerText: input.dataset.textdescription
-                                }); // Append Text-Description (notched label)
+                                    attr: [["class", "input-group input-text " + input.dataset.color || "default"], ["data-init", "true"]]
+                                }); // Append Input's Wrap
 
-                            detail[0].appendNewChild({
-                                type: "div",
-                                attr: [["class", "input-group input-text " + input.dataset.color || "default"], ["data-init", "true"]]
-                            }); // Append Input's Wrap
+                                if (input.dataset.prependicon) // Prepend-icon
+                                    detail[0].children.last().appendNewChild({
+                                        type: "div",
+                                        attr: [["class", 'input-group-prepend']],
+                                        innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.prependicon}</div></div>`
+                                    })
 
-                            if (input.dataset.prependicon) // Prepend-icon
-                                detail[0].children.last().appendNewChild({
-                                    type: "div",
-                                    attr: [["class", 'input-group-prepend']],
-                                    innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.prependicon}</div></div>`
-                                })
+                                detail[0].children.last().appendChild(input);
+                                input.classList.add("form-control");
+                                input.classList.add("input-text");
 
-                            detail[0].children.last().appendChild(input);
-                            input.classList.add("form-control");
-                            input.classList.add("input-text");
+                                if (input.dataset.appendicon) // Append-icon
+                                    detail[0].children.last().appendNewChild({
+                                        type: "div",
+                                        attr: [["class", 'input-group-append']],
+                                        innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
+                                    })
 
-                            if (input.dataset.appendicon) // Append-icon
-                                detail[0].children.last().appendNewChild({
-                                    type: "div",
-                                    attr: [["class", 'input-group-append']],
-                                    innerHTML: `<div class='input-group-text'><div class='mi'>${input.dataset.appendicon}</div></div>`
-                                })
-
-                            if (input.value !== "" && input.dataset.textdescription) // If input value !== "", inputted
-                                detail[0].children[0].classList.add("inputted");
-
-                            input._placeholder = input.placeholder;
-                            if (input.dataset.textdescription)
-                                input.placeholder = "";
-
-                            if (detail[0].children[input.dataset.textdescription ? 1 : 0].$(".input-group-prepend").length > 0) {
-                                detail[0].children[0].classList.add("icon-prepend");
-                                input.classList.add("icon-prepend");
-                            }
-                            let mr = new MutationObserver(() => {
-                                if (input.dataset.textdescription && (input.value !== "" || input.matches(":focus")))
+                                if (input.value !== "" && input.dataset.textdescription) // If input value !== "", inputted
                                     detail[0].children[0].classList.add("inputted");
-                                else
-                                    detail[0].children[0].classList.remove("inputted");
-                            });
-                            mr.observe(input, {attributeFilter: ["value"], attributes: true});
-                            detail[0].on("click", () => {
-                                setTimeout(() => {
-                                    document.on("click", () => {
-                                        if (input.dataset.textdescription && input.value === "" && !input.matches(":focus")) {
-                                            detail[0].children[0].classList.remove("inputted");
-                                            input.placeholder = "";
-                                        }
-                                        if (!input.matches(":focus"))
-                                            input.parentElement.classList.remove("active");
-                                    }, {once: true});
-                                });
-                                if (!input.disabled)
-                                    input.parentElement.classList.add("active");
-                                if (input.dataset.textdescription && !input.disabled) {
-                                    detail[0].children[0].classList.add("inputted");
-                                    input.focus();
-                                    setTimeout(() => {
-                                        input.placeholder = input._placeholder;
-                                    }, 200); //Wait for animation (textDescription)
+
+                                input._placeholder = input.placeholder;
+                                if (input.dataset.textdescription)
+                                    input.placeholder = "";
+
+                                if (detail[0].children[input.dataset.textdescription ? 1 : 0].$(".input-group-prepend").length > 0) {
+                                    detail[0].children[0].classList.add("icon-prepend");
+                                    input.classList.add("icon-prepend");
                                 }
-                            });
-                        } else if (isCheck) {
-                            detail[0].appendNewChild({
-                                type: "div",
-                                attr: [["class", "input-group input-checkbox " + input.dataset.color || "default"], ["data-init", "true"]]
-                            }); // Append Input's Wrap
-
-                            detail[0].children.last().appendChild(input);
-                            input.classList.add("form-control");
-                            input.classList.add("input-checkbox");
-
-                            if (input.dataset.textdescription)
-                                detail[0].children.last().appendNewChild({
-                                    type: "div",
-                                    attr: [["class", "text-description input-checkbox"], ["data-init", "true"]],
-                                    innerText: input.dataset.textdescription
+                                let mr = new MutationObserver(() => {
+                                    if (input.dataset.textdescription && (input.value !== "" || input.matches(":focus")))
+                                        detail[0].children[0].classList.add("inputted");
+                                    else
+                                        detail[0].children[0].classList.remove("inputted");
                                 });
+                                mr.observe(input, {attributeFilter: ["value"], attributes: true});
+                                detail[0].on("click", () => {
+                                    setTimeout(() => {
+                                        document.on("click", () => {
+                                            if (input.dataset.textdescription && input.value === "" && !input.matches(":focus")) {
+                                                detail[0].children[0].classList.remove("inputted");
+                                                input.placeholder = "";
+                                            }
+                                            if (!input.matches(":focus"))
+                                                input.parentElement.classList.remove("active");
+                                        }, {once: true});
+                                    });
+                                    if (!input.disabled)
+                                        input.parentElement.classList.add("active");
+                                    if (input.dataset.textdescription && !input.disabled) {
+                                        detail[0].children[0].classList.add("inputted");
+                                        input.focus();
+                                        setTimeout(() => {
+                                            input.placeholder = input._placeholder;
+                                        }, 200); //Wait for animation (textDescription)
+                                    }
+                                });
+                            } else if (isCheck) {
+                                detail[0].appendNewChild({
+                                    type: "div",
+                                    attr: [["class", "input-group input-checkbox " + input.dataset.color || "default"], ["data-init", "true"]]
+                                }); // Append Input's Wrap
 
-                            input.on("click", (ev) => {
-                                ev.stopPropagation();
+                                detail[0].children.last().appendChild(input);
+                                input.classList.add("form-control");
+                                input.classList.add("input-checkbox");
+                                if (input.attributes["indeterminate"])
+                                    input.classList.add("indeterminate");
+
+                                if (input.dataset.textdescription)
+                                    detail[0].children.last().appendNewChild({
+                                        type: "div",
+                                        attr: [["class", "text-description input-checkbox"], ["data-init", "true"]],
+                                        innerText: input.dataset.textdescription
+                                    });
+
                                 if (input.checked)
                                     input.classList.add("inputted");
-                                else input.classList.remove("inputted");
-                            });
 
-                            detail[0].children.last().on("click", (ev) => {
-                                ev.stopPropagation();
-                                input.click();
-                            })
-                        }
+                                input.on("click", (ev) => {
+                                    ev.stopPropagation();
+                                    input.classList.remove("indeterminate");
+                                    input.removeAttribute("indeterminate");
+                                    if (input.checked) {
+                                        input.classList.add("inputted");
+                                    } else
+                                        input.classList.remove("inputted");
+                                });
+
+                                detail[0].children.last().on("click", (ev) => {
+                                    ev.stopPropagation();
+                                    input.click();
+                                });
+                            }
+                        });
                     }
                 }
                 if (detail[1].indexOf("data-role")) {

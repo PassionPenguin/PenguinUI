@@ -1350,6 +1350,7 @@ p, .text-default {
   position: relative;
   width: 100%;
   padding-top: 18px;
+  font-family: "Open Sans", sans-serif;
 }
 .form-object .text-description {
   font: 12px/1 "Open Sans", sans-serif;
@@ -1362,16 +1363,18 @@ p, .text-default {
   position: absolute;
   transition: all 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
   top: 0;
-  left: 3px;
+  left: 12px;
   transform: translate(3px, 25px);
   transform-origin: left;
   z-index: 1;
+  color: var(--default600);
+  font-family: "Open Sans", sans-serif;
 }
 .form-object .text-description.input-text.icon-prepend {
   transform: translate(36px, 25px);
 }
 .form-object .text-description.input-text.inputted {
-  transform: translateY(-6px) scale(0.833333);
+  transform: translate(-6px, -6px) scale(0.833333);
   color: var(--primary500);
 }
 .form-object .text-description.input-checkbox {
@@ -1416,6 +1419,8 @@ p, .text-default {
 .form-object .form-control.input-text {
   display: block;
   width: 100%;
+  color: var(--default600);
+  font-family: "Open Sans", sans-serif;
 }
 .form-object .form-control.input-checkbox {
   display: inline-block;
@@ -1428,18 +1433,53 @@ p, .text-default {
   border-radius: 3px;
   appearance: none;
   padding: 0;
+  position: relative;
 }
 .form-object .form-control.input-checkbox:before {
-  content: "check_box_outline_blank";
-  font-family: "Material Icons", sans-serif;
-  font-size: 18px;
-  line-height: 18px;
-  width: 18px;
-  height: 18px;
-  color: var(--primary500);
+  content: " ";
+  width: 14px;
+  height: 14px;
+  border-color: var(--default500);
+  border: 2px solid var(--primary500);
+  border-radius: 3px;
+  display: block;
+  vertical-align: middle;
+}
+.form-object .form-control.input-checkbox:after {
+  width: 12px;
+  height: 12px;
+  content: " ";
+  display: block;
+  vertical-align: middle;
+  top: 3px;
+  left: 3px;
+  position: absolute;
+  z-index: 1;
 }
 .form-object .form-control.input-checkbox.inputted:before {
-  content: "check_box";
+  background-color: var(--primary500);
+}
+.form-object .form-control.input-checkbox.inputted:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2.1 6.1c-.1 0-.1-.2 0-.2l.6-.6c.1-.1.2-.1.3 0l1.8 1.8c.1.1.2.1.3 0l4-4c.1-.1.2-.1.3 0l.6.6c0 .1 0 .2-.1.3L5.1 8.8c-.1.1-.2.1-.3 0L2.1 6.1z' fill='%23fff' stroke='%23fff' stroke-width='0.5px'/%3E%3C/svg%3E");
+  background-size: 12px;
+}
+.form-object .form-control.input-checkbox:disabled.inputted:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2.1 6.1c-.1 0-.1-.2 0-.2l.6-.6c.1-.1.2-.1.3 0l1.8 1.8c.1.1.2.1.3 0l4-4c.1-.1.2-.1.3 0l.6.6c0 .1 0 .2-.1.3L5.1 8.8c-.1.1-.2.1-.3 0L2.1 6.1z' fill='%23607D8B' stroke='%23607D8B' stroke-width='0.5px'/%3E%3C/svg%3E");
+}
+.form-object .form-control.input-checkbox:disabled:before {
+  border-color: var(--default500);
+  background: var(--default50);
+}
+.form-object .form-control.input-checkbox:disabled.indeterminate:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
+}
+.form-object .form-control.input-checkbox.indeterminate:after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23607D8B' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  .form-object .form-control.input-checkbox.indeterminate:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M3 5.4h6v1.2H3z'/%3E%3C/svg%3E");
+  }
 }
 .form-object .input-group {
   position: relative;
@@ -1452,7 +1492,7 @@ p, .text-default {
   flex-wrap: wrap;
   align-items: stretch;
   border-radius: 0.25rem;
-  border: 1px solid var(--secondary400);
+  border: 2px solid var(--secondary400);
   min-height: 24px;
   padding: 6px 12px;
 }
@@ -1817,7 +1857,7 @@ p, .text-default {
   }
 }
 html, body {
-  background: var(--light);
+  background: var(--white);
   color: var(--dark);
 }
 
