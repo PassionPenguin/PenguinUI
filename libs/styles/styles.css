@@ -29,15 +29,15 @@ html {
   --info800: #00628f;
   --info900: #004864;
   --success50: #caf1ce;
-  --success100: #a8eec2;
-  --success200: #87ddb8;
-  --success300: #87d9a2;
-  --success400: #62d998;
-  --success500: #39cb6a;
-  --success600: #36c169;
-  --success700: #2ab050;
-  --success800: #299f50;
-  --success900: #158c3d;
+  --success100: #9edeb5;
+  --success200: #7dcfac;
+  --success300: #72bf8c;
+  --success400: #54c386;
+  --success500: #2aa553;
+  --success600: #219149;
+  --success700: #1d8d3d;
+  --success800: #1a7e3b;
+  --success900: #096026;
   --danger50: #ffebed;
   --danger100: #ffcdd4;
   --danger200: #efa79a;
@@ -1540,11 +1540,9 @@ p, .text-default {
 .form-object .form-control.combo-list > *.active {
   background: var(--default50);
 }
-
 .form-object .form-control.combo-list > *.hidden {
   display: none;
 }
-
 .form-object .form-control.combo-list:not(.show) {
   opacity: 0;
   z-index: -1;
