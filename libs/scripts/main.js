@@ -318,8 +318,8 @@ class Button {
                             target.style.left = `${bcr().x}px`;
                             target.style.top = `${bcr().y + bcr().height + 12}px`;
                             target.classList.toggle("show");
-                            window.on("scroll", function () {
-                                if (!target.classList.contains("show")) window.removeEventListener(this);
+                            let s = window.on("scroll", () => {
+                                if (!target.classList.contains("show")) window.removeEventListener("scroll", s);
                                 target.style.left = `${bcr().x}px`;
                                 target.style.top = `${bcr().y + bcr().height + 12}px`;
                             });
@@ -487,7 +487,7 @@ class Button {
                                     detail[0].appendChild(comboList);
                                     comboList.classList.add("form-control");
                                     comboList.classList.add("combo-list");
-                                    comboList.children.forEach((el, index) => {
+                                    comboList.children.forEach((el) => {
                                         el.on("click", (ev) => {
                                             ev.stopPropagation();
                                             input.value = el.textContent;
