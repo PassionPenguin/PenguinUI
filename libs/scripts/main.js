@@ -30,7 +30,7 @@ class TextField {
         i.classList.add("form-control");
         let j = createElement({
             type: "div",
-            attr: [["class", "form-object" + color]]
+            attr: [["class", "form-object" + opt.color]]
         });
         j.appendChild(i);
         return j;
