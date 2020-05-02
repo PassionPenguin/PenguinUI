@@ -21,10 +21,10 @@
         <div class="dashboard-list">
             <h6><b>Components</b></h6>
             <ul class="dashboard-sublist">
-                <li class="active" data-role="link" data-target="form.html">Form Objects</li>
+                <li data-role="link" data-target="form.html">Form Objects</li>
                 <li class="subObject" data-role="link" data-target="form-CheckBox.html">CheckBox</li>
                 <li class="subObject" data-role="link" data-target="form-ChoiceGroup.html">ChoiceGroup</li>
-                <li class="subObject" data-role="link" data-target="form-Select.html">Select</li>
+                <li class="subObject active" data-role="link" data-target="form-Select.html">Select</li>
                 <li class="subObject" data-role="link" data-target="form-TextField.html">TextField</li>
             </ul>
         </div>
@@ -33,6 +33,61 @@
         <h3>Form Components</h3>
         <p>With designs, use the component in forms, dialogs, and more with support for multiple sizes, states, and
             more...</p>
+        <section id="Select">
+            <h4>Select</h4>
+            <p>That's a simple Select!</p>
+            <h5>Basic Select</h5>
+            <div class="renderCode" id="basicSelect">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input checked data-noInput data-role="combobox" data-textDescription="City" name="city"
+                               type="text">
+                        <ul data-name="city">
+                            <li value="Dongguan">Dongguan</li>
+                            <li value="Foshan">Foshan</li>
+                            <li value="Guangzhou">Guangzhou</li>
+                            <li value="Heyuan">Heyuan</li>
+                            <li value="Hongkong">Hongkong</li>
+                            <li value="Huizhou">Huizhou</li>
+                            <li value="Macau">Macau</li>
+                            <li value="Shaoguan">Shaoguan</li>
+                            <li value="Shenzhen">Shenzhen</li>
+                            <li value="Zhaoqing">Zhaoqing</li>
+                            <li value="Zhongshan">Zhongshan</li>
+                            <li value="Zhuhai">Zhuhai</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                </div>
+            </div>
+            <h5>Basic ComboBox</h5>
+            <div class="renderCode" id="basicComboBox">
+                <div class="rendered">
+                    <div class="form-object">
+                        <input checked data-role="combobox" data-textDescription="City" name="city" type="text">
+                        <ul data-name="city">
+                            <li value="Dongguan">Dongguan</li>
+                            <li value="Foshan">Foshan</li>
+                            <li value="Guangzhou">Guangzhou</li>
+                            <li value="Heyuan">Heyuan</li>
+                            <li value="Hongkong">Hongkong</li>
+                            <li value="Huizhou">Huizhou</li>
+                            <li value="Macau">Macau</li>
+                            <li value="Shaoguan">Shaoguan</li>
+                            <li value="Shenzhen">Shenzhen</li>
+                            <li value="Zhaoqing">Zhaoqing</li>
+                            <li value="Zhongshan">Zhongshan</li>
+                            <li value="Zhuhai">Zhuhai</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 <script src="../../libs/scripts/main.js"></script>

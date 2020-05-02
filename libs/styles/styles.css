@@ -1259,24 +1259,42 @@ p, .text-default {
   padding: 3px 6px;
   margin-top: 1rem;
 }
+
 .dashboard-container .dashboard-sublist {
   list-style: none;
   margin: 0;
   font-size: 14px;
   padding: 0;
 }
+
 .dashboard-container .dashboard-sublist li {
-  padding: 6px 9px;
-  border-radius: 3px;
+  padding: 9px 6px;
   cursor: pointer;
-  font: 12px/1 "Open Sans", sans-serif;
+  font: 13px/1 "Open Sans", sans-serif;
 }
-.dashboard-container .dashboard-sublist li * {
+
+.dashboard-container .dashboard-sublist li:hover, .dashboard-container .dashboard-sublist li:focus, .dashboard-container .dashboard-sublist li.active {
+  color: var(--default800);
+}
+
+.dashboard-container .dashboard-sublist li.subObject {
+  border-left: 2px solid var(--primary100);
+  padding-left: 15px !important;
+  margin-left: 15px;
+}
+
+.dashboard-container .dashboard-sublist li.subObject:hover, .dashboard-container .dashboard-sublist li.subObject:focus {
+  background: transparent;
+  border-left-color: var(--primary500);
+}
+
+.dashboard-container .dashboard-sublist li.subObject.active {
+  border-left-color: var(--primary900);
+}
+
+.dashboard-container .dashboard-sublist * {
   color: var(--default500);
   text-decoration: none;
-}
-.dashboard-container .dashboard-sublist li:hover, .dashboard-container .dashboard-sublist li:focus {
-  background: var(--secondary200);
 }
 
 /*
@@ -1436,12 +1454,10 @@ p, .text-default {
   color: var(--default900);
   border-color: var(--default500);
 }
-
 .form-object .form-control.input-text[data-role=combobox] {
   cursor: pointer;
   background: transparent;
 }
-
 .form-object .form-control.input-checkbox {
   display: inline-block;
   vertical-align: middle;
@@ -1519,7 +1535,7 @@ p, .text-default {
   max-width: 400px;
   max-height: 480px;
   height: fit-content;
-  position: fixed;
+  position: absolute;
   background: var(--white);
   padding: 12px 0;
   list-style: none;
@@ -1527,7 +1543,7 @@ p, .text-default {
   overflow: scroll;
   margin: 0;
   box-shadow: var(--boxshadow100);
-  z-index: 1;
+  z-index: 2;
 }
 .form-object .form-control.combo-list:hover, .form-object .form-control.combo-list:focus {
   color: var(--default600);

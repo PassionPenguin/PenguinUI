@@ -408,8 +408,8 @@ class Button {
                                     }, cbcr = () => {
                                         return comboList.getBoundingClientRect();
                                     };
-                                    comboList.style.top = bcr().top - cbcr().height > 0 ? ((bcr().top - 12 - cbcr().height) + "px") : ((bcr().top + bcr().height + 12) + "px");
-                                    comboList.style.left = (bcr().left - 12) + "px";
+                                    comboList.style.top = bcr().top - cbcr().height < 0 ? (36 + bcr().height) + "px" : ((-cbcr().height - 12) + "px");
+                                    comboList.style.left = "0";
                                 }, autoComplete = (ev) => {
                                     if (!isCombo) return;
                                     comboList.$(".hidden").forEach(e => {

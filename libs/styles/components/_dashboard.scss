@@ -62,19 +62,33 @@
         padding: 0;
 
         li {
-            padding: 6px 9px;
-            border-radius: 3px;
+            padding: 9px 6px;
             cursor: pointer;
-            font: 12px/1 "Open Sans", sans-serif;
+            font: 13px/1 "Open Sans", sans-serif;
 
-            * {
-                color: $default500;
-                text-decoration: none;
+            &:hover, &:focus, &.active {
+                color: $default800;
             }
 
-            &:hover, &:focus {
-                background: $secondary200;
+            &.subObject {
+                border-left: 2px solid $primary100;
+                padding-left: 15px !important;
+                margin-left: 15px;
+
+                &:hover, &:focus {
+                    background: transparent;
+                    border-left-color: $primary500;
+                }
+
+                &.active {
+                    border-left-color: $primary900;
+                }
             }
+        }
+
+        * {
+            color: $default500;
+            text-decoration: none;
         }
     }
 }

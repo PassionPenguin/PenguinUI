@@ -191,7 +191,7 @@
             max-width: 400px;
             max-height: 480px;
             height: fit-content;
-            position: fixed;
+            position: absolute;
             background: $white;
             padding: 12px 0;
             list-style: none;
@@ -199,7 +199,7 @@
             overflow: scroll;
             margin: 0;
             box-shadow: $boxshadow100;
-            z-index: 1;
+            z-index: 2;
 
             &:hover, &:focus {
                 color: $default600;

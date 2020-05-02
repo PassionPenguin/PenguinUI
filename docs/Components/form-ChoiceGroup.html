@@ -21,9 +21,9 @@
         <div class="dashboard-list">
             <h6><b>Components</b></h6>
             <ul class="dashboard-sublist">
-                <li class="active" data-role="link" data-target="form.html">Form Objects</li>
+                <li data-role="link" data-target="form.html">Form Objects</li>
                 <li class="subObject" data-role="link" data-target="form-CheckBox.html">CheckBox</li>
-                <li class="subObject" data-role="link" data-target="form-ChoiceGroup.html">ChoiceGroup</li>
+                <li class="subObject active" data-role="link" data-target="form-ChoiceGroup.html">ChoiceGroup</li>
                 <li class="subObject" data-role="link" data-target="form-Select.html">Select</li>
                 <li class="subObject" data-role="link" data-target="form-TextField.html">TextField</li>
             </ul>
@@ -33,6 +33,36 @@
         <h3>Form Components</h3>
         <p>With designs, use the component in forms, dialogs, and more with support for multiple sizes, states, and
             more...</p>
+        <section id="ChoiceGroup">
+            <h4>ChoiceGroup</h4>
+            <p>The ChoiceGroup component, also known as radio buttons, let users select one option from two or more
+                choices with the same attribute value 'name'. Each option is represented by one ChoiceGroup button; a
+                user can select only one ChoiceGroup in
+                a button group.</p>
+            <p>ChoiceGroup emphasize all options equally, and that may draw more attention to the options than
+                necessary. Consider using other controls, unless the options deserve extra attention from the user. For
+                example, if the default option is recommended for most users in most situations, use a Dropdown
+                component instead.
+            </p>
+            <p>If there are only two mutually exclusive options, combine them into a single Checkbox or Toggle switch.
+                For example, use a Checkbox for "I agree" instead of ChoiceGroup buttons for "I agree" and "I don't
+                agree."</p>
+            <h5>Simple ChoiceGroup</h5>
+            <div class="renderCode" id="defaultChoiceGroup">
+                <div class="rendered">
+                    <div class="form-object">
+                        <span class="text-description">Where would you like to go?</span>
+                        <input data-textDescription="Guangzhou" name="city" type="radio">
+                        <input data-textDescription="Foshan" name="city" type="radio">
+                        <input data-textDescription="Zhuhai" disabled name="city" type="radio">
+                        <input checked data-textDescription="Shenzhen" disabled name="city" type="radio">
+                    </div>
+                </div>
+                <div class="collapseCode collapse">
+                    <pre><code class="html"></code></pre>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
 <script src="../../libs/scripts/main.js"></script>
