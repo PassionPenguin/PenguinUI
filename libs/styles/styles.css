@@ -287,7 +287,7 @@ html, body {
   src: local("Roboto Bold"), local("Roboto-Bold"), url(../../media/font/Roboto-Bold.ttf) format("ttf");
 }
 html, body {
-  font: 400 16px/1 "Open Sans", sans-serif;
+  font: 400 16px/24px "Open Sans", sans-serif;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -1259,39 +1259,44 @@ p, .text-default {
   padding: 3px 6px;
   margin-top: 1rem;
 }
-
 .dashboard-container .dashboard-sublist {
   list-style: none;
   margin: 0;
   font-size: 14px;
   padding: 0;
 }
-
 .dashboard-container .dashboard-sublist li {
   padding: 9px 6px;
   cursor: pointer;
   font: 13px/1 "Open Sans", sans-serif;
 }
-
 .dashboard-container .dashboard-sublist li:hover, .dashboard-container .dashboard-sublist li:focus, .dashboard-container .dashboard-sublist li.active {
   color: var(--default800);
 }
-
-.dashboard-container .dashboard-sublist li.subObject {
-  border-left: 2px solid var(--primary100);
+.dashboard-container .dashboard-sublist li ul {
+  padding-left: 18px;
+  list-style: none;
+}
+.dashboard-container .dashboard-sublist li ul li {
+  user-select: none;
+  margin: 6px 0 6px 18px;
   padding-left: 15px !important;
-  margin-left: 15px;
 }
-
-.dashboard-container .dashboard-sublist li.subObject:hover, .dashboard-container .dashboard-sublist li.subObject:focus {
-  background: transparent;
-  border-left-color: var(--primary500);
+.dashboard-container .dashboard-sublist li ul li:hover, .dashboard-container .dashboard-sublist li ul li:hover *, .dashboard-container .dashboard-sublist li ul li:focus, .dashboard-container .dashboard-sublist li ul li:focus * {
+  color: var(--default800);
+  transition: 250ms;
 }
-
-.dashboard-container .dashboard-sublist li.subObject.active {
-  border-left-color: var(--primary900);
+.dashboard-container .dashboard-sublist .expand_ctrl {
+  user-select: none;
 }
-
+.dashboard-container .dashboard-sublist .expand_ctrl:hover *, .dashboard-container .dashboard-sublist .expand_ctrl:focus * {
+  color: var(--default800);
+  transition: 250ms;
+}
+.dashboard-container .dashboard-sublist .mi {
+  vertical-align: middle;
+  margin-right: 12px;
+}
 .dashboard-container .dashboard-sublist * {
   color: var(--default500);
   text-decoration: none;
@@ -1468,6 +1473,7 @@ p, .text-default {
   height: 18px;
   border-radius: 3px;
   appearance: none;
+  -webkit-appearance: none;
   padding: 0;
   position: relative;
 }

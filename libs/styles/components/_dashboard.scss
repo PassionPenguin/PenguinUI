@@ -70,20 +70,37 @@
                 color: $default800;
             }
 
-            &.subObject {
-                border-left: 2px solid $primary100;
-                padding-left: 15px !important;
-                margin-left: 15px;
+            ul {
+                padding-left: 18px;
+                list-style: none;
 
-                &:hover, &:focus {
-                    background: transparent;
-                    border-left-color: $primary500;
-                }
+                li {
+                    user-select: none;
+                    margin: 6px 0 6px 18px;
+                    padding-left: 15px !important;
 
-                &.active {
-                    border-left-color: $primary900;
+                    &:hover, &:focus {
+                        &, & * {
+                            color: $default800;
+                            transition: 250ms;
+                        }
+                    }
                 }
             }
+        }
+
+        .expand_ctrl {
+            user-select: none;
+
+            &:hover *, &:focus * {
+                color: $default800;
+                transition: 250ms;
+            }
+        }
+
+        .mi {
+            vertical-align: middle;
+            margin-right: 12px;
         }
 
         * {

@@ -170,18 +170,20 @@ class Button {
 
         else if (mutationRecord.addedNodes && mutationRecord.addedNodes.length > 0)
             mutationRecord.addedNodes.forEach(node => {
-                let list = [];
-                attrList.forEach(attr => {
-                    if (node.attributes[attr] !== undefined)
-                        list.push(attr);
-                });
-                if (node.attributes["ripple"] && list.indexOf("ripple") === -1)
-                    list.push("ripple");
-                if (node.classList.contains("alert-dismissible") && list.indexOf("data-dismissible") === -1)
-                    list.push("data-dismissible");
-                if (node.classList.contains("carousel") && list.indexOf("data-carousel") === -1) list.push("data-carousel")
-                if (list.length > 0)
-                    changedInf.push([node, list]);
+                if (node.attributes && node.classList) {
+                    let list = [];
+                    attrList.forEach(attr => {
+                        if (node.attributes[attr] !== undefined)
+                            list.push(attr);
+                    });
+                    if (node.attributes["ripple"] && list.indexOf("ripple") === -1)
+                        list.push("ripple");
+                    if (node.classList.contains("alert-dismissible") && list.indexOf("data-dismissible") === -1)
+                        list.push("data-dismissible");
+                    if (node.classList.contains("carousel") && list.indexOf("data-carousel") === -1) list.push("data-carousel")
+                    if (list.length > 0)
+                        changedInf.push([node, list]);
+                }
             });
         if (changedInf.length > 0)
             changedInf.forEach(detail => {
