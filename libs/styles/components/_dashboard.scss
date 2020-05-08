@@ -57,7 +57,7 @@
             text-decoration: none;
             text-overflow: ellipsis;
             cursor: pointer;
-            transition: 250ms;
+            transition: 250ms $ease-in;
 
             &.active {
                 border-left-color: $secondary400;
@@ -69,6 +69,14 @@
                     transition: 250ms;
                 }
             }
+
+            &.H3 {
+            	padding-left: 24px;
+            }
+
+            &.H4 {
+            	padding-left: 36px;
+            }
         }
     }
 
@@ -77,6 +85,7 @@
         text-align: center;
         color: $default600;
         font: 500 16px/2 $roboto;
+        padding-top: 24px;
 
         * {
             width: 100%;

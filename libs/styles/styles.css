@@ -1265,7 +1265,7 @@ p, .text-default {
   text-decoration: none;
   text-overflow: ellipsis;
   cursor: pointer;
-  transition: 250ms;
+  transition: 250ms ease-in;
 }
 .dashboard-container .dashboard-nav .sideNavItem.active {
   border-left-color: var(--secondary400);
@@ -1274,11 +1274,18 @@ p, .text-default {
   background: var(--secondary100);
   transition: 250ms;
 }
+.dashboard-container .dashboard-nav .sideNavItem.H3 {
+  padding-left: 24px;
+}
+.dashboard-container .dashboard-nav .sideNavItem.H4 {
+  padding-left: 36px;
+}
 .dashboard-container .dashboard-brand {
   width: 100%;
   text-align: center;
   color: var(--default600);
   font: 500 16px/2 Roboto, sans-serif;
+  padding-top: 24px;
 }
 .dashboard-container .dashboard-brand * {
   width: 100%;
