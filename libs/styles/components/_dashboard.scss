@@ -18,19 +18,58 @@
         width: 240px;
         height: 100vh;
         box-sizing: border-box;
-        padding: 1rem 1rem 1rem 0;
-        margin: 0 1rem;
+        margin: 1rem 0;
         position: sticky;
         top: 0;
     }
 
     .dashboard-content {
         vertical-align: top;
-        width: calc(100% - 240px - 6rem);
+        width: calc(100% - 240px - 18rem);
         height: fit-content;
         padding: 2rem;
-        box-shadow: var(--boxshadow100);
         background: var(--light);
+        border: 1px solid var(--secondary200);
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .dashboard-nav {
+        width: 12rem;
+        vertical-align: top;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        height: fit-content;
+
+        .sideNavItem {
+            letter-spacing: normal;
+            color: $secondary700;
+            font-family: $openSans;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 16px;
+            display: block;
+            overflow: hidden;
+            padding: 9px 12px;
+            border-right: solid 3px transparent;
+            border-left: solid 3px transparent;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: 250ms;
+
+            &.active {
+                border-left-color: $secondary400;
+            }
+
+            &:hover, &:focus {
+                &, & * {
+                    background: $secondary100;
+                    transition: 250ms;
+                }
+            }
+        }
     }
 
     .dashboard-brand {
@@ -45,12 +84,12 @@
     }
 
     .dashboard-list {
-        padding: 0 24px;
+        padding: 0;
         box-sizing: border-box;
 
         h6 {
             font-size: 14px;
-            padding: 3px 6px;
+            padding: 6px 24px;
             margin-top: 1rem;
         }
     }
@@ -62,26 +101,43 @@
         padding: 0;
 
         li {
-            padding: 9px 6px;
+            padding: 9px 0;
             cursor: pointer;
             font: 13px/1 "Open Sans", sans-serif;
 
+            .expand_ctrl {
+                display: block;
+                padding: 6px 12px;
+            }
+
             &:hover, &:focus, &.active {
-                color: $default800;
+                color: $secondary900;
             }
 
             ul {
-                padding-left: 18px;
+                padding-left: 0;
                 list-style: none;
 
                 li {
                     user-select: none;
-                    margin: 6px 0 6px 18px;
-                    padding-left: 15px !important;
+                    letter-spacing: normal;
+                    color: $secondary700;
+                    font-family: $openSans;
+                    font-size: 12px;
+                    font-weight: normal;
+                    line-height: 16px;
+                    display: block;
+                    overflow: hidden;
+                    padding: 12px 0 12px 42px;
+                    border-right: solid 22px transparent;
+                    border-left: solid 22px transparent;
+                    text-decoration: none;
+                    text-overflow: ellipsis;
+
 
                     &:hover, &:focus {
                         &, & * {
-                            color: $default800;
+                            background: $secondary100;
                             transition: 250ms;
                         }
                     }

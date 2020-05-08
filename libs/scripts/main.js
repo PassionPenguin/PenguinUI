@@ -152,6 +152,13 @@ class Button {
         return this[this.length - 1];
     };
     HTMLCollection.prototype.forEach = NamedNodeMap.prototype.forEach = Array.prototype.forEach;
+    NodeList.prototype.map = HTMLCollection.prototype.map = Array.prototype.map;
+    NodeList.prototype.addClass = function (value) {
+        for (let i = 0; i < this.length; i++) this[i].classList.add(value);
+    };
+    NodeList.prototype.removeClass = function (value) {
+        for (let i = 0; i < this.length; i++) this[i].classList.remove(value);
+    };
 
     const init = (mutationRecord) => {
         /**
