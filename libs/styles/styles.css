@@ -1306,7 +1306,7 @@ p, .text-default {
   padding: 0;
 }
 .dashboard-container .dashboard-sublist li {
-  padding: 9px 0;
+  padding: 3px 0;
   cursor: pointer;
   font: 13px/1 "Open Sans", sans-serif;
 }
