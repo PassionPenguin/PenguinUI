@@ -1266,6 +1266,7 @@ p, .text-default {
   text-overflow: ellipsis;
   cursor: pointer;
   transition: 250ms ease-in;
+  white-space: nowrap;
 }
 .dashboard-container .dashboard-nav .sideNavItem.active {
   border-left-color: var(--secondary400);
@@ -1336,6 +1337,7 @@ p, .text-default {
   border-left: solid 22px transparent;
   text-decoration: none;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .dashboard-container .dashboard-sublist li ul li:hover, .dashboard-container .dashboard-sublist li ul li:hover *, .dashboard-container .dashboard-sublist li ul li:focus, .dashboard-container .dashboard-sublist li ul li:focus * {
   background: var(--secondary100);

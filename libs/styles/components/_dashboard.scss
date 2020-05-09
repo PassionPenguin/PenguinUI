@@ -58,6 +58,7 @@
             text-overflow: ellipsis;
             cursor: pointer;
             transition: 250ms $ease-in;
+    		white-space: nowrap;
 
             &.active {
                 border-left-color: $secondary400;
@@ -142,6 +143,7 @@
                     border-left: solid 22px transparent;
                     text-decoration: none;
                     text-overflow: ellipsis;
+    				white-space: nowrap;
 
 
                     &:hover, &:focus {
