@@ -1226,7 +1226,7 @@ p, .text-default {
 .dashboard-container .dashboard-side {
   vertical-align: top;
   width: 240px;
-  height: 100vh;
+  height: fit-content;
   box-sizing: border-box;
   margin: 1rem 0;
   position: sticky;
