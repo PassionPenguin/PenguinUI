@@ -1228,7 +1228,7 @@ p, .text-default {
   width: 240px;
   height: fit-content;
   box-sizing: border-box;
-  margin: 1rem 0;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
 }
