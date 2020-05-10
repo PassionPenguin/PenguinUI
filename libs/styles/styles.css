@@ -544,7 +544,7 @@ p, .text-default {
   background: var(--info500);
 }
 .badge.badge-success, [class*=badge-].badge-success {
-  background: var(--success500);
+  background: var(--success400);
 }
 .badge.badge-danger, [class*=badge-].badge-danger {
   background: var(--danger500);
